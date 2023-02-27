@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->integer("table");
+            $table->integer("table_id");
             $table->integer("guest_id");
             $table->integer("num_persons");
             $table->timestamps();
