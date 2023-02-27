@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('ingredient_id');
+            $table->string('name');
+            $table->float('amount');
             $table->timestamps();
         });
     }

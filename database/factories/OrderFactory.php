@@ -17,7 +17,9 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'section_id' => 1,
+            'order_type' => 1,
+            'order_status' => 1,
         ];
     }
 }

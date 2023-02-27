@@ -17,7 +17,10 @@ class BillFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'order_id' => 1,
+            'amount' => 10.00,
+            'discount' => 0.0,
+            'payed' => false
         ];
     }
 }

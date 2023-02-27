@@ -17,7 +17,12 @@ class TableFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'table_id' => 1,
+            'section_id' => 1,
+            'combined' => false,
+            'comments' => fake()->sentence(),
+            'chairs' => 2,
+            'status_id' => 1,
         ];
     }
 }

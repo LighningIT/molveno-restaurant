@@ -17,7 +17,11 @@ class MenuItemFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'description' => fake()->word(),
+            'price' => 0,
+            'category_id' => 1,
+            'meal_type_id' => 1
         ];
     }
 }

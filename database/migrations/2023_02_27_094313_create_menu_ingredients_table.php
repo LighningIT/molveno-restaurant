@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('menu_ingredients', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId("menu_item_id");
+            $table->string('name');
+            $table->float('amount');
         });
     }
 
