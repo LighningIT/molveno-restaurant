@@ -17,7 +17,9 @@ class InventoryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'ingredient_id' => 1,
+            'name' => fake()->name(),
+            'amount' => 0
         ];
     }
 }
