@@ -13,12 +13,4 @@ class Table extends Model
 
     protected $guarded = ['id'];
 
-    public function reservation():HasMany{
-        return $this->hasMany(Reservation::class);
-    }
-
-    public static function getAllTable()
-    {
-        return Table::with('reservation')->get();
-    }
 }
