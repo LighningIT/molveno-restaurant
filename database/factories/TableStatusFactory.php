@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reservation>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\TableStatus>
  */
-class ReservationFactory extends Factory
+class TableStatusFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,7 @@ class ReservationFactory extends Factory
     public function definition(): array
     {
         return [
-            'table_id' => random_int(1,20),
-            'guest_id' => 1,
-            'num_persons' => random_int(1,20)
+            'status' => fake()->name()
         ];
     }
 }
