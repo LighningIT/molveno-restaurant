@@ -18,7 +18,7 @@ class TableFactory extends Factory
     {
         return [
             'table_id' => 1,
-            'section_id' => 1,
+            'table_section_id' => 1,
             'combined' => false,
             'comments' => fake()->sentence(),
             'chairs' => 2,
