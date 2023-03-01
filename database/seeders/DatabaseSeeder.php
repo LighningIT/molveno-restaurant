@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TableSectionSeeder::class,
             TableStatusSeeder::class,
-            TableSeeder::class
+            GroupedTableSeeder::class,
+            TableSeeder::class,
         ]);
 
 

@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tables', function (Blueprint $table) {
+        Schema::create('grouped_tables', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("table_id");
+            $table->foreignId("table_section_id");
+            $table->boolean("combined");
+            $table->string("comments");
             $table->integer("chairs");
+            $table->foreignId("status_id"); 
             $table->timestamps();
         });
     }
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tables');
+        Schema::dropIfExists('grouped_tables');
     }
 };
