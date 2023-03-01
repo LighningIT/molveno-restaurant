@@ -9,6 +9,6 @@ class TableController extends Controller
 {
     public static function getAllTable() 
     {
-        return view('reservation',['tables'=>Table::getAllTable()]);
+        return view('reservations',['tables'=>Table::getAllTable()]);
     }
 }
