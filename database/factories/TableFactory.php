@@ -18,6 +18,7 @@ class TableFactory extends Factory
     {
         return [
             'chairs' => 2,
+            "grouped_table_id" => 3,
         ];
     }
 }
