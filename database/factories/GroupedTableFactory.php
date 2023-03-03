@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Table>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\GroupedTable>
  */
-class TableFactory extends Factory
+class GroupedTableFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,12 @@ class TableFactory extends Factory
     public function definition(): array
     {
         return [
+            'table_id' => 1,
+            'table_section_id' => 1,
+            'combined' => false,
+            'comments' => fake()->sentence(),
             'chairs' => 2,
+            'status_id' => 1,
         ];
     }
 }

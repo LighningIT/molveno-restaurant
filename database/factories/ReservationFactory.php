@@ -17,7 +17,7 @@ class ReservationFactory extends Factory
     public function definition(): array
     {
         return [
-            'table_id' => random_int(1,20),
+            'grouped_table_id' => random_int(1,20),
             'guest_id' => 1,
             'num_persons' => random_int(1,20)
         ];

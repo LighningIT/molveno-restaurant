@@ -8,6 +8,7 @@ use App\Models\Reservation;
 
 class TableController extends Controller
 {
+
     public static function getAllTable() 
     {
         return view('reservations',[
