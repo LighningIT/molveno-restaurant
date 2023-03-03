@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use App\Models\Table;
 class TableSeeder extends Seeder
 {
     /**
@@ -12,6 +12,8 @@ class TableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        
+        Table::factory()->times(114)->create();
+      
     }
 }

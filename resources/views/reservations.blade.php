@@ -16,6 +16,7 @@
     </head>
 <body>
 
+
     <header>
         <h1 class='font-bold'>Reservations</h1>
         @foreach ($tables as $table)
@@ -89,6 +90,5 @@
             @endforeach
         </div>
     </main>
-
 </body>
 </html>

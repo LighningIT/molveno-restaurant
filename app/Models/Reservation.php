@@ -13,7 +13,11 @@ class Reservation extends Model
     protected $guarded = ['id'];
 
     public function tables():BelongsTo{
-        return $this->belongsTo(Table::class);
+        return $this->belongsTo(GroupedTable::class);
     }
+
+    public static function getAllReservations() {
+        return Reservation::get();
+    } 
 
 }
