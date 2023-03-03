@@ -17,15 +17,78 @@
 <body>
 
 
+    <header>
+        <h1 class='font-bold'>Reservations</h1>
         @foreach ($tables as $table)
-            <p class="bg-red-500">{{$table}}</p>
+            <p> {{$table}} </p>
         @endforeach
+    </header>
 
-        @foreach ($reservations as $reservation)
-            <p class="bg-blue-500">{{$reservation}}</p>
-        @endforeach
-
-
-
+    <main class='pt-8'>
+        <div>
+            <h2 class='font-bold'>ID</h2>
+        </div>
+        <div class='flex justify-around'>
+            @foreach ($tables as $table)
+                <p> {{$table->id}} </p>
+            @endforeach
+        </div>
+        <div class='pt-8'>
+            <h2 class='font-bold'>Section_id</h2>
+        </div>
+        <div class='flex justify-around'>
+            @foreach ($tables as $table)
+                <p> {{$table->section_id}} </p>
+            @endforeach
+        </div>
+        <div class='pt-8'>
+            <h2 class='font-bold'>combined</h2>
+        </div>
+        <div class='flex justify-around'>
+            @foreach ($tables as $table)
+                <p> {{$table->combined}} </p>
+            @endforeach
+        </div>
+        <div class='pt-8'>
+            <h2 class='font-bold'>comments</h2>
+        </div>
+        <div class='flex justify-around'>
+            @foreach ($tables as $table)
+                <p> {{$table->comments}} </p>
+            @endforeach
+        </div>
+        <div class='pt-8'>
+            <h2 class='font-bold'>chairs</h2>
+        </div>
+        <div class='flex justify-around'>
+            @foreach ($tables as $table)
+                <p> {{$table->chairs}} </p>
+            @endforeach
+        </div>
+        <div class='pt-8'>
+            <h2 class='font-bold'>status_id</h2>
+        </div>
+        <div class='flex justify-around'>
+            @foreach ($tables as $table)
+                <p> {{$table->status_id}} </p>
+            @endforeach
+        </div>
+        <div class='pt-8'>
+            <h2 class='font-bold'>created_at</h2>
+        </div>
+        <div class='flex justify-around'>
+            @foreach ($tables as $table)
+                <p> {{$table->created_at}} </p>
+            @endforeach
+        </div>
+        <div class='pt-8'>
+            <h2 class='font-bold'>updated_at</h2>
+        </div>
+        <div class='flex justify-around'>
+            @foreach ($tables as $table)
+                <p> {{$table->updated_at}} </p>
+            @endforeach
+        </div>
+    </main>
 </body>
 </html>
