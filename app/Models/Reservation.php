@@ -16,4 +16,8 @@ class Reservation extends Model
         return $this->belongsTo(GroupedTable::class);
     }
 
+    public static function getAllReservations() {
+        return Reservation::get();
+    } 
+
 }

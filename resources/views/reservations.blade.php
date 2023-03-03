@@ -21,7 +21,9 @@
             <p class="bg-red-500">{{$table}}</p>
         @endforeach
 
-
+        @foreach ($reservations as $reservation)
+            <p class="bg-blue-500">{{$reservation}}</p>
+        @endforeach
 
 
 
