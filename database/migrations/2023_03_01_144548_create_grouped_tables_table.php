@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('grouped_tables', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("table_id");
             $table->foreignId("table_section_id");
             $table->boolean("combined");
             $table->string("comments");

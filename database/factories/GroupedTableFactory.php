@@ -17,7 +17,6 @@ class GroupedTableFactory extends Factory
     public function definition(): array
     {
         return [
-            'table_id' => 1,
             'table_section_id' => 1,
             'combined' => false,
             'comments' => fake()->sentence(),
