@@ -16,7 +16,16 @@
     </head>
 <body>
 
+    @foreach ($reservations as $reservation)
+    <x-reservation-item
+        :guest="$reservation->guest_id"
+        :tableNumber="$reservation->grouped_table_id"
+        :numberPersons="$reservation->num_persons"
+        :reservationTime="$reservation->created_at"
+        />
+    @endforeach
 
+{{--
     <header>
         <h1 class='font-bold'>Reservations</h1>
         @foreach ($tables as $table)
@@ -88,7 +97,7 @@
             @foreach ($tables as $table)
                 <p> {{$table->updated_at}} </p>
             @endforeach
-        </div>
+        </div> --}}
     </main>
 </body>
 </html>

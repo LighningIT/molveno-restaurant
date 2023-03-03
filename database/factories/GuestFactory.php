@@ -17,9 +17,9 @@ class GuestFactory extends Factory
     public function definition(): array
     {
         return [
-            'firstname' => fake()->first_name(),
-            'lastname' => fake()->last_name(),
-            'phone_number' => fake()->phone_number(),
+            'firstname' => fake()->firstName(),
+            'lastname' => fake()->lastName(),
+            'phone_number' => fake()->phoneNumber(),
             'hotel_guest' => false
         ];
     }
