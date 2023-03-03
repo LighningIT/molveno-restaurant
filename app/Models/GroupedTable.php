@@ -16,6 +16,10 @@ class GroupedTable extends Model
         return $this->hasMany(Reservation::class);
     }
 
+    public function table() :HasMany {
+        return $this->hasMany(Table::class);
+    }
+
     public static function getAllTable()
     {
         return GroupedTable::with('reservation')->get();
