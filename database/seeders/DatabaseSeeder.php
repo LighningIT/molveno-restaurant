@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         \App\Models\Reservation::factory(10)->create();
-        
+
         $this->call([
             TableSectionSeeder::class,
             TableStatusSeeder::class,
@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
     }
 }
