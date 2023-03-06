@@ -1,4 +1,4 @@
-<div class="flex justify-evenly">
+<div class="flex justify-evenly dark:text-white">
     <p>id: {{ $id }} </p>
     <p>section: {{ $tableSectionId }} </p>
     <p>combined{{ $combined }} </p>

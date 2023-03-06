@@ -32,10 +32,11 @@ Route::middleware('auth')->group(function () {
 
 
 Route::group(function() {
-    Route::get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations.get');
+    // Route::get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations.get');
     Route::post('/reservations/edit', [ReservationController::class, 'create'])->name('reservations.create');
     Route::patch('/reservations/edit', [ReservationController::class, 'update'])->name('reservations.update');
     Route::delete('/reservations/edit', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 });
+Route::get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations');
 
 require __DIR__.'/auth.php';
