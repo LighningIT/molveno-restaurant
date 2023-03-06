@@ -13,18 +13,16 @@ class ReservationItem extends Component
     private $tableNumber;
     private $numberPersons;
     private $reservationTime;
-    private $checkedIn;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($guest, $tableNumber, $numberPersons, $reservationTime, $checkedIn)
+    public function __construct($guest, $tableNumber, $numberPersons, $reservationTime)
     {
         $this->guest = $guest;
         $this->tableNumber = $tableNumber;
         $this->numberPersons = $numberPersons;
         $this->reservationTime = $reservationTime;
-        $this->checkedIn = $checkedIn;
     }
 
     /**
@@ -32,6 +30,11 @@ class ReservationItem extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.reservation-item');
+        return view('components.reservation-item', [
+            'guest' => $this->guest,
+            'tableNumber' => $this->tableNumber,
+            'numberPersons' => $this->numberPersons,
+            'reservationTime' => $this->reservationTime,
+        ]);
     }
 }
