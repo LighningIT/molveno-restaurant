@@ -31,12 +31,13 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::controller(ReservationController::class)->group(function() {
+Route::middleware('auth')->controller(ReservationController::class)->group(function() {
     // Route::get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations.get');
     Route::post('/reservations/edit', 'create');
     Route::patch('/reservations/edit','update');
     Route::delete('/reservations/edit', 'destroy');
 });
-Route::get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations');
+
+Route::middleware('auth')->get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations');
 
 require __DIR__.'/auth.php';
