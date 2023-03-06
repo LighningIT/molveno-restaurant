@@ -20,6 +20,10 @@ class Reservation extends Model
         return Reservation::get();
     }
 
+    public static function getReservationById($id) {
+        return Reservation::where('guest_id', $id)->first();
+    }
+
     public static function create($reservation) {
         Reservation::create([
             'grouped_table_id' => $reservation->grouped_table_id,

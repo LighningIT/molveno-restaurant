@@ -2,13 +2,12 @@
 <div class="grid grid-cols-4">
 <div class="dark:text-white">
   @foreach ($reservations as $reservation)
-
-  <x-reservation-item
-  :guest="$reservation->guest_id"
-  :reservationTime="$reservation->created_at"
-  :tableNumber="$reservation->grouped_table_id"
-  :numberPersons="$reservation->num_persons"
-  />
+    <x-reservation-item
+    :guest="$reservation->guest_id"
+    :reservationTime="$reservation->created_at"
+    :tableNumber="$reservation->grouped_table_id"
+    :numberPersons="$reservation->num_persons"
+    />
   @endforeach
 </div>
 <div class="grid grid-cols-3 col-span-3 gap-2">
