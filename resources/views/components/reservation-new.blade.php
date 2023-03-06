@@ -17,6 +17,8 @@
             <div>
                 <button type="button" id="checkbutton" name="checkbutton">check</button>
             </div>
+        </div>
+        <div>
             <div>
                 <label for="guest">Guest hotel</label>
                 <input type="text" id="guest" name="guest">
