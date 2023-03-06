@@ -29,6 +29,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/reservations', [GroupedTableController::class,'getAllTable']);
+Route::get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations');
 
 require __DIR__.'/auth.php';
