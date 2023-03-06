@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GroupedTableController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/reservations', [GroupedTableController::class,'getAllTable']);
+
+Route::group(function() {
+    Route::get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations.get');
+    Route::post('/reservations/edit', [ReservationController::class, 'create'])->name('reservations.create');
+    Route::patch('/reservations/edit', [ReservationController::class, 'update'])->name('reservations.update');
+    Route::delete('/reservations/edit', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+});
 
 require __DIR__.'/auth.php';

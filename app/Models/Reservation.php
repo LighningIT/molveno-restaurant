@@ -18,6 +18,5 @@ class Reservation extends Model
 
     public static function getAllReservations() {
         return Reservation::get();
-    } 
-
+    }
 }
