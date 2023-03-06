@@ -11,12 +11,19 @@
   />
   @endforeach
 </div>
-<div class="grid grid-cols-3 col-span-3">
+<div class="grid grid-cols-3 col-span-3 gap-2">
         @foreach ($tables as $table)
-            <div class="flex flex-col col-start-<?php echo $loop->index + 1;?>" >
+            <div class="flex flex-col justify-start col-start-<?php echo $loop->index + 1;?>" >
                 @foreach ($table as $t)
+                    @php($statusColor = "bg-green-500")
+                    @if($statusColor == 2)
+                        @php($statusColor = "bg-orange-500")
+                    @elseif($statusColor == 3)
+                        @php($statusColor = "bg-red-600")
+                    @endif
+
                     <x-tablegroups
-                    class="bg-red-50"
+                    class="<?php echo $statusColor; ?>"
                     :id="$t->id"
                     :tableSectionId="$t->table_section_id"
                     :combined="$t->combined"
