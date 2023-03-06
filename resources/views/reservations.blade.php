@@ -17,14 +17,15 @@
 <body>
 
     <main class='pt-8'>
+
         @foreach ($tables as $table)
         <x-tablegroups
             :id="$table->id"
-            :table_section_id="$table->table_section_id"
+            :tableSectionId="$table->table_section_id"
             :combined="$table->combined"
             :comments="$table->comments"
             :chairs="$table->chairs"
-            :status_id="$table->status_id"/>
+            :statusId="$table->status_id" />
         @endforeach
     </main>
 

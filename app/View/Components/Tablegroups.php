@@ -9,23 +9,23 @@ use Illuminate\View\Component;
 class Tablegroups extends Component
 {
     private $id;
-    private $table_section_id;
+    private $tableSectionId;
     private $combined;
     private $comments;
     private $chairs;
-    private $status_id;
+    private $statusId;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($id, $table_section_id, $combined, $comments, $chairs, $status_id)
+    public function __construct($id, $tableSectionId, $combined, $comments, $chairs, $statusId)
     {
         $this->id = $id;
-        $this->table_section_id = $table_section_id;
+        $this->tableSectionId = $tableSectionId;
         $this->combined = $combined;
         $this->comments = $comments;
         $this->chairs = $chairs;
-        $this->status_id = $status_id;
+        $this->statusId = $statusId;
     }
 
     /**
@@ -35,11 +35,11 @@ class Tablegroups extends Component
     {
         return view('components.tablegroups', [
             'id'=> $this->id,
-            'section_id' => $this->table_section_id,
+            'tableSectionId' => $this->tableSectionId,
             'combined' => $this->combined,
             'comments' => $this->comments,
             'chairs' => $this->chairs,
-            'status_id' => $this->status_id,
+            'statusId' => $this->statusId
         ]);
     }
 }
