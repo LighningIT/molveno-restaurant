@@ -18,6 +18,17 @@ class Reservation extends Model
 
     public static function getAllReservations() {
         return Reservation::get();
-    } 
+    }
 
+    public static function create($reservation) {
+        Reservation::create([
+            'grouped_table_id' => $reservation->grouped_table_id,
+            'guest_id' => $reservation->guest_id,
+            'num_persons' => $reservation->num_persons
+        ]);
+
+        return Reservation::with('guest')
+                ->where('guest_id', $reservation->id)
+                ->first();
+    }
 }

@@ -22,6 +22,11 @@ class GroupedTable extends Model
 
     public static function getAllTable()
     {
-        return GroupedTable::with('reservation')->get();
+        $tables = GroupedTable::with('reservation')->get();
+        return $tables->groupBy('table_section_id');
+    }
+
+    public static function getTableBySection($id) {
+        return GroupedTable::where('table_section_id', $id)->with('reservation')->get();
     }
 }
