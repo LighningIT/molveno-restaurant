@@ -15,9 +15,9 @@
             <div class="flex flex-col justify-start col-start-<?php echo $loop->index + 1;?>" >
                 @foreach ($table as $t)
                     @php($statusColor = "bg-green-500")
-                    @if($statusColor == 2)
+                    @if($t->status_id == 2)
                         @php($statusColor = "bg-orange-500")
-                    @elseif($statusColor == 3)
+                    @elseif($t->status_id == 3)
                         @php($statusColor = "bg-red-600")
                     @endif
 

@@ -9,13 +9,8 @@ use App\Models\Reservation;
 class TableController extends Controller
 {
 
-    public static function getAllTable() 
+    public static function getAllTable()
     {
-
-        return view('reservations',[
-            'tables'=>Table::getAllTable(),
-            'reservations'=>Reservation::getAllReservations()
-            
-        ]);
+        //
     }
 }
