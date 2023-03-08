@@ -6,7 +6,7 @@
 <div class="dark:text-white">
   @foreach ($reservations as $reservation)
     <x-reservation-item
-    :guest="$reservation->guest->lastname"
+    :guest="$reservation->guest->firstname[0] . '. ' . $reservation->guest->lastname"
     :reservationTime="$reservation->created_at"
     :tableNumber="$reservation->grouped_table_id"
     :numberPersons="$reservation->num_persons"
