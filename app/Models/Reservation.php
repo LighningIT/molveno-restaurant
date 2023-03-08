@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Reservation extends Model
 {
@@ -16,8 +17,12 @@ class Reservation extends Model
         return $this->belongsTo(GroupedTable::class);
     }
 
+    public function guest() : HasOne {
+        return $this->hasOne(Guest::class, 'id', 'guest_id');
+    }
+
     public static function getAllReservations() {
-        return Reservation::get();
+        return Reservation::with('guest')->get();
     }
 
     public static function getReservationById($id) {
