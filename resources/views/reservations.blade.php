@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">  <x-reservation-toolbar /> </x-slot>
-<div class="grid grid-cols-4">
+<div class="grid grid-cols-4 ">
 <div class="dark:text-white">
   @foreach ($reservations as $reservation)
     <x-reservation-item
