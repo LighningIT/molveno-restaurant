@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class GroupedTable extends Model
 {
@@ -12,12 +13,16 @@ class GroupedTable extends Model
 
     protected $guarded = ['id'];
 
-    public function reservation():HasMany{
+    public function reservation() : HasMany{
         return $this->hasMany(Reservation::class);
     }
 
-    public function table() :HasMany {
+    public function table() : HasMany {
         return $this->hasMany(Table::class);
+    }
+
+    public function status() : HasOne {
+        return $this->hasOne(Status::class, 'status_id');
     }
 
     public static function getAllTable()
