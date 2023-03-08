@@ -9,6 +9,7 @@ class GroupedTableController extends Controller
 {
     public static function getAllTable()
     {
+        // dd(GroupedTable::getAllTable());
         return view('reservations',[
             'tables' => GroupedTable::getAllTable(),
             'reservations' => Reservation::getAllReservations()]);
