@@ -22,12 +22,13 @@ class GroupedTable extends Model
     }
 
     public function status() : HasOne {
-        return $this->hasOne(Status::class, 'status_id');
+        return $this->hasOne(TableStatus::class, 'id', 'status_id');
     }
 
     public static function getAllTable()
     {
-        $tables = GroupedTable::with('reservation')->get();
+        $tables = GroupedTable::with('reservation')
+            ->with('status')->get();
         return $tables->groupBy('table_section_id');
     }
 
