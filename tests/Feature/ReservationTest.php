@@ -36,7 +36,6 @@ class ReservationTest extends TestCase
         $data->reservation->numberofpersons = random_int(1, 20);
         $data->reservation->hotel_guest = false;
 
-
         ReservationController::create($data);
     }
 }

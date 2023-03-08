@@ -1,22 +1,29 @@
-<div class="flex flex-col">
-    <form method="post">
+<div id="createReservationContainer"
+    class="flex-col hidden absolute w-full h-full
+        bg-gray-100 dark:bg-gray-900 dark:text-white">
+    <form method="post" action="" enctype="multipart/form-data"
+        class="mx-auto border border-solid border-black
+            dark:border-white">
         @csrf
-        <div>
+        <div id="checkForm">
             <div>
-                <label for="datereservation">datereservation</label>
-                <input type="date" id="datereservation" name="datereservation">
+                <label for="date">date</label>
+                <input type="date" id="date" name="date">
             </div>
             <div>
-                <label for="timereservation">timereservation</label>
-                <input type="time" id="timereservation" name="timereservation">
+                <label for="time">time</label>
+                <input type="time" id="time" name="time">
             </div>
             <div>
-                <label for="numberofpersons">numberofpersons</label>
-                <input type="number" placeholder="numberofpersons" id="numberofpersons" name="numberofpersons">
+                <label for="num-persons">persons</label>
+                <input type="number" id="num-persons"
+                    name="num-persons" value="1" />
             </div>
             <div>
-                <button type="button" id="checkbutton" name="checkbutton">check</button>
+                <button type="button" id="checkBtn" name="checkBtn">check</button>
             </div>
+        </div>
+        <div id="information" class="hidden">
             <div>
                 <label for="guest">Guest hotel</label>
                 <input type="text" id="guest" name="guest">
@@ -30,20 +37,20 @@
                 <input type="text" id="lastname" name="lastname">
             </div>
             <div>
-                <label for="guestphonenumber">guestphonenumber</label>
-                <input type="text" id="guestphonenumber" name="guestphonenumber">
+                <label for="phonenumber">phonenumber</label>
+                <input type="text" id="phonenumber" name="phonenumber">
             </div>
             <div>
-                <label for="guestemail">guestemail</label>
-                <input type="email" id="guestemail" name="guestemail">
+                <label for="email">email</label>
+                <input type="email" id="email" name="email">
             </div>
             <div>
                 <label for="allergy">allergy</label>
                 <input type="text" id="allergy" name="allergy">
             </div>
             <div>
-                <label for="particularities">particularities</label>
-                <input type="text" id="particularities" name="particularities">
+                <label for="comments">comments</label>
+                <input type="text" id="comments" name="comments">
             </div>
             <div>
                 <label for="tablenumber">tablenumber</label>
