@@ -12,6 +12,6 @@ class GuestSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+
     }
 }

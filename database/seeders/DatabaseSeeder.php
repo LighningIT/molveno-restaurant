@@ -12,13 +12,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Reservation::factory(10)->create();
-
+        // \App\Models\Reservation::factory(10)->create();
+        \App\Models\Guest::factory(20)->create();
+        
         $this->call([
             TableSectionSeeder::class,
             TableStatusSeeder::class,
             GroupedTableSeeder::class,
             TableSeeder::class,
+            ReservationSeeder::class
         ]);
 
 
