@@ -1,10 +1,12 @@
 <x-app-layout>
+    @vite(['resources/js/createNewReservation.js'])
     <x-slot name="header">  <x-reservation-toolbar /> </x-slot>
-<div class="grid grid-cols-4 ">
+<div class="grid grid-cols-4">
+    <x-reservation-new />
 <div class="dark:text-white">
   @foreach ($reservations as $reservation)
     <x-reservation-item
-    :guest="$reservation->guest_id"
+    :guest="$reservation->guest->firstname[0] . '. ' . $reservation->guest->lastname"
     :reservationTime="$reservation->created_at"
     :tableNumber="$reservation->grouped_table_id"
     :numberPersons="$reservation->num_persons"
@@ -13,7 +15,7 @@
 </div>
 
 <div class="grid grid-cols-3 col-span-3 gap-2">
-  
+
         @foreach ($tables as $table)
             <div class="flex flex-col justify-start col-start-<?php echo $loop->index + 1;?>" >
                 @foreach ($table as $t)
