@@ -34,7 +34,7 @@
                     :combined="$t->combined"
                     :comments="$t->comments"
                     :chairs="$t->chairs"
-                    :statusId="$t->status_id" />
+                    :statusId="$t->status->status" />
                 @endforeach
 
             </div>
