@@ -1,4 +1,5 @@
 <x-app-layout>
+
     @vite(['resources/js/createNewReservation.js'])
     <x-slot name="header">  <x-reservation-toolbar /> </x-slot>
 <div class="grid grid-cols-4">

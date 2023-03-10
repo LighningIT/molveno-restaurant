@@ -23,7 +23,9 @@
                 <button type="button" id="checkBtn" name="checkBtn">check</button>
             </div>
         </div>
+
         <div id="information" class="hidden">
+
             <div>
                 <label for="guest">Guest hotel</label>
                 <input type="text" id="guest" name="guest">
