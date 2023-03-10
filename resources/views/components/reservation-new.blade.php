@@ -59,7 +59,8 @@
                 <input type="number" placeholder="tablenumber" id="tablenumber" name="tablenumber">
             </div>
             <div>
-                <input type="submit" value="Create new reservation">
+                <input type="submit" id="submitReservation"
+                    value="Create new reservation">
             </div>
         </div>
     </form>
