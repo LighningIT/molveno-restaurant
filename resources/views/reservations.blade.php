@@ -2,6 +2,12 @@
 
     @vite(['resources/js/createNewReservation.js'])
     <x-slot name="header">  <x-reservation-toolbar /> </x-slot>
+    <div class="grid grid-cols-4 text-lg text-center leading-loose">
+    <span class="dark:text-white">Upcoming Reservations</span>
+    <span class="dark:text-white">Upper Level</span>
+    <span class="dark:text-white">Lower Level</span>
+    <span class="dark:text-white">Terrace</span> 
+</div>
 <div class="grid grid-cols-4">
     <x-reservation-new />
 <div class="dark:text-white">
