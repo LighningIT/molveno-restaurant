@@ -23,7 +23,7 @@
                     @php($statusColor = "bg-green-500")
                     @if($t->status_id == 2)
                         @php($statusColor = "bg-orange-500")
-                    @elseif(!empty($t->reservation[0]))
+                    @elseif($t->status_id == 3)
                         @php($statusColor = "bg-red-600")
                     @endif
 
