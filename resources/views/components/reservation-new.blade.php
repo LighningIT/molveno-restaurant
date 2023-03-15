@@ -2,29 +2,29 @@
     class="flex-col hidden absolute w-full h-full
         bg-gray-100 dark:bg-gray-900 dark:text-white">
     <form method="post" action="" enctype="multipart/form-data"
-        class="mx-auto w-2/3 border border-solid border-black bg-molveno-blue
-            dark:border-white dark:text-black">
+        class="mx-auto border border-solid border-black
+            dark:border-white">
         @csrf
-        <div id="checkForm" class="mx-auto flex flex-col justify-center">
-            <div class="mx-auto text-center">
-                <label for="date" class="">date</label>
-                <input type="date" id="date" name="date" />
+        <div id="checkForm">
+            <div>
+                <label for="date">date</label>
+                <input type="date" id="date" name="date">
             </div>
-            <div class="mx-auto text-center">
-                <label for="time" class="justify-self-end">time</label>
-                <input type="time" id="time" name="time" />
+            <div>
+                <label for="time">time</label>
+                <input type="time" id="time" name="time">
             </div>
-            <div class="mx-auto text-center">
-                <label for="num-persons" class="justify-self-end">persons</label>
+            <div>
+                <label for="num-persons">persons</label>
                 <input type="number" id="num-persons"
                     name="num-persons" value="1" />
             </div>
-            <div class="mx-auto text-center">
+            <div>
                 <button type="button" id="checkBtn" name="checkBtn">check</button>
             </div>
         </div>
 
-        <div id="information" class="hidden flex-col justify-center">
+        <div id="information" class="hidden">
 
             <div>
                 <label for="guest">Guest hotel</label>

@@ -3,7 +3,7 @@
     <input type="time">
 
     <div class="flex justify-center items-center">
-        <button type="button" class="bg-blue-600 p-4 text-white dark:text-white"  id="createReservationBtn">New</button>
+        <button type="button" class="bg-blue-600 p-4 dark:text-white"  id="createReservationBtn">New</button>
     </div>
     <div class="flex justify-between items-center">
         <p class="dark:text-white p-4">Monday 6 march 2023</p>

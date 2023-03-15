@@ -1,4 +1,4 @@
-<div {{$attributes->merge(["class" => "m-2 text-white dark:text-white"])}}>
+<div {{$attributes->merge(["class" => "m-2 dark:text-white"])}}>
     <p>id: {{ $id }} </p>
     <p>section: {{ $tableSectionId }} </p>
     {{-- <p>combined{{ $combined }} </p> --}}
