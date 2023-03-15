@@ -11,7 +11,7 @@ class ReservationRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,8 @@ class ReservationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'guest' => ['required'],
-            'table' => ['required'],
+            'num_persons' => ['required'],
+            'time' => ['required'],
             'date' => ['required'],
         ];
     }

@@ -18,15 +18,35 @@ reservationBtn.addEventListener('click', () => {
 });
 
 checkBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    /* const data = {
+        date: check.querySelector('#date').value,
+        time: check.querySelector('#time').value,
+        num_persons: check.querySelector('#num-persons').value
+    } */
+
+   /*  const form = new FormData();
+    form.set('date', check.querySelector('#date').value);
+    form.set('time', check.querySelector('#time').value);
+    form.set('num_persons', check.querySelector('#num-persons').value)
+ */
     if (event.target.id == 'checkBtn') {
-        checkPlaces(check.querySelectorAll('input'));
-        info.style.display = "unset";
+
+        checkPlaces();
+        info.style.display = "flex";
     }
 });
 
-async function checkPlaces(reservationDate) {
-    let res = await axios.get('/reservations/edit', reservationDate)
-        .then(response => response.data);
+async function checkPlaces() {
+    let res = await axios.get('/reservations/edit', {
+        params: {
+            'date': check.querySelector('#date').value,
+            'time': check.querySelector('#time').value,
+            'num_persons': check.querySelector('#num-persons').value
+        }
+    })
+        .then(response => console.log(response));
+        console.log(res);
 }
 
 

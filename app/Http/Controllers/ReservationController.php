@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Guest;
 use App\Http\Requests\ReservationRequest;
+use App\Models\GroupedTable;
 
 class ReservationController extends Controller
 {
     public static function create(ReservationRequest $request) {
-        // validate
         $guest = GuestController::validateGuest($request->guest);
         $request->reservation->guest_id = Guest::create($guest);
 
@@ -19,6 +19,14 @@ class ReservationController extends Controller
         Reservation::create($validated);
 
         return Reservation::getReservationById($request->reservation->guest_id);
+    }
+
+    public static function check(Request $request) {
+        return GroupedTable::getGroupedTablesByDate(
+            $request->date,
+            $request->time,
+            $request->num_persons
+        );
     }
 
     public static function update(Request $request) {

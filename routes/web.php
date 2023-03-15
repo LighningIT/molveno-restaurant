@@ -30,9 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Route::get('/reservations/check', [ReservationController::class, 'check']);
 
 Route::middleware('auth')->controller(ReservationController::class)->group(function() {
-    // Route::get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations.get');
+    Route::get('/reservations/edit', 'check');
     Route::post('/reservations/edit', 'create');
     Route::patch('/reservations/edit','update');
     Route::delete('/reservations/edit', 'destroy');
