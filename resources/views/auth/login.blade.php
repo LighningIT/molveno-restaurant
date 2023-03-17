@@ -27,7 +27,7 @@
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-white border-gray-300 dark:border-gray-900 text-molveno-Blue shadow-sm focus:ring-molveno-lightestBlue dark:focus:ring-molveno-lightestBlue dark:focus:ring-offset-molveno-lightestBlue" name="remember">
+                <input id="remember_me" type="checkbox" class="rounded dark:bg-white border-gray-900 dark:border-gray-900 text-molveno-lightestBlue shadow-sm focus:ring-molveno-lightestBlue dark:focus:ring-molveno-lightestBlue dark:focus:ring-offset-molveno-lightestBlue" name="remember">
                 <span class="ml-2 text-sm text-gray-300 dark:text-gray-200">{{ __('Remember me') }}</span>
             </label>
         </div>
