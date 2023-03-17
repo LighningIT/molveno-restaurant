@@ -20,7 +20,8 @@ class ReservationFactory extends Factory
             'grouped_table_id' => random_int(1,20),
             'guest_id' => 1,
             'num_persons' => random_int(1,20),
-            'timespan' => random_int(60,240)
+            'timespan' => random_int(60,240),
+            'reservation_time' => fake()->dateTime()
         ];
     }
 }
