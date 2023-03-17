@@ -21,6 +21,15 @@ class ReservationController extends Controller
         return Reservation::getReservationById($request->reservation->guest_id);
     }
 
+    /**
+      * Show the form for editing the specified resource.
+    */
+    public function edit(Reservation $reservation): View
+    {
+        $reservation = "test";
+        return view('reservationpages.edit',compact('reservation'));
+    }
+
     public static function update(Request $request) {
 
     }

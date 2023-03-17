@@ -1,4 +1,4 @@
-<div id="createReservationContainer"
+<div id="editReservationContainer"
     class="flex-col hidden absolute w-full h-full
         bg-gray-100 dark:bg-gray-900 dark:text-white">
     <form method="post" action="" enctype="multipart/form-data"
