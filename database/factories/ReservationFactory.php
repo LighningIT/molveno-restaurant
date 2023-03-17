@@ -19,7 +19,8 @@ class ReservationFactory extends Factory
         return [
             'grouped_table_id' => random_int(1,20),
             'guest_id' => 1,
-            'num_persons' => random_int(1,20)
+            'num_persons' => random_int(1,20),
+            'timespan' => random_int(60,240)
         ];
     }
 }
