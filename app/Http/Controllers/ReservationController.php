@@ -11,6 +11,18 @@ use App\Models\GroupedTable;
 class ReservationController extends Controller
 {
     public static function create(ReservationRequest $request) {
+        /** guest object
+         * firstname
+         * lastname
+         * phone_number
+         * num_persons
+         */
+        $guest = new Guest(
+            $request->firstname,
+            $request->lastname,
+            $request->phonenumber,
+            $request->guest
+            );
         $guest = GuestController::validateGuest($request->guest);
         $request->reservation->guest_id = Guest::create($guest);
 

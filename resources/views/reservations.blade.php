@@ -6,7 +6,7 @@
     <span class="dark:text-white">Upcoming Reservations</span>
     <span class="dark:text-white">Upper Level</span>
     <span class="dark:text-white">Lower Level</span>
-    <span class="dark:text-white">Terrace</span> 
+    <span class="dark:text-white">Terrace</span>
 </div>
 <div class="grid grid-cols-4">
     <x-reservation-new />

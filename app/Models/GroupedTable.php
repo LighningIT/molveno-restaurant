@@ -34,6 +34,6 @@ class GroupedTable extends Model
 
     public static function getGroupedTablesByDate($date, $time, $persons) {
         /* return grouped tables where no reservation on date */
-        return $date . '/' . $time . '/' . $persons;
+        return self::getAllTable();
     }
 }

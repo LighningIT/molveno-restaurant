@@ -3,6 +3,7 @@ import axios from "axios";
 const reservationBtn = document.getElementById('createReservationBtn');
 const checkBtn = document.getElementById('checkBtn');
 const reservationContainer = document.getElementById('createReservationContainer');
+const tableContainer = document.getElementById('tableContainer');
 const info = document.getElementById('information');
 const check = document.getElementById('checkForm');
 const submitReservationBtn = document.getElementById("submitReservation");
@@ -19,17 +20,7 @@ reservationBtn.addEventListener('click', () => {
 
 checkBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    /* const data = {
-        date: check.querySelector('#date').value,
-        time: check.querySelector('#time').value,
-        num_persons: check.querySelector('#num-persons').value
-    } */
 
-   /*  const form = new FormData();
-    form.set('date', check.querySelector('#date').value);
-    form.set('time', check.querySelector('#time').value);
-    form.set('num_persons', check.querySelector('#num-persons').value)
- */
     if (event.target.id == 'checkBtn') {
 
         checkPlaces();
@@ -42,14 +33,38 @@ async function checkPlaces() {
         params: {
             'date': check.querySelector('#date').value,
             'time': check.querySelector('#time').value,
-            'num_persons': check.querySelector('#num-persons').value
+
         }
     })
-        .then(response => console.log(response));
-        console.log(res);
-}
+    .then(response => response.data)
+    .then(data => {
+        for (const d in data) {
+            let div = document.createElement('div');
+            div.classList.add("col-start-" + d);
+            div.classList.add("flex");
+            div.classList.add("flex-col");
 
+            data[d].forEach(e => {
+                let table = document.createElement('div');
+                let text = document.createTextNode(e.id);
+                table.appendChild(text);
+
+                div.classList.add("bg-green-500");
+
+                div.appendChild(table);
+            });
+            tableContainer.appendChild(div);
+        }
+    })
+
+}
 
 submitReservationBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    submitReservation(e.target.form);
 })
+
+async function submitReservation(data) {
+    console.log(data);
+    await axios.post('/reservations/edit', data);
+}

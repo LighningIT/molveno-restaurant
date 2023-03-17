@@ -1,8 +1,8 @@
 <div id="createReservationContainer"
-    class="flex-col hidden absolute w-full h-full
+    class="hidden absolute w-full h-full justify-start
         bg-gray-100 dark:bg-gray-900 dark:text-white">
     <form method="post" action="" enctype="multipart/form-data"
-        class="mx-auto w-2/3 border border-solid border-black bg-molveno-blue
+        class="flex flex-col border border-solid border-black bg-molveno-blue
             dark:border-white dark:text-black">
         @csrf
         <div id="checkForm" class="mx-auto flex flex-col justify-center">
@@ -15,17 +15,16 @@
                 <input type="time" id="time" name="time" />
             </div>
             <div class="mx-auto text-center">
-                <label for="num-persons" class="justify-self-end">persons</label>
-                <input type="number" id="num-persons"
-                    name="num-persons" value="1" />
-            </div>
-            <div class="mx-auto text-center">
                 <button type="button" id="checkBtn" name="checkBtn">check</button>
             </div>
         </div>
 
         <div id="information" class="hidden flex-col justify-center">
-
+            <div class="mx-auto text-center">
+                <label for="num-persons" class="justify-self-end">persons</label>
+                <input type="number" id="num-persons"
+                    name="num_persons" value="1" />
+            </div>
             <div>
                 <label for="guest">Guest hotel</label>
                 <input type="text" id="guest" name="guest">
@@ -64,4 +63,7 @@
             </div>
         </div>
     </form>
+    <div id="tableContainer" class="grid grid-cols-3 gap-2 w-full">
+
+    </div>
 </div>

@@ -11,6 +11,22 @@ class Guest extends Model
 
     protected $guarded = ['id'];
 
+    private $firstname;
+    private $lastname;
+    private $phoneNumber;
+    private $hotelGuest;
+
+    function __construct($firstname, $lastname, $phoneNumber, $hotelGuest = false) {
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->phoneNumber = $phoneNumber;
+        $this->hotelGuest = $hotelGuest;
+    }
+
+    public function getGuestInfo() {
+        return $this->firstname;
+    }
+
     public static function create($guest) : int {
         $newGuest = Guest::create([
             'firstname' => $guest->firstname,
