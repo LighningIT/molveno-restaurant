@@ -3,8 +3,8 @@
             <button type="button" class="bg-blue-600 p-3 my-2 text-white dark:text-white"  id="createReservationBtn">New</button>
         </span>
     
-    <input type="date">
-    <input type="time">
+    {{-- <input type="date">
+    <input type="time"> --}}
 
     
     <div class="flex justify-between items-center">
