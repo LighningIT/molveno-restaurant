@@ -25,6 +25,11 @@ class ReservationRequest extends FormRequest
             'num_persons' => ['required'],
             'time' => ['required'],
             'date' => ['required'],
+            'firstname' => ['required'],
+            'lastname' => ['required'],
+            'phonenumber' => ['required'],
+            'hotelguest' => [],
+            'tablenumber' => ['required']
         ];
     }
 }

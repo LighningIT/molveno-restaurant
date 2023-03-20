@@ -26,8 +26,8 @@
                     name="num_persons" value="1" />
             </div>
             <div>
-                <label for="guest">Guest hotel</label>
-                <input type="text" id="guest" name="guest">
+                <label for="hotel-guest">Guest hotel</label>
+                <input type="text" id="hotel-guest" name="guest">
             </div>
             <div>
                 <label for="firstname">First name</label>

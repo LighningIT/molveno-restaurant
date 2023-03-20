@@ -4,40 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservation;
-use App\Models\Guest;
 use App\Http\Requests\ReservationRequest;
 use App\Models\GroupedTable;
+use stdClass;
 
 class ReservationController extends Controller
 {
     public static function create(ReservationRequest $request) {
-        /** guest object
-         * firstname
-         * lastname
-         * phone_number
-         * num_persons
-         */
-        $guest = new Guest(
-            $request->firstname,
-            $request->lastname,
-            $request->phonenumber,
-            $request->guest
-            );
-        $guest = GuestController::validateGuest($request->guest);
-        $request->reservation->guest_id = Guest::create($guest);
-
         $validated = $request->validated();
 
-        Reservation::create($validated);
+        $guest = new stdClass();
+        $guest->firstname = $validated['firstname'];
+        $guest->lastname = $validated['lastname'];
+        $guest->phonenumber = $validated['phonenumber'];
+        $guest->hotelguest = !empty($validated['hotel-guest'])
+            ? $validated['hotel-guest'] : false;
 
-        return Reservation::getReservationById($request->reservation->guest_id);
+        $guest_id = GuestController::validateGuest($guest);
+
+        Reservation::store($validated, $guest_id->id);
+
+        return Reservation::getReservationById($guest_id);
     }
 
     public static function check(Request $request) {
         return GroupedTable::getGroupedTablesByDate(
             $request->date,
             $request->time,
-            $request->num_persons
+            // $request->num_persons
         );
     }
 
