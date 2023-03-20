@@ -16,6 +16,8 @@ return new class extends Migration
             $table->integer("grouped_table_id");
             $table->foreignId("guest_id");
             $table->integer("num_persons");
+            $table->integer("timespan");
+            $table->dateTime("reservation_time");
             $table->timestamps();
         });
     }
