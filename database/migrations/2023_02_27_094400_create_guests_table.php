@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('phone_number');
-            $table->boolean('hotel_guest');
+            $table->boolean('hotel_guest')->default(false);
             $table->timestamps();
         });
     }

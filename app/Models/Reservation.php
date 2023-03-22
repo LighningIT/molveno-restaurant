@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Reservation extends Model
 {
@@ -17,8 +17,8 @@ class Reservation extends Model
         return $this->belongsTo(GroupedTable::class);
     }
 
-    public function guest() : HasOne {
-        return $this->hasOne(Guest::class, 'id', 'guest_id');
+    public function guest() : BelongsTo {
+        return $this->belongsTo(Guest::class);
     }
 
     public static function getAllReservations() {
@@ -29,16 +29,23 @@ class Reservation extends Model
         return Reservation::where('guest_id', $id)->with('guest')->first();
     }
 
-    public static function create($reservation) {
+    public static function store($reservation, $id) {
+        // dd($reservation['date']);
         Reservation::create([
-            'grouped_table_id' => $reservation->grouped_table_id,
-            'guest_id' => $reservation->guest_id,
-            'num_persons' => $reservation->num_persons
+            'grouped_table_id' => $reservation['tablenumber'],
+            'guest_id' => $id,
+            'num_persons' => $reservation['num_persons'],
+            'timespan' => 60,
+            'reservation_time' => Carbon::create(
+                $reservation['date'] .
+                $reservation['time']
+            )
         ]);
 
-        return Reservation::with('guest')
-                ->where('guest_id', $reservation->id)
+        $res = Reservation::with('guest')
+                ->where('guest_id', $id)
                 ->first();
+        return $res;
     }
 
     public static function reservationupdate($reservation) {

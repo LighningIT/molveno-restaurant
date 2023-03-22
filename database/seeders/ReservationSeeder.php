@@ -17,7 +17,8 @@ class ReservationSeeder extends Seeder
             Reservation::factory()->create([
                 "grouped_table_id" => random_int(1, 30),
                 "guest_id" => $i + 1,
-                "num_persons" => random_int(1, 8)
+                "num_persons" => random_int(1, 8),
+                'timespan' => random_int(60,240)
             ]);
         }
     }
