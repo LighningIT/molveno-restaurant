@@ -25,7 +25,7 @@ class GuestRequest extends FormRequest
             'firstname' => ['required'],
             'lastname' => ['required'],
             'phone_number' => ['required'],
-            'num_persons' => ['required']
+            'hotel_guest' => ['required']
         ];
     }
 }

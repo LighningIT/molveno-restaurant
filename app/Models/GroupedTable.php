@@ -32,7 +32,8 @@ class GroupedTable extends Model
         return $tables->groupBy('table_section_id');
     }
 
-    public static function getTableBySection($id) {
-        return GroupedTable::where('table_section_id', $id)->with('reservation')->get();
+    public static function getGroupedTablesByDate($date, $time) {
+        /* return grouped tables where no reservation on date */
+        return self::getAllTable();
     }
 }
