@@ -21,17 +21,24 @@ class ReservationController extends Controller
         return Reservation::getReservationById($request->reservation->guest_id);
     }
 
-    /**
-      * Show the form for editing the specified resource.
-    */
-    public function edit(Reservation $reservation): View
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Reservation $reservation
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Request $request)
     {
-        $reservation = "test";
-        return view('reservationpages.edit',compact('reservation'));
+        return view('reservationedit',['reservation'=>Reservation::getReservationById($request->id)]);
     }
 
-    public static function update(Request $request) {
+    public static function update(Reservationrequest $request)
+    {
+        Reservation::reservationupdate($request);
 
+        // Guest::reservationupdate($request);
+
+        return redirect()->route('reservations');
     }
 
     public static function destroy(Request $request) {

@@ -40,6 +40,6 @@ Route::middleware('auth')->controller(ReservationController::class)->group(funct
 
 Route::middleware('auth')->get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations');
 
-Route::get('reservationpages', [ReservationController::class, "edit"]);
+Route::get('/reservationpages{id}', [ReservationController::class, "edit"]);
 
 require __DIR__.'/auth.php';
