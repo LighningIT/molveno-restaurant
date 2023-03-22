@@ -36,9 +36,13 @@ class ReservationController extends Controller
     {
         Reservation::reservationupdate($request);
 
-        // Guest::reservationupdate($request);
+        // // Guest::reservationupdate($request);
 
         return redirect()->route('reservations');
+
+        // $reservation = Reservation::find($id);
+        // $reservation->update($request->all());
+        // return redirect(route('reservations'));
     }
 
     public static function destroy(Request $request) {

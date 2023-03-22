@@ -3,14 +3,14 @@
     class="flex-col absolute w-full h-full
         bg-gray-100 dark:bg-gray-900 dark:text-white">
         {{-- {{$reservation}} --}}
-    <form method="POST" action="/reservations/edit" enctype="multipart/form-data"
+    <form action="{{ route('reservations') }}" method="POST" enctype="multipart/form-data"
         class="mx-auto w-2/3 border border-solid border-black bg-molveno-blue
             dark:border-white dark:text-black">
         @csrf
-        {{ method_field('patch')}}
+        @method('PATCH')
         <div id="checkForm" class="mx-auto flex flex-col justify-center">
             <div class="mx-auto text-center">
-                <label for="date" class="">date</label>
+                <label for="date" class="justify-self-end">date</label>
                 <input type="date" id="date" name="date" />
             </div>
             <div class="mx-auto text-center">
