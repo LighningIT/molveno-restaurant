@@ -27,7 +27,7 @@ class ReservationController extends Controller
         return Reservation::getReservationById($guest_id);
     }
 
-    public static function check(Request $request) {
+    public static function check(ReservationRequest $request) {
         return GroupedTable::getGroupedTablesByDate(
             $request->date,
             $request->time,
@@ -43,10 +43,10 @@ class ReservationController extends Controller
      */
     public function edit(Request $request)
     {
-        return view('reservationedit',['reservation'=>Reservation::getReservationById($request->id)]);
+        return view('reservationedit',['reservation' => Reservation::getReservationById($request->id)]);
     }
 
-    public static function update(Reservationrequest $request)
+    public static function update(Request $request, string $id)
     {
         Reservation::reservationupdate($request);
 

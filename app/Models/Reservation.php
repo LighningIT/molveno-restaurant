@@ -26,6 +26,7 @@ class Reservation extends Model
     }
 
     public static function getReservationById($id) {
+
         return Reservation::where('guest_id', $id)->with('guest')->first();
     }
 
@@ -49,8 +50,11 @@ class Reservation extends Model
     }
 
     public static function reservationupdate($reservation) {
-        Reservation::where("id",$reservation->id)->update([
-            'num_persons' => $reservation->num_persons,
+
+       Reservation::where("id", $reservation->id)->update([
+            'num_persons' => $reservation->num_persons
         ]);
+
+
     }
 }
