@@ -29,7 +29,7 @@ class ReservationRequest extends FormRequest
             'lastname' => ['required'],
             'phonenumber' => ['required'],
             'hotelguest' => [],
-            'tablenumber' => ['required']
+            'grouped_table_id' => ['required']
         ];
     }
 }

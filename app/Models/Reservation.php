@@ -52,7 +52,8 @@ class Reservation extends Model
     public static function reservationupdate($reservation) {
 
        Reservation::where("id", $reservation->id)->update([
-            'num_persons' => $reservation->num_persons
+            'num_persons' => $reservation->num_persons,
+            'grouped_table_id' => $reservation->grouped_table_id
         ]);
 
 

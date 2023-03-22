@@ -11,7 +11,7 @@
         <div id="checkForm" class="mx-auto flex flex-col justify-center">
             <div class="mx-auto text-center">
                 <label for="date" class="justify-self-end">date</label>
-                <input type="date" id="date" name="date" />
+                <input type="date" id="date" name="date" value="{{$reservation->date}}"/>
             </div>
             <div class="mx-auto text-center">
                 <label for="time" class="justify-self-end">time</label>
@@ -59,8 +59,8 @@
                 <input type="text" id="comments" name="comments">
             </div>
             <div>
-                <label for="tablenumber">tablenumber</label>
-                <input type="number" placeholder="tablenumber" id="tablenumber" name="tablenumber" value="{{$reservation->grouped_table_id}}">
+                <label for="grouped_table_id">tablenumber</label>
+                <input type="number" placeholder="tablenumber" id="grouped_table_id" name="grouped_table_id" value="{{$reservation->grouped_table_id}}">
             </div>
             <div>
                 <input type="submit" id="submitReservation"
