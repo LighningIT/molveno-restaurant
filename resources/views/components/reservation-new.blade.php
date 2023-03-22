@@ -8,7 +8,8 @@
         <div id="checkForm" class="mx-auto flex flex-col justify-center">
             <div class="mx-auto text-center">
                 <label for="date" class="">date</label>
-                <input type="date" id="date" name="date" />
+                <input type="date" id="date" name="date"
+                    value="<?= date('Y-m-d')?>" />
             </div>
             <div class="mx-auto text-center">
                 <label for="time" class="justify-self-end">time</label>
