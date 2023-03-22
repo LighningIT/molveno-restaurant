@@ -1,9 +1,14 @@
 <x-app-layout>
 
     @vite(['resources/js/createNewReservation.js'])
-    <x-slot name="header">  <x-reservation-toolbar /> </x-slot>
-    <div class="grid grid-cols-4 text-lg text-center leading-loose">
-    <span class="dark:text-white">Upcoming Reservations</span>
+    {{-- <x-slot name="header">  <x-reservation-toolbar /> </x-slot> --}}
+    <div class="grid grid-cols-4 m-1 text-lg text-center leading-loose">
+    <span class="dark:text-white flex ">
+        <span class="bg-blue-600 px-2 m-1 mr-2 text-white
+            dark:text-white justify-start cursor-pointer"
+            id="createReservationBtn">New</span>
+    <span class="justify-center ml-2">Upcoming Reservations</span>
+    </span>
     <span class="dark:text-white">Upper Level</span>
     <span class="dark:text-white">Lower Level</span>
     <span class="dark:text-white">Terrace</span>
