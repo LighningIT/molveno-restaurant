@@ -56,6 +56,5 @@ class Reservation extends Model
             'grouped_table_id' => $reservation->grouped_table_id
         ]);
 
-
     }
 }
