@@ -11,7 +11,7 @@
         <div id="checkForm" class="mx-auto flex flex-col justify-center">
             <div class="mx-auto text-center">
                 <label for="date" class="justify-self-end">date</label>
-                <input type="date" id="date" name="date" value="{{$reservation->date}}"/>
+                <input type="date" id="date" name="date" value=""/>
             </div>
             <div class="mx-auto text-center">
                 <label for="time" class="justify-self-end">time</label>

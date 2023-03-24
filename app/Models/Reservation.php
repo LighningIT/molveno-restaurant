@@ -49,11 +49,15 @@ class Reservation extends Model
         return $res;
     }
 
-    public static function reservationupdate($reservation) {
+    public static function reservationUpdate($reservation) {
 
-       Reservation::where("id", $reservation->id)->update([
+        Reservation::where("id", $reservation->id)->update([
             'num_persons' => $reservation->num_persons,
-            'grouped_table_id' => $reservation->grouped_table_id
+            'grouped_table_id' => $reservation->grouped_table_id,
+            'reservation_time' => Carbon::create(
+                $reservation->date .
+                $reservation->time
+            )
         ]);
 
     }

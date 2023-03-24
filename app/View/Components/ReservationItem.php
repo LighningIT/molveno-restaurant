@@ -24,7 +24,7 @@ class ReservationItem extends Component
         $this->guest = $guest;
         $this->tableNumber = $tableNumber;
         $this->numberPersons = $numberPersons;
-        $this->reservationTime = $reservationTime->format("d-m-Y H:i");
+        $this->reservationTime = $reservationTime;
         $this->reservationId = $reservationId;
     }
 

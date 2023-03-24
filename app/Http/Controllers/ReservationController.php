@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservation;
+use App\Models\Guest;
 use App\Http\Requests\ReservationRequest;
 use App\Models\GroupedTable;
 use stdClass;
@@ -48,9 +49,9 @@ class ReservationController extends Controller
 
     public static function update(Request $request, string $id)
     {
-        Reservation::reservationupdate($request);
+        Reservation::reservationUpdate($request);
 
-        // // Guest::reservationupdate($request);
+        Guest::guestUpdate($request);
 
         return redirect()->route('reservations');
 
