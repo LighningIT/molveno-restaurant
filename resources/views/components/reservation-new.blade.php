@@ -1,11 +1,11 @@
 <div id="createReservationContainer"
-    class="hidden absolute w-full h-full justify-start
+    class="hidden absolute w-full h-full justify-start max-h-screen
         bg-gray-100 dark:bg-gray-900 dark:text-white">
     <form method="post" action="" enctype="multipart/form-data"
         class="flex flex-col border border-solid border-black bg-molveno-blue
             dark:border-white dark:text-black">
         @csrf
-        <div id="checkForm" class="mx-auto flex flex-col justify-center">
+        <div id="checkForm" class="mx-auto flex flex-col justify-center mb-2">
             <div class="mx-auto text-center">
                 <label for="date" class="">date</label>
                 <input type="date" id="date" name="date"
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div id="information" class="hidden flex-col justify-center">
+        <div id="information" class="hidden flex-col justify-center items-center">
             <div class="mx-auto text-center">
                 <label for="num-persons" class="justify-self-end">persons</label>
                 <input type="number" id="num-persons"
@@ -64,7 +64,7 @@
             </div>
         </div>
     </form>
-    <div id="tableContainer" class="grid grid-cols-3 gap-2 w-full">
+    <div id="tableContainer" class="grid grid-cols-3 gap-2 w-full max-h-[87vh]">
 
     </div>
 </div>

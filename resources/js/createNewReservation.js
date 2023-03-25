@@ -38,18 +38,34 @@ async function checkPlaces() {
     })
     .then(response => response.data)
     .then(data => {
+        tableContainer.innerHTML = '';
         for (const d in data) {
+            let colNum = parseInt(d);
             let div = document.createElement('div');
-            div.classList.add("col-start-" + d);
-            div.classList.add("flex");
-            div.classList.add("flex-col");
+            div.classList.add("flex", "flex-col", "justify-start", "flex-wrap", "items-center", "h-full", "max-h-[87vh]");
+            div.classList.add("col-start-" + colNum);
 
-            data[d].forEach(e => {
+            data[d].forEach(elem => {
+                console.log(elem);
                 let table = document.createElement('div');
-                let text = document.createTextNode(e.id);
-                table.appendChild(text);
+                let p = document.createElement('p');
+                let text = document.createTextNode(elem.id);
+                p.appendChild(text);
+                table.appendChild(p);
 
-                div.classList.add("bg-green-500");
+                p = document.createElement('p');
+                text = document.createTextNode(elem.table_section_id);
+                p.appendChild(text);
+                table.appendChild(p);
+                table.classList.add("m-2", "w-1/2", "inline-block", "text-white", "dark:text-white")
+
+                if (elem.reservation[0] == undefined) {
+                    table.classList.add("bg-green-500");
+                } else {
+                    /* console.log(new Date())
+                    console.log(elem.reservation[0].reservation_time < new Date()) */
+                    table.classList.add("bg-red-600");
+                }
 
                 div.appendChild(table);
             });
