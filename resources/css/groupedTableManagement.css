@@ -21,16 +21,3 @@ th {
     color: white;
     font-size: 1.3rem;
 }
-
-button {
-    border: none;
-    padding: 0.5rem 1rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-
-button:hover {
-    background: #0076cb;
-}
