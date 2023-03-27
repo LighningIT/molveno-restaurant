@@ -19,9 +19,10 @@
   @foreach ($reservations as $reservation)
     <x-reservation-item
     :guest="$reservation->guest->firstname[0] . '. ' . $reservation->guest->lastname"
-    :reservationTime="$reservation->created_at"
+    :reservationTime="$reservation->reservation_time"
     :tableNumber="$reservation->grouped_table_id"
     :numberPersons="$reservation->num_persons"
+    :reservationId="$reservation->id"
     />
   @endforeach
 </div>
