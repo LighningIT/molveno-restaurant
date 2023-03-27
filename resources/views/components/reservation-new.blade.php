@@ -5,7 +5,7 @@
         class="flex flex-col border border-solid border-black bg-molveno-blue
             dark:border-white dark:text-black">
         @csrf
-        <div id="checkForm" class="mx-auto flex flex-col justify-center mb-2">
+        <div id="checkForm" class="mx-auto flex flex-col justify-center mb-2 ">
             <div class="mx-auto text-center">
                 <label for="date" class="">date</label>
                 <input type="date" id="date" name="date"
@@ -13,7 +13,7 @@
             </div>
             <div class="mx-auto text-center">
                 <label for="time" class="justify-self-end">time</label>
-                <input type="time" id="time" name="time" />
+                <input type="time" id="time" name="time" value="<?= date('H:i') ?>" />
             </div>
             <div class="mx-auto text-center">
                 <button type="button" id="checkBtn" name="checkBtn">check</button>
@@ -47,12 +47,10 @@
                 <input type="email" id="email" name="email">
             </div>
             <div>
-                <label for="allergy">allergy</label>
-                <input type="text" id="allergy" name="allergy">
-            </div>
-            <div>
                 <label for="comments">comments</label>
-                <input type="text" id="comments" name="comments">
+                <textarea id="comments" name="comments"
+                    placeholder="Allergies, highchair / boosterseat amount, extra info">
+                </textarea>
             </div>
             <div>
                 <label for="tablenumber">tablenumber</label>

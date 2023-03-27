@@ -29,7 +29,8 @@ class ReservationRequest extends FormRequest
             'lastname' => ['required'],
             'phonenumber' => ['required'],
             'hotelguest' => [],
-            'tablenumber' => ['required']
+            'tablenumber' => ['required'],
+            'comments' => []
         ];
     }
 }
