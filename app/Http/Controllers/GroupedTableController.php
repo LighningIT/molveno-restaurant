@@ -15,6 +15,12 @@ class GroupedTableController extends Controller
             'reservations' => Reservation::getAllReservations()]);
     }
 
+    public static function getTableManagement()
+    {
+        return view('groupedtablemanagement', [
+            'tables' => GroupedTable::getAllTable()]);
+    }
+
     public static function checkFreeTables(Request $request) {
         return 'free';
     }

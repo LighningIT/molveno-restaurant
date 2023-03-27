@@ -32,6 +32,11 @@ class GroupedTable extends Model
         return $tables->groupBy('table_section_id');
     }
 
+    public static function getChairsAsc()
+    {
+        return GroupedTable::orderBy('chairs', 'asc')->get();
+    }
+
     public static function getTableBySection($id) {
         return GroupedTable::where('table_section_id', $id)->with('reservation')->get();
     }
