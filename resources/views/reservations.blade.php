@@ -43,7 +43,11 @@
                                 @php($statusColor = "bg-red-600")
                             @endif
                         @endif
+<<<<<<< HEAD
+                      
+=======
 
+>>>>>>> 0cc913889d5b1c3539c6b59ea68572a2002bf42d
                     <x-tablegroups
                     class="<?php echo $statusColor; ?>"
                     :id="$t->id"
