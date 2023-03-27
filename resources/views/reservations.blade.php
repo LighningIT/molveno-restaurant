@@ -34,7 +34,7 @@
             @foreach ($tables as $table)
                 <div class="flex flex-col flex-wrap justify-start items-center max-h-[87vh] col-start-<?php echo $loop->index + 1;?>" >
                     @foreach ($table as $t)
-                    {{ dd($t) }}
+                    
                         @php($statusColor = "bg-green-500")
                         @if(!empty($t->reservation[0]))
                             @php(date_default_timezone_set('Europe/Amsterdam'))
