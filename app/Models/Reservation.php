@@ -61,4 +61,9 @@ class Reservation extends Model
         ]);
 
     }
+
+    public static function reservationDelete($reservation) {
+
+        Reservation::where("id", $reservation)->delete();
+    }
 }
