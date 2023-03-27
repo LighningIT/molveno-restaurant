@@ -36,4 +36,10 @@ class GroupedTable extends Model
         /* return grouped tables where no reservation on date */
         return self::getAllTable();
     }
+
+    public static function updateStatus($id, $statusId) {
+       
+        GroupedTable::where("id", $id)->update(["status_id" => $statusId], );
+        return TableStatus::where("id", $statusId)->first();
+    }
 }

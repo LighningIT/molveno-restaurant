@@ -39,6 +39,7 @@ Route::middleware('auth')->controller(ReservationController::class)->group(funct
 });
 
 Route::middleware('auth')->get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations');
+Route::middleware('auth')->post('/reservations', [GroupedTableController::class,'updateStatus']);
 
 Route::middleware('auth')->get('/reservationpages{id}', [ReservationController::class, "edit"])->name('reservationpages');
 
