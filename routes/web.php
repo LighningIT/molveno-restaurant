@@ -30,18 +30,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route::get('/reservations/check', [ReservationController::class, 'check']);
 
 Route::middleware('auth')->controller(ReservationController::class)->group(function() {
-    Route::get('/reservations/edit', 'check');
-    Route::post('/reservations/edit', 'store');
-    Route::patch('/reservations/edit','update');
+    // Route::get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations.get');
+    Route::post('/reservations/edit', 'create');
+    Route::patch('/reservations/edit{id}','update');
     Route::delete('/reservations/edit', 'destroy');
 });
 
 Route::middleware('auth')->get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations');
 Route::middleware('auth')->post('/reservations', [GroupedTableController::class,'updateStatus']);
 
+<<<<<<< HEAD
 Route::middleware('auth')->get('/tablemanagement', [GroupedTableController::class,'getTableManagement']);
+=======
+Route::middleware('auth')->get('/reservationpages{id}', [ReservationController::class, "edit"])->name('reservationpages');
+>>>>>>> 3edce595c8fba26bcbf4049f127db0720af1fc3d
 
 require __DIR__.'/auth.php';

@@ -26,7 +26,8 @@ class Reservation extends Model
     }
 
     public static function getReservationById($id) {
-        return Reservation::where('guest_id', $id)->first();
+
+        return Reservation::where('guest_id', $id)->with('guest')->first();
     }
 
     public static function store($reservation, $id) {
@@ -46,5 +47,18 @@ class Reservation extends Model
                 ->where('guest_id', $id)
                 ->first();
         return $res;
+    }
+
+    public static function reservationUpdate($reservation) {
+
+        Reservation::where("id", $reservation->id)->update([
+            'num_persons' => $reservation->num_persons,
+            'grouped_table_id' => $reservation->grouped_table_id,
+            'reservation_time' => Carbon::create(
+                $reservation->date .
+                $reservation->time
+            )
+        ]);
+
     }
 }

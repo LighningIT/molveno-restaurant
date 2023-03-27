@@ -6,6 +6,7 @@
         <span class="dark:text-white flex items-center">
             <span class="bg-blue-600 px-4 py-2 m-1 mr-2 text-white rounded hover:bg-molveno-lightBlue
             dark:text-white justify-start cursor-pointer"
+<<<<<<< HEAD
             id="createReservationBtn">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -29,6 +30,28 @@
                 />
             @endforeach
         </div>
+=======
+            id="createReservationBtn">New</span>
+    <span class="justify-center ml-2">Upcoming Reservations</span>
+    </span>
+    <span class="dark:text-white">Upper Level</span>
+    <span class="dark:text-white">Lower Level</span>
+    <span class="dark:text-white">Terrace</span>
+</div>
+<div class="grid grid-cols-4">
+    <x-reservation-new />
+<div class="dark:text-white">
+  @foreach ($reservations as $reservation)
+    <x-reservation-item
+    :guest="$reservation->guest->firstname[0] . '. ' . $reservation->guest->lastname"
+    :reservationTime="$reservation->reservation_time"
+    :tableNumber="$reservation->grouped_table_id"
+    :numberPersons="$reservation->num_persons"
+    :reservationId="$reservation->id"
+    />
+  @endforeach
+</div>
+>>>>>>> 3edce595c8fba26bcbf4049f127db0720af1fc3d
 
         <div class="grid grid-cols-3 col-span-3 gap-2 max-h-[87vh]">
             @foreach ($tables as $table)
