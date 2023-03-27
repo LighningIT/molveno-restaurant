@@ -10,7 +10,7 @@
 <div class="grid grid-cols-4 justify-items-center">
 
     <div>
-        <div class="border border-solid border-black bg-molveno-blue dark:border-white h-auto">
+        <div class="border border-solid border-black bg-molveno-darkestBlue dark:border-white h-auto text-white font-bold text-lg">
 
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
                 <p>Add new table Group</p>
@@ -34,8 +34,7 @@
 
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
                 <p>Total table groups:</p>
-                <p>{{ $boosterSeats }}</p>
-                <p>10</p>
+                    <p>{{ $totalTableAmount }}</p>
             </div>
 
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
