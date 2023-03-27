@@ -13,7 +13,7 @@
     <span class="bg-blue-600 px-2 m-1 mr-2 inline-block text-white dark:text-white">Add</span>
 </span> --}}
 
-<div class="grid grid-cols-4 m-1 text-lg text-center leading-loose">
+<div class="grid grid-cols-4 m-1 pb-2git text-lg text-center leading-loose">
     <span class="dark:text-white flex justify-center">Overview</span>
     <span class="dark:text-white flex justify-center">Upper Level</span>
     <span class="dark:text-white">Lower Level</span>
@@ -22,9 +22,14 @@
 
 <div class="grid grid-cols-4 justify-items-center">
 
+    <div class="border border-solid border-black bg-molveno-blue
+dark:border-white h-8 w-96">
+
+</div>
+
     @foreach ($tables as $table)
 
-    <div class="h-auto justify-center mt-2 pb-8">
+    <div class="h-auto justify-center pb-8">
         <table class="bg-white ">
             <tr>
                 <th>ID</th>
@@ -47,7 +52,7 @@
 
                 @endforeach
 
-            </table>
+        </table>
     </div>
 
             @endforeach
