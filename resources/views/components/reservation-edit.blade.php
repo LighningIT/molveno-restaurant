@@ -63,10 +63,10 @@
                 <input class="mb-2.5" type="email" id="email" name="email">
             </div>
             <div>
-                <label for="grouped_table_id">Tablenumber</label>
+                <label for="tablenumber">Tablenumber</label>
             </div>
             <div>
-                <input class="mb-2.5" type="number" placeholder="tablenumber" id="grouped_table_id" name="grouped_table_id" value="{{$reservation->grouped_table_id}}">
+                <input class="mb-2.5" type="number" placeholder="tablenumber" id="tablenumber" name="tablenumber" value="{{$reservation->grouped_table_id}}">
             </div>
             <div>
                 <label for="comments">Comments</label>

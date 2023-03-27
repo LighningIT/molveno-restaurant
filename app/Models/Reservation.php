@@ -53,7 +53,7 @@ class Reservation extends Model
 
         Reservation::where("id", $reservation->id)->update([
             'num_persons' => $reservation->num_persons,
-            'grouped_table_id' => $reservation->grouped_table_id,
+            'grouped_table_id' => $reservation->tablenumber,
             'reservation_time' => Carbon::create(
                 $reservation->date .
                 $reservation->time

@@ -26,7 +26,7 @@
                 </button>
             </form>
         </div>
-        <div class="flex items-center">
+        <div class="w-28">
             <input type="checkbox" id="checkedIn"> 
             <label class="ml-2" for="checkedIn">Check-in</label>
         </div>
