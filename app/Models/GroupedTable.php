@@ -31,7 +31,8 @@ class GroupedTable extends Model
         $start = Carbon::now()->subHours(2);
         $end = Carbon::now()->addHours(2);
         $tables = GroupedTable::with(['reservation' => fn($query) => $query->whereBetween('reservation_time', [$start, $end])])
-            ->with('status')->get();
+            ->join(['status' => fn ($query) => $query->select('status as status')])
+            ->get();
         return $tables->groupBy('table_section_id');
     }
 
