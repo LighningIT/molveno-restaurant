@@ -42,8 +42,8 @@
                     <p>{{ $totalTableAmount }}</p>
                 </div>
             </div>
+        </div>
     </div>
-</div>
 
     @foreach ($tables as $table)
 
