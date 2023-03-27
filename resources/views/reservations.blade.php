@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    @vite(['resources/js/createNewReservation.js'])
+    @vite(['resources/js/createNewReservation.js', 'resources/js/updateTableStatus'])
     {{-- <x-slot name="header">  <x-reservation-toolbar /> </x-slot> --}}
     <div class="col-span-full grid grid-cols-4 m-1 text-lg text-center leading-loose">
         <span class="dark:text-white flex items-center">
@@ -30,6 +30,17 @@
             @endforeach
         </div>
 
+<div class="grid grid-cols-3 col-span-3 gap-2">
+
+        @foreach ($tables as $table)
+            <div class="flex flex-col justify-start col-start-<?php echo $loop->index + 1;?>" >
+                @foreach ($table as $t)
+                    @php($statusColor = "bg-green-500")
+                    @if($t->status_id == 3)
+                        @php($statusColor = "bg-orange-500")
+                    @elseif(!empty($t->reservation[2]))
+                        @php($statusColor = "bg-red-600")
+                    @endif
         <div class="grid grid-cols-3 col-span-3 gap-2 max-h-[87vh]">
             @foreach ($tables as $table)
                 <div class="flex flex-col flex-wrap justify-start items-center max-h-[87vh] col-start-<?php echo $loop->index + 1;?>" >
@@ -51,7 +62,8 @@
                         :combined="$t->combined"
                         :comments="$t->comments"
                         :chairs="$t->chairs"
-                        :statusId="$t->status->status" />
+                        :status="$t->status->status"
+                    :statusId="$t->status_id" />
                     @endforeach
 
                 </div>
