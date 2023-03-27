@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('child_seats', function (Blueprint $table) {
             $table->id();
             $table->enum("type", ["highchair", "boosterseat"]);
+            $table->boolean("available");
             $table->timestamps();
         });
     }

@@ -18,6 +18,7 @@ class ChildSeatFactory extends Factory
     {
         return [
             "type" => "highchair",
+            "available" => random_int(0, 1),
         ];
     }
 }

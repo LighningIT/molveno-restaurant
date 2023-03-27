@@ -30,8 +30,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        ChildSeat::factory()->times(10)->create();
-        ChildSeat::factory()->times(15)->create([
+        ChildSeat::factory(10)->create();
+        ChildSeat::factory(15)->create([
             "type" => "boosterseat",
         ]);
     }
