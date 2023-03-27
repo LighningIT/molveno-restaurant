@@ -30,17 +30,6 @@
             @endforeach
         </div>
 
-<div class="grid grid-cols-3 col-span-3 gap-2">
-
-        @foreach ($tables as $table)
-            <div class="flex flex-col justify-start col-start-<?php echo $loop->index + 1;?>" >
-                @foreach ($table as $t)
-                    @php($statusColor = "bg-green-500")
-                    @if($t->status_id == 3)
-                        @php($statusColor = "bg-orange-500")
-                    @elseif(!empty($t->reservation[2]))
-                        @php($statusColor = "bg-red-600")
-                    @endif
         <div class="grid grid-cols-3 col-span-3 gap-2 max-h-[87vh]">
             @foreach ($tables as $table)
                 <div class="flex flex-col flex-wrap justify-start items-center max-h-[87vh] col-start-<?php echo $loop->index + 1;?>" >
@@ -54,17 +43,7 @@
                                 @php($statusColor = "bg-red-600")
                             @endif
                         @endif
-
-        @foreach ($tables as $table)
-            <div class="flex flex-col justify-start col-start-<?php echo $loop->index + 1;?>" >
-                @foreach ($table as $t)
-                    @php($statusColor = "bg-green-500")
-                    @if($t->status_id == 3)
-                        @php($statusColor = "bg-orange-500")
-                    @elseif(!empty($t->reservation[2]))
-                        @php($statusColor = "bg-red-600")
-                    @endif
-
+                      
                     <x-tablegroups
                     class="<?php echo $statusColor; ?>"
                     :id="$t->id"
