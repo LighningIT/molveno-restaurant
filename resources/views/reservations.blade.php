@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    @vite(['resources/js/createNewReservation.js', 'resources/js/updateTableStatus'])
+    @vite(['resources/js/createNewReservation.js'])
     {{-- <x-slot name="header">  <x-reservation-toolbar /> </x-slot> --}}
     <div class="col-span-full grid grid-cols-11 m-1 mr-4 text-lg text-center leading-loose">
         <span class="dark:text-white flex items-center col-span-2">
@@ -36,25 +36,29 @@
                     @foreach ($table as $t)
 
                         @php($statusColor = "bg-green-500")
+                        @php($st = $t->getAppends()[1][0]->status)
+
                         @if(!empty($t->reservation[0]))
                             @php(date_default_timezone_set('Europe/Amsterdam'))
                             @if (strtotime(date("Y-m-d H:i")) < strtotime($t->reservation[0]->reservation_time))
                                 @php($statusColor = "bg-orange-500")
+                                @php($st = $t->getAppends()[1][2]->status)
                             @elseif (strtotime(date("Y-m-d H:i")) > strtotime($t->reservation[0]->reservation_time))
                                 @php($statusColor = "bg-red-600")
+                                @php($st = $t->getAppends()[1][1]->status)
                             @endif
                         @endif
 
-                    <x-tablegroups
-                    class="<?php echo $statusColor; ?>"
-                    :id="$t->id"
-                    :tableSectionId="$t->table_section_id"
-                    :combined="$t->combined"
-                    :comments="$t->comments"
-                    :chairs="$t->chairs"
-                    :status="$t->status->status"
-                    :statusId="$t->status_id" />
-                @endforeach
+                        <x-tablegroups
+                        class="<?php echo $statusColor; ?>"
+                        :id="$t->id"
+                        :tableSectionId="$t->table_section_id"
+                        :combined="$t->combined"
+                        :comments="$t->comments"
+                        :chairs="$t->chairs"
+                        :status="$st"
+                        :statusId="$t->status_id" />
+                    @endforeach
 
                 </div>
 
