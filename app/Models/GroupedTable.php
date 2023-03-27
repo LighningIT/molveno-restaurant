@@ -51,4 +51,10 @@ class GroupedTable extends Model
         $tables = $tables->load(['reservation' => fn($query) => $query->whereBetween('reservation_time', [$start, $end]) ]);
         return $tables->groupBy('table_section_id');
     }
+
+    public static function updateStatus($id, $statusId) {
+       
+        GroupedTable::where("id", $id)->update(["status_id" => $statusId], );
+        return TableStatus::where("id", $statusId)->first();
+    }
 }

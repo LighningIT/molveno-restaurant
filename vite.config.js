@@ -9,7 +9,9 @@ export default defineConfig({
                 'resources/js/login.css',
                 'resources/js/groupedTableManagement.css',
                 'resources/js/app.js',
-                'resources/js/createNewReservation.js'
+                'resources/js/createNewReservation.js',
+                'resources/js/login.css',
+                'resources/js/updateTableStatus.js',
             ],
             refresh: true,
         }),
