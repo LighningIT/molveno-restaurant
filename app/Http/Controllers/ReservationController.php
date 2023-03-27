@@ -11,7 +11,7 @@ use stdClass;
 
 class ReservationController extends Controller
 {
-    public static function create(ReservationRequest $request) {
+    public static function store(ReservationRequest $request) {
         $validated = $request->validated();
 
         $guest = new stdClass();
@@ -32,7 +32,6 @@ class ReservationController extends Controller
         return GroupedTable::getGroupedTablesByDate(
             $request->date,
             $request->time,
-            // $request->num_persons
         );
     }
 
