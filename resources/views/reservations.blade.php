@@ -35,6 +35,7 @@
                 :reservationTime="$reservation->reservation_time"
                 :tableNumber="$reservation->grouped_table_id"
                 :numberPersons="$reservation->num_persons"
+                :reservationId="$reservation->id"
                 />
             @endforeach
         </div>

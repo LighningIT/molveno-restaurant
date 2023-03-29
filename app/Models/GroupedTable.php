@@ -28,11 +28,8 @@ class GroupedTable extends Model
     public static function getAllTable() {
         $start = Carbon::now()->subHours(2);
         $end = Carbon::now()->addHours(2);
-        $st = TableStatus::select('status')->get();
         $tables = GroupedTable::with(['reservation' => fn($query) => $query->whereBetween('reservation_time', [$start, $end])])
             ->get();
-        $tables->append(['st', $st]);
-
         return $tables->groupBy('table_section_id');
     }
 
