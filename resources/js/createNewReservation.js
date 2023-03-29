@@ -75,11 +75,8 @@ async function checkPlaces() {
                 p.appendChild(text);
                 table.appendChild(p);
 
-                p = document.createElement('p');
-                text = document.createTextNode(elem.table_section_id);
-                p.appendChild(text);
-                table.appendChild(p);
-                table.classList.add("m-2", "inline-block","w-28", "max-w-1/3", "h-28", "text-white", "dark:text-white")
+                table.classList.add("m-2", "inline-block","w-28", "max-w-1/3", "h-28", "text-white", "dark:text-white",
+                    "flex", "flex-col", "justify-center", "items-center")
 
                 if (elem.reservation[0] == undefined) {
                     table.classList.add("bg-green-500");
@@ -101,5 +98,19 @@ submitReservationBtn.addEventListener("click", (e) => {
 
 async function submitReservation(data) {
     await axios.post('/reservations/edit', data)
-        .then(response => reservationBtn.click());
+        .then(() => {
+            reservationBtn.click();
+            newNotification("Reservation created");
+        });
+}
+
+function newNotification(message) {
+    const div = document.createElement('div');
+    div.classList.add("absolute", "top-5", "w-full", "text-center", "text-white", "py-2", "px-4", "border-white", "border-2", "border-solid")
+    const text = document.createTextNode(message);
+    div.appendChild(text);
+    document.body.appendChild(div);
+    setTimeout(() => {
+        document.body.removeChild(div);
+    }, 5000);
 }
