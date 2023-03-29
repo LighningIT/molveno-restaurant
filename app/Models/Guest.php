@@ -22,12 +22,29 @@ class Guest extends Model
     }
 
     public static function store($guest) {
+
         return Guest::create([
             'firstname' => $guest->firstname,
             'lastname' => $guest->lastname,
             'phone_number' => $guest->phonenumber,
             'hotel_guest' => $guest->hotelguest,
         ]);
+
+    }
+
+    public static function guestUpdate($guest) {
+
+        Guest::where("id", $guest->id)->update([
+            'firstname' => $guest->firstname,
+            'lastname' => $guest->lastname,
+            'phone_number' => $guest->phonenumber,
+        ]);
+
+    }
+
+    public static function guestDelete($guest) {
+
+        Guest::where("id", $guest)->delete();
     }
 
 }
