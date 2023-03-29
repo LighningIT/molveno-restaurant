@@ -28,7 +28,7 @@ class ReservationController extends Controller
         return Reservation::getReservationById($guest_id);
     }
 
-    public static function check(ReservationRequest $request) {
+    public static function check(Request $request) {
         return GroupedTable::getGroupedTablesByDate(
             $request->date,
             $request->time,
@@ -55,13 +55,13 @@ class ReservationController extends Controller
         return redirect()->route('reservations')->with('success','Reservation updated successfully.');;
     }
 
-    public static function destroy(Request $request, string $id) 
+    public static function destroy(Request $request, string $id)
     {
         $reservationById = Reservation::getReservationById($id);
 
         Reservation::reservationDelete($id);
         Guest::guestDelete($reservationById->guest_id);
-         
+
         return redirect()->route('reservations')->with('success','Reservation deleted successfully.');
     }
 }

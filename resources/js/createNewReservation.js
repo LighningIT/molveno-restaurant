@@ -27,6 +27,7 @@ reservationBtn.addEventListener('click', () => {
     } else {
         reservationContainer.style.display = "none";
         info.style.display = "none";
+        tableContainer.innerHTML = '';
         reservationBtn.innerHTML = plusIcon;
     }
 });
@@ -36,7 +37,7 @@ checkBtn.addEventListener('click', (event) => {
 
     if (event.target.id == 'checkBtn') {
         if (info.style.display == "flex"){
-            info.style.display = "none";
+            // info.style.display = "none";
             reservationBtn.innerHTML = plusIcon;
             return;
         }

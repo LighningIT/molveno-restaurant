@@ -32,8 +32,8 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware('auth')->controller(ReservationController::class)->group(function() {
-    // Route::get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations.get');
-    Route::post('/reservations/edit', 'create');
+    Route::get('/reservations/edit', 'check');
+    Route::post('/reservations/edit', 'store');
     Route::patch('/reservations/edit{id}','update');
     Route::delete('/reservations/edit{id}', 'destroy');
 });
