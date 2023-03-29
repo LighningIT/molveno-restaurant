@@ -38,8 +38,6 @@
             @endforeach
         </div>
 
-
-
         <div class="grid grid-cols-3 col-span-9 gap-2 max-h-[87vh] mr-4">
             @foreach ($tables as $table)
                 <div class="flex flex-col flex-wrap justify-start items-center max-h-[87vh] col-start-<?php echo $loop->index + 1;?>" >

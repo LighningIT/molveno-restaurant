@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GroupedTableController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,5 +43,7 @@ Route::middleware('auth')->get('/reservations', [GroupedTableController::class,'
 Route::middleware('auth')->post('/reservations', [GroupedTableController::class,'updateStatus']);
 
 Route::middleware('auth')->get('/reservationpages{id}', [ReservationController::class, "edit"])->name('reservationpages');
+
+Route::middleware('auth')->get('/waiteroverview', [OrderController::class,'getAllTable'])->name('waiteroverview');
 
 require __DIR__.'/auth.php';
