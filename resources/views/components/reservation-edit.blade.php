@@ -5,11 +5,11 @@
         <h2 class="text-center p-4 font-bold text-2xl">Edit this reservation</h2>
     <form method="post" action="/reservations/edit{{$reservation->id}}" enctype="multipart/form-data"
         class="border border-solid border-black bg-molveno-lightestBlue
-            dark:border-white dark:text-black mb-4">
+            dark:border-white dark:text-black mb-4 p-4">
         @csrf
         {{ method_field('patch')}}
         <div id="checkForm" class="flex flex-col justify-center">
-            <div class="text-center mt-2.5">
+            <div class="text-center">
                 <label for="date" class="justify-self-end">Date</label>
             </div>
             <div class="text-center">
@@ -27,17 +27,17 @@
             <div class="mx-auto text-center">
                 <input class="mb-2.5" type="number" id="num_persons" name="num_persons" value="{{$reservation->num_persons}}" />
             </div>
-            <div class="mx-auto text-center">
+            <!-- <div class="mx-auto text-center">
                 <button class="bg-molveno-blue text-white font-bold py-2 px-2 rounded mb-2.5" type="button" id="checkBtn" name="checkBtn">check</button>
-            </div>
+            </div> -->
         </div>
 
         <div id="information" class="flex flex-col justify-center items-center">
 
-            <div class="mb-2.5">
+            <!-- <div class="mb-2.5">
                 <input type="checkbox" id="hotelguest" name="hotelguest" @checked($reservation->guest->hotel_guest)>
                 <label for="guest">Guest hotel</label>
-            </div>
+            </div> -->
             <div>
                 <label for="firstname">First name</label>
             </div>
@@ -56,26 +56,26 @@
             <div>            
                 <input class="mb-2.5" type="tel" id="phonenumber" name="phonenumber" value="{{$reservation->guest->phone_number}}">
             </div>
-            <div>
+            <!-- <div>
                 <label for="email">Email</label>
             </div>
             <div>
                 <input class="mb-2.5" type="email" id="email" name="email">
-            </div>
+            </div> -->
             <div>
                 <label for="tablenumber">Tablenumber</label>
             </div>
             <div>
                 <input class="mb-2.5" type="number" placeholder="tablenumber" id="tablenumber" name="tablenumber" value="{{$reservation->grouped_table_id}}">
             </div>
-            <div>
+            <!-- <div>
                 <label for="comments">Comments</label>
-            </div>
+            </div> 
             <div>
                 <textarea class="mb-2.5 ml-4 mr-4" id="comments" name="comments" rows="4" cols="50"></textarea>
-            </div>
+            </div> -->
             <div>
-                <input class="bg-molveno-blue text-white font-bold py-2 px-2 rounded mb-3" type="submit" id="submitReservation"
+                <input class="bg-molveno-blue text-white font-bold py-2 px-2 rounded" type="submit" id="submitReservation"
                     value="Update the reservation">
             </div>
         </div>
