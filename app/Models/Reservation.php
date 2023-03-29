@@ -26,7 +26,6 @@ class Reservation extends Model
     }
 
     public static function getReservationById($id) {
-
         return Reservation::with('guest')->where('guest_id', $id)->first();
     }
 
@@ -49,7 +48,6 @@ class Reservation extends Model
     }
 
     public static function reservationUpdate($reservation) {
-
         Reservation::where("id", $reservation->id)->update([
             'num_persons' => $reservation->num_persons,
             'grouped_table_id' => $reservation->tablenumber,
@@ -62,7 +60,6 @@ class Reservation extends Model
     }
 
     public static function reservationDelete($reservation) {
-
         Reservation::where("id", $reservation)->delete();
     }
 }
