@@ -24,8 +24,4 @@ class GroupedTableController extends Controller
 
         return GroupedTable::updateStatus($request->id, 1);
     }
-
-    public static function checkFreeTables(Request $request) {
-        return 'free';
-    }
 }
