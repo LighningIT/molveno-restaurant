@@ -10,7 +10,7 @@
         <h2 class="text-center p-4 font-bold text-2xl">Edit this reservation</h2>
     <form method="post" action="/reservations/edit{{$reservation->id}}" enctype="multipart/form-data"
         class="border border-solid border-black bg-molveno-lightestBlue dark:bg-molveno-darkestBlue dark:text-white
-            dark:border-white dark:text-black mb-4 p-4">
+            dark:border-white mb-4 p-4">
         @csrf
         {{ method_field('patch')}}
         <div id="checkForm" class="flex flex-col justify-center">
