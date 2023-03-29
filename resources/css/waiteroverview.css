@@ -1,0 +1,16 @@
+@media only screen and (max-width: 321px) {
+    nav {
+        width: auto;
+    }
+
+    .levelandterrace {
+        display: flex;
+        justify-content: space-around;
+        padding: 1rem;
+    }
+
+    .waiteroverview {
+        display: flex;
+        width: 10rem;
+    }
+}
