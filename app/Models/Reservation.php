@@ -31,7 +31,6 @@ class Reservation extends Model
     }
 
     public static function store($reservation, $id) {
-        // dd($reservation['date']);
         Reservation::create([
             'grouped_table_id' => $reservation['tablenumber'],
             'guest_id' => $id,
