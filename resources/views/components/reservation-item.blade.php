@@ -1,9 +1,9 @@
 <div {{$attributes->merge(['class'=>'flex m-2 p-4 text-white dark:text-white bg-molveno-lightestBlue dark:bg-molveno-darkestBlue'])}}>
-    <div class="w-52">
+    <div class="flex flex-col justify-evenly w-52">
         <p>{{$guest}}</p>
         <p>{{$reservationTime}}</p>
         <p class="flex gap-2"><img class="w-6 h-6" src="{{ Vite::asset('resources/img/table_icon_125938.svg') }}" alt="table SVG"/>{{$tableNumber}}</p>
-        <p>Number of guests: {{$numberPersons}}</p>
+        <p class="flex gap-2"><img class="w-6 h-6" src="{{ Vite::asset('resources/img/people.png') }}" alt="table SVG"/> {{$numberPersons}}</p>
     </div>
     <div class="flex flex-col items-center gap-3">
         <div class="flex flex-col justify-center gap-1 w-fit">
