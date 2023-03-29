@@ -41,10 +41,9 @@ Route::middleware('auth')->controller(ReservationController::class)->group(funct
 Route::middleware('auth')->get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations');
 Route::middleware('auth')->post('/reservations', [GroupedTableController::class,'updateStatus']);
 
-<<<<<<< HEAD
+
 Route::middleware('auth')->get('/tablemanagement', [GroupedTableController::class,'getTableManagement']);
-=======
 Route::middleware('auth')->get('/reservationpages{id}', [ReservationController::class, "edit"])->name('reservationpages');
->>>>>>> 3edce595c8fba26bcbf4049f127db0720af1fc3d
+
 
 require __DIR__.'/auth.php';
