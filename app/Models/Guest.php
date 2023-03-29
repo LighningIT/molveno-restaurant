@@ -42,4 +42,9 @@ class Guest extends Model
 
     }
 
+    public static function guestDelete($guest) {
+
+        Guest::where("id", $guest)->delete();
+    }
+
 }

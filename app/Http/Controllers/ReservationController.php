@@ -11,7 +11,7 @@ use stdClass;
 
 class ReservationController extends Controller
 {
-    public static function create(ReservationRequest $request) {
+    public static function store(ReservationRequest $request) {
         $validated = $request->validated();
 
         $guest = new stdClass();
@@ -32,7 +32,6 @@ class ReservationController extends Controller
         return GroupedTable::getGroupedTablesByDate(
             $request->date,
             $request->time,
-            // $request->num_persons
         );
     }
 
@@ -53,14 +52,16 @@ class ReservationController extends Controller
 
         Guest::guestUpdate($request);
 
-        return redirect()->route('reservations');
-
-        // $reservation = Reservation::find($id);
-        // $reservation->update($request->all());
-        // return redirect(route('reservations'));
+        return redirect()->route('reservations')->with('success','Reservation updated successfully.');;
     }
 
-    public static function destroy(Request $request) {
+    public static function destroy(Request $request, string $id) 
+    {
+        $reservationById = Reservation::getReservationById($id);
 
+        Reservation::reservationDelete($id);
+        Guest::guestDelete($reservationById->guest_id);
+         
+        return redirect()->route('reservations')->with('success','Reservation deleted successfully.');
     }
 }
