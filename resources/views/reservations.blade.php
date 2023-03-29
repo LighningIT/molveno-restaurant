@@ -36,16 +36,16 @@
                     @foreach ($table as $t)
 
                         @php($statusColor = "bg-green-500")
-                        @php($st = $t->getAppends()[1][0]->status)
+                        @php($st = $status[0]->status)
 
                         @if(!empty($t->reservation[0]))
                             @php(date_default_timezone_set('Europe/Amsterdam'))
                             @if (strtotime(date("Y-m-d H:i")) < strtotime($t->reservation[0]->reservation_time))
                                 @php($statusColor = "bg-orange-500")
-                                @php($st = $t->getAppends()[1][2]->status)
+                                @php($st = $status[2]->status)
                             @elseif (strtotime(date("Y-m-d H:i")) > strtotime($t->reservation[0]->reservation_time))
                                 @php($statusColor = "bg-red-600")
-                                @php($st = $t->getAppends()[1][1]->status)
+                                @php($st = $status[1]->status)
                             @endif
                         @endif
 

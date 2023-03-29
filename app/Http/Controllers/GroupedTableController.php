@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\GroupedTable;
 use App\Models\Reservation;
+use App\Models\TableStatus;
 use Illuminate\Http\Request;
 
 class GroupedTableController extends Controller
@@ -12,7 +13,8 @@ class GroupedTableController extends Controller
         // dd(GroupedTable::getAllTable());
         return view('reservations',[
             'tables' => GroupedTable::getAllTable(),
-            'reservations' => Reservation::getAllReservations()]);
+            'reservations' => Reservation::getAllReservations(),
+            'status' => TableStatus::getAllStatus()]);
     }
 
     public static function updateStatus(Request $request) {
