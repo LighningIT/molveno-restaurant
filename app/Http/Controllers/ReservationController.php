@@ -25,7 +25,7 @@ class ReservationController extends Controller
 
         Reservation::store($validated, $guest_id->id);
 
-        return Reservation::getReservationById($guest_id);
+        return Reservation::getReservationById($guest_id->id);
     }
 
     public static function check(Request $request) {
