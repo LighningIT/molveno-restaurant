@@ -15,9 +15,9 @@ class ReservationController extends Controller
         $validated = $request->validated();
 
         $guest = new stdClass();
-        $guest->firstname = $validated['firstname'];
-        $guest->lastname = $validated['lastname'];
-        $guest->phonenumber = $validated['phonenumber'];
+        $guest->firstname = htmlspecialchars($validated['firstname']);
+        $guest->lastname = htmlspecialchars($validated['lastname']);
+        $guest->phonenumber = htmlspecialchars($validated['phonenumber']);
         $guest->hotelguest = !empty($validated['hotel-guest'])
             ? $validated['hotel-guest'] : false;
 
