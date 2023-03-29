@@ -101,5 +101,5 @@ submitReservationBtn.addEventListener("click", (e) => {
 
 async function submitReservation(data) {
     await axios.post('/reservations/edit', data)
-        .then(response => console.log(response));
+        .then(response => reservationBtn.click());
 }
