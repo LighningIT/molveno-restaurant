@@ -11,7 +11,7 @@
             </span>
         </p>
         <p class="flex justify-center">
-            <button class="ml-2" for="checkedIn">Check-in</button>
+            <button class="ml-2 border border-white border-solid rounded py-2 px-4" for="checkedIn">Check-in</button>
         </p>
     </div>
     <div class="flex flex-col items-center gap-3">
