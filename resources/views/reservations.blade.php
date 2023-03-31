@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    @vite(['resources/js/createNewReservation.js'])
+    @vite(['resources/js/createNewReservation.js', 'resources/js/updateTableStatus.js'])
     {{-- <x-slot name="header">  <x-reservation-toolbar /> </x-slot> --}}
     <div class="col-span-full grid grid-cols-11 m-1 mr-4 text-lg text-center leading-loose">
         <span class="dark:text-white flex items-center col-span-2">

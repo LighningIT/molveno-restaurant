@@ -24,7 +24,6 @@ class GroupedTable extends Model
         return $this->hasMany(Table::class);
     }
 
-
     public static function getAllTable() {
         $start = Carbon::now()->subHours(2);
         $end = Carbon::now()->addHours(2);

@@ -117,7 +117,7 @@ async function submitReservation(data) {
 
 function newNotification(message) {
     const div = document.createElement('div');
-    div.classList.add("absolute", "top-5", "w-full", "text-center", "dark:text-white", "py-2", "px-4", "dark:border-white", "border", "border-solid")
+    div.classList.add("absolute", "top-5", "w-full", "text-center", "dark:text-white", "py-2", "px-4")
     const text = document.createTextNode(message);
     div.appendChild(text);
     document.body.appendChild(div);

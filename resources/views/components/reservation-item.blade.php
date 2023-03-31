@@ -35,9 +35,5 @@
                 </button>
             </form>
         </div>
-        <div class="w-28">
-
-            <button class="ml-2" for="checkedIn">Check-in</button>
-        </div>
     </div>
 </div>
