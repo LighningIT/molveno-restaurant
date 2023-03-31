@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GroupedTableController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,8 +41,8 @@ Route::middleware("auth")->group(function () {
 
 
 Route::middleware('auth')->controller(ReservationController::class)->group(function() {
-    // Route::get('/reservations', [GroupedTableController::class,'getAllTable'])->name('reservations.get');
-    Route::post('/reservations/edit', 'create');
+    Route::get('/reservations/edit', 'check');
+    Route::post('/reservations/edit', 'store');
     Route::patch('/reservations/edit{id}','update');
     Route::delete('/reservations/edit{id}', 'destroy');
 });
@@ -49,6 +50,7 @@ Route::middleware('auth')->controller(ReservationController::class)->group(funct
 Route::middleware("auth")
     ->get("/reservations", [GroupedTableController::class, "getAllTable"])
     ->name("reservations");
+
 Route::middleware("auth")->post("/reservations", [
     GroupedTableController::class,
     "updateStatus",
@@ -61,5 +63,7 @@ Route::middleware("auth")->get("/tablemanagement", [
 Route::middleware("auth")
     ->get("/reservationpages{id}", [ReservationController::class, "edit"])
     ->name("reservationpages");
+
+Route::middleware('auth')->get('/waiteroverview', [OrderController::class,'getAllTable'])->name('waiteroverview');
 
 require __DIR__ . "/auth.php";

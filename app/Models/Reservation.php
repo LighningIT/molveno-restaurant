@@ -22,16 +22,14 @@ class Reservation extends Model
     }
 
     public static function getAllReservations() {
-        return Reservation::with('guest')->get();
+        return Reservation::with('guest')->orderBy('reservation_time', 'asc')->get();
     }
 
     public static function getReservationById($id) {
-
-        return Reservation::where('guest_id', $id)->with('guest')->first();
+        return Reservation::with('guest')->where('guest_id', $id)->first();
     }
 
     public static function store($reservation, $id) {
-        // dd($reservation['date']);
         Reservation::create([
             'grouped_table_id' => $reservation['tablenumber'],
             'guest_id' => $id,
@@ -50,7 +48,6 @@ class Reservation extends Model
     }
 
     public static function reservationUpdate($reservation) {
-
         Reservation::where("id", $reservation->id)->update([
             'num_persons' => $reservation->num_persons,
             'grouped_table_id' => $reservation->tablenumber,
@@ -63,7 +60,6 @@ class Reservation extends Model
     }
 
     public static function reservationDelete($reservation) {
-
         Reservation::where("id", $reservation)->delete();
     }
 }

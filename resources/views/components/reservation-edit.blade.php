@@ -2,10 +2,15 @@
 <div id="editReservationContainer"
     class="flex flex-col justify-center items-center bg-gray-100 dark:bg-gray-900 dark:text-white">
         {{-- {{$reservation->id}} --}}
+        
+        <?php 
+            $dateTime = explode(' ',$reservation->reservation_time);
+        ?>
+        
         <h2 class="text-center p-4 font-bold text-2xl">Edit this reservation</h2>
     <form method="post" action="/reservations/edit{{$reservation->id}}" enctype="multipart/form-data"
-        class="border border-solid border-black bg-molveno-lightestBlue
-            dark:border-white dark:text-black mb-4 p-4">
+        class="border border-solid border-black bg-molveno-lightestBlue dark:bg-molveno-darkestBlue dark:text-white
+            dark:border-white mb-4 p-4">
         @csrf
         {{ method_field('patch')}}
         <div id="checkForm" class="flex flex-col justify-center">
@@ -13,13 +18,13 @@
                 <label for="date" class="justify-self-end">Date</label>
             </div>
             <div class="text-center">
-                <input class="mb-2.5" type="date" id="date" name="date" value=""/>
+                <input class="mb-2.5" type="date" id="date" name="date" value="{{$dateTime[0]}}"/>
             </div>
             <div class="text-center">
                 <label for="time" class="justify-self-end">Time</label>
             </div>
             <div class="text-center">
-                <input class="mb-2.5" type="time" id="time" name="time" />
+                <input class="mb-2.5" type="time" id="time" name="time" value="{{$dateTime[1]}}" />
             </div>
             <div class="mx-auto text-center">
                 <label for="num_persons" class="justify-self-end">Persons</label>

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded',() => {
         elem.addEventListener('click', (event) => {
             sendUpdateStatus(event.target.parentElement)
         })
-    }) 
+    })
 })
 
 function sendUpdateStatus(element) {
@@ -17,7 +17,6 @@ function sendUpdateStatus(element) {
     }
     axios.post("/reservations", data)
     .then(response => {
-        console.log(response)
         if (response.status == 200) {
             element.dataset.statusId = response.data.id;
             element.children[3].textContent = response.data.status
