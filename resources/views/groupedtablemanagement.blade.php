@@ -1,5 +1,7 @@
 <x-app-layout>
 
+@vite(['resources/js/groupedTableManagement.js'])
+
 <div class="grid grid-cols-4 m-1 pb-2git text-lg text-center leading-loose">
     <span class="dark:text-white flex justify-center">Overview</span>
     <span class="dark:text-white flex justify-center">Upper Level</span>
@@ -47,8 +49,9 @@
 
     @foreach ($tables as $table)
 
-    <div class="h-auto justify-center pb-8">
+    <div class="h-auto justify-center pb-8" id="allTables">
         <table class="bg-white ">
+
             <tr>
                 <th>ID</th>
                 <th>Chair Amount</th>
@@ -68,13 +71,26 @@
 
                 />
 
-                @endforeach
+            @endforeach
 
         </table>
     </div>
 
-            @endforeach
+    @endforeach
 
-        </div>
+</div>
+
+Delete Table Group modal
+<x-popup-modal class="flex flex-col gap-10" id="deleteModal">
+
+    <p class="pt-8">Are you certain you wish to delete this table group?</p>
+
+    <div class="flex flex-row justify-around">
+        <button class='bg-red-600 hover:bg-red-500 px-4 py-2 text-white rounded align-middle justify-start cursor-pointer'>
+            <p>Delete</p>
+        </button>
+    </div>
+
+</x-popup-modal>
 
         </x-app-layout>
