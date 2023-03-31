@@ -17,7 +17,7 @@ return new class extends Migration
             $table->boolean("combined");
             $table->string("comments");
             $table->integer("chairs");
-            // $table->foreignId("status_id"); 
+            $table->foreignId("status_id");
             $table->timestamps();
         });
     }

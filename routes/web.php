@@ -59,7 +59,9 @@ Route::middleware("auth")->post("/reservations", [
 Route::middleware("auth")->get("/tablemanagement", [
     GroupedTableController::class,
     "getTableManagement",
-]);
+    ])
+    ->name('tablemanagement');
+
 Route::middleware("auth")
     ->get("/reservationpages{id}", [ReservationController::class, "edit"])
     ->name("reservationpages");
