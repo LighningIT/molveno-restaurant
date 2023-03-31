@@ -6,7 +6,7 @@
             <span class="ml-2">
                 <img class="w-6 h-6 inline" src="{{ Vite::asset('resources/img/table_icon_125938.svg') }}" alt="table SVG"/>{{$tableNumber}}
             </span>
-            <span class="ml-auto mr-4">
+            <span class="ml-auto mr-12">
                 <img class="w-6 h-6 inline" src="{{ Vite::asset('resources/img/people.png') }}" alt="table SVG"/> {{$numberPersons}}
             </span>
         </p>
