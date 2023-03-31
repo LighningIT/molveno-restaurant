@@ -1,26 +1,22 @@
 <div id="createReservationContainer"
-    class="hidden absolute w-full h-full    grid-cols-11 max-h-screen
+    class="hidden absolute w-full h-full justify-start max-h-screen
         bg-gray-100 dark:bg-gray-900 dark:text-white">
     <form method="post" action="" enctype="multipart/form-data"
         class="flex flex-col border border-solid border-black bg-molveno-lightestBlue dark:bg-molveno-darkestBlue
             dark:border-white dark:text-black">
         @csrf
-        <div id="checkForm" class="mx-auto flex flex-col justify-center mb-2 w-72">
-            <div class="mx-auto my-4 text-center">
-               {{--  <label for="date" class="">date</label> --}}
+        <div id="checkForm" class="mx-auto flex flex-col justify-center mb-2 ">
+            <div class="mx-auto text-center">
+                <label for="date" class="">date</label>
                 <input type="date" id="date" name="date"
                     value="<?= date('Y-m-d')?>" />
-           {{--  </div>
+            </div>
             <div class="mx-auto text-center">
-                <label for="time" class="justify-self-end">time</label> --}}
+                <label for="time" class="justify-self-end">time</label>
                 <input type="time" id="time" name="time" value="<?= date('H:i') ?>" />
             </div>
             <div class="mx-auto text-center">
-                <button type="button" id="checkBtn" name="checkBtn"
-                class="bg-blue-600 px-4 py-2 m-1 mr-2 text-white rounded hover:bg-molveno-lightBlue
-                    dark:text-white justify-start cursor-pointer">
-                    Check
-                </button>
+                <button type="button" id="checkBtn" name="checkBtn">check</button>
             </div>
         </div>
 
@@ -61,12 +57,8 @@
                 <input type="number" placeholder="tablenumber" id="tablenumber" name="tablenumber">
             </div>
             <div>
-                <button type="submit" id="submitReservation"
-                    value="Create new reservation"
-                    class="bg-blue-600 px-4 py-2 m-1 mr-2 text-white rounded hover:bg-molveno-lightBlue
-                         dark:text-white justify-start cursor-pointer">
-                    Submit
-                </button>
+                <input type="submit" id="submitReservation"
+                    value="Create new reservation">
             </div>
         </div>
     </form>

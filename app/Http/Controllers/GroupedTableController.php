@@ -23,4 +23,24 @@ class GroupedTableController extends Controller
 
         return GroupedTable::updateStatus($request->id, 1);
     }
+
+    public  function getTableManagement()
+    {
+        $totalTableAmount = $this->countTables();
+
+        return view('groupedtablemanagement', [
+            'tables' => GroupedTable::getAllTable(),
+            'totalTableAmount' => $totalTableAmount]);
+    }
+
+    public static function countTables()
+    {
+        $countTables = GroupedTable::all()->count();
+        return $countTables;
+
+    }
+
+    public static function checkFreeTables(Request $request) {
+        return 'free';
+    }
 }
