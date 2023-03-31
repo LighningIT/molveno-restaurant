@@ -54,7 +54,7 @@ class GroupedTable extends Model
     }
 
     public static function updateStatus($id, $statusId) {
-        GroupedTable::where("id", $id)->update(["status_id" => $statusId], );
+        GroupedTable::where("id", $id)->update(["status_id" => $statusId]);
         return TableStatus::where("id", $statusId)->first();
     }
 }

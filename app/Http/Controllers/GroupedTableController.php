@@ -5,6 +5,7 @@ use App\Models\GroupedTable;
 use App\Models\Reservation;
 use App\Models\TableStatus;
 use Illuminate\Http\Request;
+use App\Models\ChildSeat;
 
 class GroupedTableController extends Controller
 {
@@ -30,7 +31,9 @@ class GroupedTableController extends Controller
 
         return view('groupedtablemanagement', [
             'tables' => GroupedTable::getAllTable(),
-            'totalTableAmount' => $totalTableAmount]);
+            'totalTableAmount' => $totalTableAmount,
+            'totalChildSeats' => ChildSeat::getAllChildSeats()
+        ]);
     }
 
     public static function countTables()

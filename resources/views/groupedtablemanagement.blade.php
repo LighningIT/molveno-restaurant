@@ -10,7 +10,6 @@
 </div>
 
 <div class="grid grid-cols-4 justify-items-center">
-
     <div>
         <div class="border border-solid border-black bg-molveno-darkestBlue dark:border-white h-auto text-white font-bold text-lg">
 
@@ -34,14 +33,14 @@
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
                 <p>Total booster seats:</p>
                 <div class="flex justify-center w-14 h-6">
-                    <p>{{ $totalTableAmount }}</p>
+                    <p>{{ count($totalChildSeats["boosterseat"]) }}</p>
                 </div>
             </div>
 
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
                 <p>Total high chairs:</p>
                 <div class="flex justify-center w-14 h-6">
-                    <p>{{ $totalTableAmount }}</p>
+                    <p>{{ count($totalChildSeats["highchair"]) }}</p>
                 </div>
             </div>
         </div>
