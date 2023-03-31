@@ -18,12 +18,12 @@
                     <x-nav-link :href="route('reservations')" :active="request()->routeIs('reservations')">
                         {{ __('Reservations') }}
                     </x-nav-link>
-                    {{-- <x-nav-link :href="route('tablemanagement')" :active="request()->routeIs('tablemanagement')">
+                    <x-nav-link :href="route('tablemanagement')" :active="request()->routeIs('tablemanagement')">
                         {{ __('Table management')}}
-                    </x-nav-link> --}}
+                    </x-nav-link>
                     <x-nav-link :href="route('waiteroverview')" :active="request()->routeIs('waiteroverview')">
                         {{ __('Waiteroverview') }}
-                    </x-nav-link> -->
+                    </x-nav-link>
                 </div>
             </div>
 
