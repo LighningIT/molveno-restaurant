@@ -12,12 +12,15 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    {{-- <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
                     <x-nav-link :href="route('reservations')" :active="request()->routeIs('reservations')">
                         {{ __('Reservations') }}
                     </x-nav-link>
+                    {{-- <x-nav-link :href="route('tablemanagement')" :active="request()->routeIs('tablemanagement')">
+                        {{ __('Table management')}}
+                    </x-nav-link> --}}
                     <x-nav-link :href="route('waiteroverview')" :active="request()->routeIs('waiteroverview')">
                         {{ __('Waiteroverview') }}
                     </x-nav-link>

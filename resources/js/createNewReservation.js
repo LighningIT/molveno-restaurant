@@ -37,7 +37,6 @@ checkBtn.addEventListener('click', (event) => {
 
     if (event.target.id == 'checkBtn') {
         if (info.style.display == "flex"){
-            // info.style.display = "none";
             reservationBtn.innerHTML = plusIcon;
             return;
         }
@@ -53,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 async function checkPlaces() {
-    let res = await axios.get('/reservations/edit', {
+    await axios.get('/reservations/edit', {
         params: {
             'date': check.querySelector('#date').value,
             'time': check.querySelector('#time').value,
@@ -63,20 +62,11 @@ async function checkPlaces() {
     .then(data => {
         tableContainer.innerHTML = '';
         for (const d in data) {
-            let colNum = parseInt(d);
-            let div = document.createElement('div');
-            div.classList.add("flex", "flex-col", "justify-start", "flex-wrap", "items-center", "h-full", "max-h-[87vh]");
-            div.classList.add("col-start-" + colNum);
+            let div =  createGroupedTableContainer(parseInt(d))
 
             data[d].forEach(elem => {
-                let table = document.createElement('div');
-                let p = document.createElement('p');
-                let text = document.createTextNode(elem.id);
-                p.appendChild(text);
-                table.appendChild(p);
-
-                table.classList.add("m-2", "inline-block","w-28", "max-w-1/3", "h-28", "text-white", "dark:text-white",
-                    "flex", "flex-col", "justify-center", "items-center")
+                let table = createGroupedTableElement(elem.id);
+                addGroupedTableClasses(table);
 
                 if (elem.reservation[0] == undefined) {
                     table.classList.add("bg-green-500");
@@ -94,7 +84,28 @@ async function checkPlaces() {
 submitReservationBtn.addEventListener("click", (e) => {
     e.preventDefault();
     submitReservation(e.target.form);
-})
+});
+
+function createGroupedTableContainer(num) {
+    let div = document.createElement('div');
+    div.classList.add("flex", "flex-col", "justify-start", "flex-wrap", "items-center", "h-full", "max-h-[87vh]");
+    div.classList.add("col-start-" + num);
+    return div;
+}
+
+function createGroupedTableElement(element) {
+    let table = document.createElement('div');
+    let p = document.createElement('p');
+    let text = document.createTextNode(element);
+    p.appendChild(text);
+    table.appendChild(p);
+    return  table;
+}
+
+function addGroupedTableClasses(element) {
+    element.classList.add("m-2", "inline-block","w-28", "max-w-1/3", "h-28", "text-white", "dark:text-white",
+                    "flex", "flex-col", "justify-center", "items-center");
+}
 
 async function submitReservation(data) {
     await axios.post('/reservations/edit', data)
