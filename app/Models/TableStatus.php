@@ -12,4 +12,8 @@ class TableStatus extends Model
     public $timestamps = false;
 
     protected $guarded = ['id'];
+
+    public static function getAllStatus() {
+        return TableStatus::get();
+    }
 }

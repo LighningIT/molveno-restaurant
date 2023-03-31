@@ -6,26 +6,62 @@ use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Guest;
 use App\Http\Requests\ReservationRequest;
+use App\Models\GroupedTable;
+use stdClass;
 
 class ReservationController extends Controller
 {
-    public static function create(ReservationRequest $request) {
-        // validate
-        $guest = GuestController::validateGuest($request->guest);
-        $request->reservation->guest_id = Guest::create($guest);
-
+    public static function store(ReservationRequest $request) {
         $validated = $request->validated();
 
-        Reservation::create($validated);
+        $guest = new stdClass();
+        $guest->firstname = htmlspecialchars($validated['firstname']);
+        $guest->lastname = htmlspecialchars($validated['lastname']);
+        $guest->phonenumber = htmlspecialchars($validated['phonenumber']);
+        $guest->hotelguest = !empty($validated['hotel-guest'])
+            ? $validated['hotel-guest'] : false;
 
-        return Reservation::getReservationById($request->reservation->guest_id);
+        $guest_id = GuestController::validateGuest($guest);
+
+        Reservation::store($validated, $guest_id->id);
+
+        return Reservation::getReservationById($guest_id->id);
     }
 
-    public static function update(Request $request) {
-
+    public static function check(Request $request) {
+        return GroupedTable::getGroupedTablesByDate(
+            $request->date,
+            $request->time,
+        );
     }
 
-    public static function destroy(Request $request) {
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Reservation $reservation
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Request $request)
+    {
+        return view('reservationedit',['reservation' => Reservation::getReservationById($request->id)]);
+    }
 
+    public static function update(Request $request, string $id)
+    {
+        Reservation::reservationUpdate($request);
+
+        Guest::guestUpdate($request);
+
+        return redirect()->route('reservations')->with('success','Reservation updated successfully.');;
+    }
+
+    public static function destroy(Request $request, string $id)
+    {
+        $reservationById = Reservation::getReservationById($id);
+
+        Reservation::reservationDelete($id);
+        Guest::guestDelete($reservationById->guest_id);
+
+        return redirect()->route('reservations')->with('success','Reservation deleted successfully.');
     }
 }
