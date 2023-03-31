@@ -6,7 +6,6 @@
     {{-- <input type="date">
     <input type="time"> --}}
 
-    
     <div class="flex justify-between items-center">
         <p class="dark:text-white p-4">Monday 6 march 2023</p>
         <p class="dark:text-white p-4">13:59</p>
