@@ -22,6 +22,7 @@
                         {{ __('Table management')}}
                     </x-nav-link>
                     <x-nav-link :href="route('waiteroverview')" :active="request()->routeIs('waiteroverview')">
+
                         {{ __('Waiteroverview') }}
                     </x-nav-link>
                 </div>
