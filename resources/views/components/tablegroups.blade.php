@@ -1,9 +1,6 @@
- <div {{$attributes->merge(["class" => "m-2 inline-block w-28 max-w-1/3 h-28 text-white dark:text-white tablegroup"])}} data-status-id="{{$statusId}}">
+ <div {{$attributes->merge(["class" => "m-2 inline-block w-28 max-w-1/3 h-28 text-white dark:text-white tablegroup flex flex-col justify-center items-center"])}} data-status-id="{{$statusId}}">
     <p>{{ $id }} </p>
-
-    <p>section: {{ $tableSectionId }} </p>
-    {{-- <p>combined{{ $combined }} </p> --}}
-    {{-- <p>comments: {{ $comments }}</p> --}}
-    <p>chairs: {{ $chairs }}</p>
-    <p>status: {{ $status }}</p>
+    <p>{{ $tableSectionId }} </p>
+    <p>{{ $chairs }}</p>
+    <p>{{ $status }}</p>
 </div>
