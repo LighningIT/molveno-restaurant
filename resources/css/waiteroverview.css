@@ -9,12 +9,27 @@
 
     .waiteroverview {
         display: flex;
+        padding-left: 1rem;
     }
 
     @media (prefers-color-scheme: dark) {
 
-        .theme-a.adaptive {
+        .upperlevel {
             color: #fff;
+            padding-top: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .lowerlevel {
+            color: #fff;
+            padding-top: 1rem;
+            padding-left: 0.8rem;
+        }
+
+        .terrace {
+            color: #fff;
+            padding-top: 1rem;
+            padding-left: 1.5rem;
         }
 
     }
