@@ -37,7 +37,6 @@ checkBtn.addEventListener('click', (event) => {
 
     if (event.target.id == 'checkBtn') {
         if (info.style.display == "flex"){
-            info.style.display = "none";
             reservationBtn.innerHTML = plusIcon;
             return;
         }
@@ -48,7 +47,6 @@ checkBtn.addEventListener('click', (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log(reservationContainer.children)
     reservationContainer.style.display = "none";
 })
 
@@ -110,7 +108,10 @@ function addGroupedTableClasses(element) {
 }
 
 async function submitReservation(data) {
-    // emptyErrorFields(reservationContainer.form)
+    Array.from(info.children).forEach(child => {
+        child.classList == "form-error" ? emptyErrorFields(child) : "";
+     });
+
     await axios.post('/reservations/edit', data)
         .then(() => {
             reservationBtn.click();
@@ -134,12 +135,13 @@ function newNotification(message) {
 
 function fillErrorFields(response) {
     for(let res in response.errors) {
+        if (document.getElementById(res + "-error"))
         document.getElementById(res + "-error").innerHTML = response.errors[res]
     }
 }
 
 function emptyErrorFields(form) {
-    const errors = form.querySelectorAll('.form-error');
-    errors.forEach(elem => elem.innerHTML = '');
+    console.log(form);
+    // Array.from(form.children).forEach(elem => console.log(elem) /* elem.innerHTML = '' */);
 
 }
