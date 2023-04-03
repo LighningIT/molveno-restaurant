@@ -17,7 +17,7 @@
             </div>
             <div class="mx-auto text-center">
                 <button type="button" id="checkBtn" name="checkBtn"
-                class="bg-blue-600 px-4 py-2 m-1 mr-2 text-white rounded hover:bg-molveno-lightBlue
+                class="bg-molveno-blue px-4 py-2 m-1 mr-2 text-white rounded hover:bg-molveno-lightBlue
                     dark:text-white justify-start cursor-pointer">
                     Check
                 </button>
