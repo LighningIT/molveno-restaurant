@@ -48,6 +48,7 @@ checkBtn.addEventListener('click', (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+    console.log(reservationContainer.children)
     reservationContainer.style.display = "none";
 })
 
@@ -79,6 +80,7 @@ async function checkPlaces() {
             tableContainer.appendChild(div);
         }
     })
+    .catch(error => console.log(error.response))
 }
 
 submitReservationBtn.addEventListener("click", (e) => {
@@ -108,10 +110,14 @@ function addGroupedTableClasses(element) {
 }
 
 async function submitReservation(data) {
+    // emptyErrorFields(reservationContainer.form)
     await axios.post('/reservations/edit', data)
         .then(() => {
             reservationBtn.click();
             newNotification("Reservation created");
+        })
+        .catch((error) => {
+            fillErrorFields(error.response.data);
         });
 }
 
@@ -124,4 +130,16 @@ function newNotification(message) {
     setTimeout(() => {
         document.body.removeChild(div);
     }, 5000);
+}
+
+function fillErrorFields(response) {
+    for(let res in response.errors) {
+        document.getElementById(res + "-error").innerHTML = response.errors[res]
+    }
+}
+
+function emptyErrorFields(form) {
+    const errors = form.querySelectorAll('.form-error');
+    errors.forEach(elem => elem.innerHTML = '');
+
 }
