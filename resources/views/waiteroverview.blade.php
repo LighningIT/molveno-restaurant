@@ -4,9 +4,9 @@
 
     <!-- <div class="col-span-full grid grid-cols-9 m-1 mr-4 text-lg text-center leading-loose"> -->
     <div class="levelandterrace">
-        <span class="dark:text-white">Upper Level</span>
-        <span class="dark:text-white">Lower Level</span>
-        <span class="dark:text-white">Terrace</span>
+        <span class="upperlevel">Upper Level</span>
+        <span class="lowerlevel">Lower Level</span>
+        <span class="terrace">Terrace</span>
     </div>
     <div class="waiteroverview">
         @foreach ($tables as $table)
@@ -21,7 +21,7 @@
                                 @php($statusColor = "bg-red-600")
                             @endif
                         @endif
-                        <x-table-groups-waiter
+                        <x-waiter-table-groups
                         class="<?php echo $statusColor; ?> p-4 w-auto h-auto"
                         :id="$t->id"
                         :tableSectionId="$t->table_section_id"

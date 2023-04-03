@@ -5,12 +5,17 @@
 
     .levelandterrace {
         display: flex;
-        justify-content: space-around;
-        padding: 1rem;
     }
 
     .waiteroverview {
         display: flex;
-        width: 10rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+
+        .theme-a.adaptive {
+            color: #fff;
+        }
+
     }
 }
