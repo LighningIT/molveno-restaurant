@@ -5,22 +5,22 @@ const allGroupedTables = Array.from(document.getElementsByClassName('tablegroup'
 document.addEventListener('DOMContentLoaded',() => {
     allGroupedTables.forEach(elem => {
         elem.addEventListener('click', (event) => {
-            sendUpdateStatus(event.target.parentElement)
+            sendUpdateStatus(event.target.closest("div"))
         })
-    }) 
+    })
 })
 
 function sendUpdateStatus(element) {
+    console.log(element);
     const data = {
         id: element.children[0].textContent,
         statusId: element.dataset.statusId,
     }
     axios.post("/reservations", data)
     .then(response => {
-        console.log(response)
         if (response.status == 200) {
             element.dataset.statusId = response.data.id;
-            element.children[3].textContent = response.data.status
+            // element.children[3].textContent = response.data.status
 
             if (response.data.id == 1) {
                 element.classList.remove("bg-red-600", "bg-orange-500");

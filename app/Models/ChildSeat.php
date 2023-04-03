@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ChildSeat extends Model
 {
     use HasFactory;
+
+    public static function getAllChildSeats() {
+        $seats = ChildSeat::get();
+        return $seats->groupBy('type');
+    }
 }

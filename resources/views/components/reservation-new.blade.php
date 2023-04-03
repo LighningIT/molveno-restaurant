@@ -30,6 +30,14 @@
                 <input type="number" id="num-persons"
                     name="num_persons" value="1" />
             </div>
+
+            <div>
+                <button type="button" id="checkBtn" name="checkBtn">check</button>
+            </div>
+        </div>
+
+        <div id="information" class="hidden">
+
             <div>
                 <label for="hotel-guest" class="block text-center">Guest hotel</label>
                 <input type="text" id="hotel-guest" name="guest">

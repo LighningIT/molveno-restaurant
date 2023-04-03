@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use App\Models\TableStatus;
 
 class GroupedTable extends Model
 {
@@ -31,12 +30,15 @@ class GroupedTable extends Model
     public static function getAllTable() {
         $start = Carbon::now()->subHours(2);
         $end = Carbon::now()->addHours(2);
-        $st = TableStatus::get();
         $tables = GroupedTable::with(['reservation' => fn($query) => $query->whereBetween('reservation_time', [$start, $end])])
             ->with('status')
             ->get();
-        // $tables->append($st);
         return $tables->groupBy('table_section_id');
+    }
+
+    public static function getChairsAsc()
+    {
+        return GroupedTable::orderBy('chairs', 'asc')->get();
     }
 
     public static function getGroupedTablesByDate($date, $time) {
@@ -52,8 +54,7 @@ class GroupedTable extends Model
     }
 
     public static function updateStatus($id, $statusId) {
-       
-        GroupedTable::where("id", $id)->update(["status_id" => $statusId], );
+        GroupedTable::where("id", $id)->update(["status_id" => $statusId]);
         return TableStatus::where("id", $statusId)->first();
     }
 }
