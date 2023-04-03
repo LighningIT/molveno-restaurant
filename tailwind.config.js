@@ -13,6 +13,15 @@ module.exports = {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                molveno: {
+                    lightestBlue: '#68b6da',
+                    lightBlue: '#309bcf',
+                    blue: '#0084c4',
+                    darkBlue: '#006ead',
+                    darkestBlue: '#005693'
+                }
+            }
         },
     },
 
