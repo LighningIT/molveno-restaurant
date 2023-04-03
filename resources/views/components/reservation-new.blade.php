@@ -34,9 +34,6 @@
             <div>
                 <button type="button" id="checkBtn" name="checkBtn">check</button>
             </div>
-        </div>
-
-        <div id="information" class="hidden">
 
             <div>
                 <label for="hotel-guest" class="block text-center">Guest hotel</label>
