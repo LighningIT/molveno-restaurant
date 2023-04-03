@@ -32,10 +32,6 @@
             </div>
 
             <div>
-                <button type="button" id="checkBtn" name="checkBtn">check</button>
-            </div>
-
-            <div>
                 <label for="hotel-guest" class="block text-center">Guest hotel</label>
                 <input type="text" id="hotel-guest" name="guest">
             </div>
