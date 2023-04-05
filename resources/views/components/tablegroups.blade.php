@@ -13,5 +13,5 @@
             {{ $chairs }}
         </span>
     </p>
-    
+
 </div>

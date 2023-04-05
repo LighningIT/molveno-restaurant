@@ -23,7 +23,7 @@ module.exports = {
                 }
             },
             gridTemplateColumns: {
-                reservation: "repeat(3, auto)"
+                reservation: "1fr 2fr 3fr .5fr"
             }
         },
     },

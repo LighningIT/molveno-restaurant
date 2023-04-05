@@ -14,9 +14,9 @@
             <span class="justify-center ml-2">Upcoming Reservations</span>
         </span>
         <div class="col-span-10 grid grid-cols-reservation gap-4">
-            <span class="dark:text-white">Upper Level</span>
-            <span class="dark:text-white">Lower Level</span>
-            <span class="dark:text-white">Terrace</span>
+            <span class="dark:text-white mx-auto text-center inline-block">Upper Level</span>
+            <span class="dark:text-white mx-auto text-center inline-block">Lower Level</span>
+            <span class="dark:text-white mx-auto text-center inline-block">Terrace</span>
         </div>
     </div>
 
@@ -42,7 +42,7 @@
             @endforeach
         </div>
 
-        <div class="grid grid-cols-reservation col-span-10 gap-12 max-h-[87vh] mr-12">
+        <div class="grid grid-cols-reservation col-span-10 gap-28 ml-4 max-h-[87vh] mr-12">
             @foreach ($tables as $table)
                 <div class="flex flex-col flex-wrap justify-start items-center max-h-[87vh] col-start-<?php echo $loop->index + 1;?>" >
                     @foreach ($table as $t)
