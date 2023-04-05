@@ -21,6 +21,9 @@ module.exports = {
                     darkBlue: '#006ead',
                     darkestBlue: '#005693'
                 }
+            },
+            gridTemplateColumns: {
+                reservation: "repeat(3, auto)"
             }
         },
     },
