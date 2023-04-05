@@ -1,0 +1,21 @@
+@media only screen and (max-width: 321px) {
+    nav {
+        width: auto;
+    }
+
+    .levelandterrace {
+        display: flex;
+    }
+
+    .waiteroverview {
+        display: flex;
+    }
+
+    @media (prefers-color-scheme: dark) {
+
+        .theme-a.adaptive {
+            color: #fff;
+        }
+
+    }
+}
