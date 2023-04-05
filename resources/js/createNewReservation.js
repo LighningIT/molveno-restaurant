@@ -37,23 +37,21 @@ checkBtn.addEventListener('click', (event) => {
 
     if (event.target.id == 'checkBtn') {
         if (info.style.display == "flex"){
-            
             reservationBtn.innerHTML = plusIcon;
-            return;
+        } else {
+            info.style.display = "flex";
         }
-        info.style.display = "flex";
 
-        checkPlaces();
+        checkPlaces('/reservations/edit');
     }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log(reservationContainer.children)
     reservationContainer.style.display = "none";
 })
 
-async function checkPlaces() {
-    await axios.get('/reservations/edit', {
+async function checkPlaces(url) {
+    await axios.get(url, {
         params: {
             'date': check.querySelector('#date').value,
             'time': check.querySelector('#time').value,
@@ -61,18 +59,24 @@ async function checkPlaces() {
     })
     .then(response => response.data)
     .then(data => {
+        console.log(data);
         tableContainer.innerHTML = '';
         for (const d in data) {
             let div =  createGroupedTableContainer(parseInt(d))
 
             data[d].forEach(elem => {
-                let table = createGroupedTableElement(elem.id);
+                let table = createGroupedTableElement(elem.id, elem.chairs);
                 addGroupedTableClasses(table);
 
                 if (elem.reservation[0] == undefined) {
-                    table.classList.add("bg-green-500");
+                    table.classList.add("border-green-600");
                 } else {
-                    table.classList.add("bg-red-600");
+                    if (Date.parse(elem.reservation[0].reservation_time) > Date.parse(Date()) ) {
+                        table.classList.add("border-amber-700");
+                    } else {
+                        table.classList.add("border-red-600");
+                    }
+
                 }
 
                 div.appendChild(table);
@@ -95,22 +99,37 @@ function createGroupedTableContainer(num) {
     return div;
 }
 
-function createGroupedTableElement(element) {
+function createGroupedTableElement(id, chairs) {
     let table = document.createElement('div');
-    let p = document.createElement('p');
-    let text = document.createTextNode(element);
-    p.appendChild(text);
-    table.appendChild(p);
-    return  table;
+
+    table.appendChild(
+        addGroupedTableRow("http://0.0.0.0:5173/resources/img/table_icon_125938.svg", id));
+
+    table.appendChild(
+        addGroupedTableRow("http://0.0.0.0:5173/resources/img/people.png", chairs));
+
+    return table;
 }
 
 function addGroupedTableClasses(element) {
-    element.classList.add("m-2", "inline-block","w-28", "max-w-1/3", "h-28", "text-white", "dark:text-white",
-                    "flex", "flex-col", "justify-center", "items-center");
+    element.classList.add("m-2", "inline-block","w-28", "max-w-1/3", "h-28","border-8", "border-solid",
+                    "flex", "flex-col", "justify-center", "items-center", "rounded", "bg-slate-200");
+}
+
+function addGroupedTableRow(imgSrc, content) {
+    let p = document.createElement('p');
+    let img = document.createElement('img');
+    img.src = imgSrc;
+    img.classList.add("w-6", "h-6", "inline");
+    let text = document.createTextNode(content);
+
+    p.appendChild(img);
+    p.appendChild(text);
+    return p;
 }
 
 async function submitReservation(data) {
-    // emptyErrorFields(reservationContainer.form)
+    emptyErrorFields(info);
     await axios.post('/reservations/edit', data)
         .then(() => {
             reservationBtn.click();
@@ -123,7 +142,7 @@ async function submitReservation(data) {
 
 function newNotification(message) {
     const div = document.createElement('div');
-    div.classList.add("absolute", "top-5", "w-full", "text-center", "dark:text-white", "py-2", "px-4")
+    div.classList.add("absolute", "top-2", "w-full", "text-center", "dark:text-white", "py-2", "px-4", "text-2xl")
     const text = document.createTextNode(message);
     div.appendChild(text);
     document.body.appendChild(div);
@@ -134,12 +153,12 @@ function newNotification(message) {
 
 function fillErrorFields(response) {
     for(let res in response.errors) {
-        document.getElementById(res + "-error").innerHTML = response.errors[res]
+        document.getElementById(res + "-error").innerText = response.errors[res]
     }
 }
 
 function emptyErrorFields(form) {
     const errors = form.querySelectorAll('.form-error');
-    errors.forEach(elem => elem.innerHTML = '');
+    errors.forEach(elem => elem.innerText = '');
 
 }
