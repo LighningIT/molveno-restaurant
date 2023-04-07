@@ -21,11 +21,11 @@ Route::get("/", function () {
     return view("welcome");
 });
 
-Route::get("/dashboard", function () {
-    return view("dashboard");
+Route::get("/reservations", function () {
+    return view("reservations");
 })
     ->middleware(["auth", "verified"])
-    ->name("dashboard");
+    ->name("reservations");
 
 Route::middleware("auth")->group(function () {
     Route::get("/profile", [ProfileController::class, "edit"])->name(

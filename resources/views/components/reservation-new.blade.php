@@ -1,14 +1,14 @@
 <div id="createReservationContainer"
-    class="hidden absolute w-full h-full    grid-cols-11 max-h-screen
-        bg-gray-100 dark:bg-gray-900 dark:text-white">
+    class="hidden absolute w-full h-full grid-cols-11 max-h-screen
+        bg-gray-100 dark:bg-gray-900">
     <form method="post" action="" enctype="multipart/form-data"
-        class="flex flex-col border border-solid border-black bg-molveno-blue
+        class="flex flex-col border border-solid border-black bg-molveno-lightestBlue dark:bg-molveno-darkestBlue
             dark:border-white dark:text-black">
         @csrf
         <div id="checkForm" class="mx-auto flex flex-col justify-center mb-2 w-72">
             <div class="mx-auto my-4 text-center">
                {{--  <label for="date" class="">date</label> --}}
-                <input type="date" id="date" name="date"
+                <input type="date" id="date" name="date" min="<?= date('Y-m-d')?>"
                     value="<?= date('Y-m-d')?>" />
            {{--  </div>
             <div class="mx-auto text-center">
@@ -26,9 +26,11 @@
 
         <div id="information" class="hidden flex-col justify-center items-center">
             <div class="mx-auto text-center">
-                <label for="num_persons" class="text-center">persons</label>
+                <label for="num_persons" class="text-center">
+                    persons
+                </label>
                 <input type="number" id="num_persons" class="w-20"
-                    name="num_persons" value="1" />
+                    name="num_persons" value="1" min="1" />
 
                 <label for="hotel-guest" class="text-center">Guest hotel</label>
                 <input type="checkbox" id="hotel-guest" name="guest">
@@ -38,20 +40,26 @@
             <div id="hotel-guest-error" class="form-error text-red-500"></div>
 
             <div>
-                <label for="firstname" class="block text-center">First name</label>
-                <input type="text" id="firstname" name="firstname">
+                <label for="firstname" class="block text-center">
+                    First name <x-form-required />
+                </label>
+                <input type="text" id="firstname" name="firstname" required>
             </div>
             <div id="firstname-error" class="form-error text-red-500"></div>
 
             <div>
-                <label for="lastname" class="block text-center">Last name</label>
-                <input type="text" id="lastname" name="lastname">
+                <label for="lastname" class="block text-center">
+                    Last name <x-form-required />
+                </label>
+                <input type="text" id="lastname" name="lastname" required>
             </div>
             <div id="lastname-error" class="form-error text-red-500"></div>
 
             <div>
-                <label for="phonenumber" class="block text-center">phonenumber</label>
-                <input type="text" id="phonenumber" name="phonenumber">
+                <label for="phonenumber" class="block text-center">
+                    phonenumber <x-form-required />
+                </label>
+                <input type="text" id="phonenumber" name="phonenumber" required>
             </div>
             <div id="phonenumber-error" class="form-error text-red-500"></div>
 
@@ -70,7 +78,9 @@
             <div id="comments-error" class="form-error text-red-500"></div>
 
             <div>
-                <label for="tablenumber" class="block text-center">tablenumber</label>
+                <label for="tablenumber" class="block text-center">
+                    tablenumber <x-form-required />
+                </label>
                 <input type="number" placeholder="tablenumber" id="tablenumber" name="tablenumber">
             </div>
             <div id="tablenumber-error" class="form-error text-red-500"></div>
@@ -86,7 +96,7 @@
         </div>
     </form>
 
-    <div id="tableContainer" class="grid grid-cols-3 gap-2 w-full max-h-[87vh]">
+    <div id="tableContainer" class="grid grid-cols-reservation gap-2 w-full max-h-[87vh]">
 
     </div>
 </div>

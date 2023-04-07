@@ -5,16 +5,13 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('reservations') }}">
                         <x-application-logo class="rounded-full w-11 bg-white dark:w-11"/>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    {{-- <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link> --}}
                     <x-nav-link :href="route('reservations')" :active="request()->routeIs('reservations')">
                         {{ __('Reservations') }}
                     </x-nav-link>
@@ -22,7 +19,6 @@
                         {{ __('Table management')}}
                     </x-nav-link>
                     {{-- <x-nav-link :href="route('waiteroverview')" :active="request()->routeIs('waiteroverview')">
-
                         {{ __('Waiteroverview') }}
                     </x-nav-link> --}}
                 </div>
@@ -77,8 +73,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-responsive-nav-link :href="route('reservations')" :active="request()->routeIs('reservations')">
+                {{ __('reservations') }}
             </x-responsive-nav-link>
         </div>
 
