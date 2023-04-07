@@ -21,6 +21,9 @@ module.exports = {
                     darkBlue: '#006ead',
                     darkestBlue: '#005693'
                 }
+            },
+            gridTemplateColumns: {
+                reservation: "1fr 2fr 3fr .5fr"
             }
         },
     },
