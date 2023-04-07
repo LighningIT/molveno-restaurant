@@ -106,7 +106,7 @@ function createGroupedTableElement(id, chairs) {
         addGroupedTableRow("http://0.0.0.0:5173/resources/img/table_icon_125938.svg", id));
 
     table.appendChild(
-        addGroupedTableRow("http://0.0.0.0:5173/resources/img/people.png", chairs));
+        addGroupedTableRow("http://0.0.0.0:5173/resources/img/persons.svg", chairs));
 
     return table;
 }

@@ -39,7 +39,6 @@ Route::middleware("auth")->group(function () {
     );
 });
 
-
 Route::middleware('auth')->controller(ReservationController::class)->group(function() {
     Route::get('/reservations/edit', 'check');
     Route::post('/reservations/edit', 'store');
