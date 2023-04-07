@@ -16,11 +16,11 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div class="flex flex-col bottom-0 items-center font-bold relative mb-8">
-                <h1 class="text-gray-900 dark:text-white text-6xl z-10 txt-shadow dark:txt-shadow-white">Molveno Lake Resort</h1>
-                <div class="absolute bottom-1 dark:bg-white rounded-full flex justify-center w-44 h-44">
+            <div class="flex flex-col justify-between items-center font-bold">
+                <div class="dark:bg-white rounded-full flex justify-center w-44 h-44">
                     <x-application-logo class="w-44 h-44 mt-2"/>
                 </div>
+                <h1 class="text-molveno-darkestBlue dark:text-white text-6xl z-10  dark:py-4">Molveno Lake Resort</h1>
             </div>
 
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-molveno-darkBlue dark:bg-molveno-darkestBlue shadow-md overflow-hidden sm:rounded-lg">
