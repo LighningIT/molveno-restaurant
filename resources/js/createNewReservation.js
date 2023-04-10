@@ -160,5 +160,4 @@ function fillErrorFields(response) {
 function emptyErrorFields(form) {
     const errors = form.querySelectorAll('.form-error');
     errors.forEach(elem => elem.innerText = '');
-
 }
