@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/createNewReservation.js',
                 'resources/js/updateTableStatus.js',
+                'resources/js/loginPasswordField.js',
             ],
             refresh: true,
         }),
