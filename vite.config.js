@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/js/groupedTableManagement.js',
                 'resources/js/app.js',
                 'resources/js/createNewReservation.js',
+                'resources/js/checkInReservation.js',
                 'resources/js/updateTableStatus.js',
                 'resources/js/loginPasswordField.js',
             ],

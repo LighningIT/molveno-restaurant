@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    @vite(['resources/js/createNewReservation.js', 'resources/js/updateTableStatus.js'])
+    @vite(['resources/js/createNewReservation.js', 'resources/js/updateTableStatus.js', 'resources/js/checkInReservation.js'])
     {{-- <x-slot name="header">  <x-reservation-toolbar /> </x-slot> --}}
     <div class="col-span-full grid grid-cols-12 m-1 mr-4 text-lg text-center leading-loose">
         <span class="dark:text-white flex items-center col-span-2">
@@ -30,7 +30,7 @@
 <div class="grid grid-cols-12 h-full max-h-[95vh]">
 
         <x-reservation-new />
-        <div class="dark:text-white h-full max-h-[87vh] overflow-scroll col-span-2">
+        <div id="reservationsContainer" class="dark:text-white h-full max-h-[87vh] overflow-scroll col-span-2">
             @foreach ($reservations as $reservation)
                 <x-reservation-item
                 :guest="strtoupper($reservation->guest->firstname[0]) . '. ' . $reservation->guest->lastname"
@@ -68,7 +68,7 @@
                         :comments="$t->comments"
                         :chairs="$t->chairs"
                         :status="$st"
-                        :statusId="$t->status_id" />
+                        {{-- :statusId="$t->status_id" --}} />
                     @endforeach
                 </div>
 

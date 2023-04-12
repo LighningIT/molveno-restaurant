@@ -59,7 +59,6 @@ async function checkPlaces(url) {
     })
     .then(response => response.data)
     .then(data => {
-        console.log(data);
         tableContainer.innerHTML = '';
         for (const d in data) {
             let div =  createGroupedTableContainer(parseInt(d))

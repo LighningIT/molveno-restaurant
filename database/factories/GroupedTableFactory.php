@@ -21,7 +21,7 @@ class GroupedTableFactory extends Factory
             'combined' => false,
             'comments' => fake()->sentence(),
             'chairs' => 2,
-            'status_id' => 1,
+            // 'status_id' => 1,
         ];
     }
 }
