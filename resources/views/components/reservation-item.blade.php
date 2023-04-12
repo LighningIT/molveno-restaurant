@@ -23,8 +23,8 @@
             </p>
         </div>
     </div>
-    <div class="flex items-center gap-3 mt-2">
-        <div class="flex justify-evenly gap-4">
+    <div class="flex items-center gap-3 mt-2 w-full">
+        <div class="flex justify-evenly gap-4 w-full">
             <div class="flex flex-col justify-center gap-1 w-fit">
                 <a class="bg-molveno-blue hover:bg-molveno-lightBlue px-4 py-2 text-white rounded
                 dark:text-white justify-start cursor-pointer" href="{{ route('reservationpages' , ['id' => $reservationId]) }}">
@@ -34,7 +34,7 @@
                 </a>
             </div>
 
-            <button class="ml-2 border border-white border-solid rounded py-1 px-4" data-btn="check-in" for="checkedIn">Check-in</button>
+            <button class="border border-white border-solid rounded py-1 px-4 bg-molveno-darkBlue hover:bg-molveno-lightBlue" data-btn="check-in" for="checkedIn">Check-in</button>
 
             <form action="/reservations/edit{{$reservationId}}" method="POST" class="deleteReservation">
                 @csrf

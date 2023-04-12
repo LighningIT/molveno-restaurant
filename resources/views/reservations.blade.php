@@ -5,7 +5,7 @@
 
     <div class="col-span-full grid grid-cols-12 m-1 mr-4 text-lg text-center leading-loose">
         <span class="dark:text-white flex items-center col-span-2">
-            <button class="bg-blue-600 px-4 py-2 m-1 mr-2 text-white rounded hover:bg-molveno-lightBlue
+            <button class="bg-molveno-darkBlue px-4 py-2 m-1 mr-2 text-white rounded hover:bg-molveno-lightBlue
             dark:text-white justify-start cursor-pointer"
             id="createReservationBtn">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
