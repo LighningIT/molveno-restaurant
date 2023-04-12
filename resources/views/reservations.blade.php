@@ -22,9 +22,10 @@
     </div>
 
     <div class="absolute top-4 text-3xl w-full">
-    @if (!empty(session()->get('success')))
+    @if (session('success'))
         <div class="text-center dark:text-white">
-            <p>{{ session()->get('success') }}</p>
+            <p>{{ session()->pull('success', '') }}</p>
+
         </div>
     @endif
 </div>
@@ -65,10 +66,11 @@
                         @php($st = $status[0]->status)
                         @if(!empty($t->reservation[0]))
                             @php(date_default_timezone_set('Europe/Amsterdam'))
-                            @if (strtotime(date("Y-m-d H:i")) < strtotime($t->reservation[0]->reservation_time))
+
+                            @if (date("Y-m-d H:i") < date($t->reservation[0]->reservation_time))
                                 @php($statusColor = "border-amber-700")
                                 @php($st = $status[2]->status)
-                            @elseif (strtotime(date("Y-m-d H:i")) > strtotime($t->reservation[0]->reservation_time))
+                            @elseif (date("Y-m-d H:i") > date($t->reservation[0]->reservation_time))
                                 @php($statusColor = "border-red-600")
                                 @php($st = $status[1]->status)
                             @endif
