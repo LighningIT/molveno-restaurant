@@ -2,7 +2,7 @@
 
     @vite(['resources/js/createNewReservation.js', 'resources/js/updateTableStatus.js',
         'resources/js/checkInReservation.js', 'resources/js/confirmDelete.js'])
-    {{-- <x-slot name="header">  <x-reservation-toolbar /> </x-slot> --}}
+
     <div class="col-span-full grid grid-cols-12 m-1 mr-4 text-lg text-center leading-loose">
         <span class="dark:text-white flex items-center col-span-2">
             <button class="bg-blue-600 px-4 py-2 m-1 mr-2 text-white rounded hover:bg-molveno-lightBlue
@@ -21,9 +21,9 @@
         </div>
     </div>
 
-    <div class="absolute top-2 text-2xl w-full">
+    <div class="absolute top-4 text-3xl w-full">
     @if (!empty(session()->get('success')))
-        <div class="text-center">
+        <div class="text-center dark:text-white">
             <p>{{ session()->get('success') }}</p>
         </div>
     @endif
