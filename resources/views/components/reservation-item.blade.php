@@ -36,7 +36,7 @@
 
             <button class="ml-2 border border-white border-solid rounded py-1 px-4" data-btn="check-in" for="checkedIn">Check-in</button>
 
-            <form action="/reservations/edit{{$reservationId}}" method="POST">
+            <form action="/reservations/edit{{$reservationId}}" method="POST" id="deleteReservation">
                 @csrf
                 @method('DELETE')
                 <button type="submit"

@@ -1,6 +1,7 @@
 <x-app-layout>
 
-    @vite(['resources/js/createNewReservation.js', 'resources/js/updateTableStatus.js', 'resources/js/checkInReservation.js'])
+    @vite(['resources/js/createNewReservation.js', 'resources/js/updateTableStatus.js',
+        'resources/js/checkInReservation.js', 'resources/js/confirmDelete.js'])
     {{-- <x-slot name="header">  <x-reservation-toolbar /> </x-slot> --}}
     <div class="col-span-full grid grid-cols-12 m-1 mr-4 text-lg text-center leading-loose">
         <span class="dark:text-white flex items-center col-span-2">
@@ -30,6 +31,19 @@
 <div class="grid grid-cols-12 h-full max-h-[95vh]">
 
         <x-reservation-new />
+
+        <x-popup-modal class="flex flex-col gap-10" id="deleteModal">
+
+            <p class="pt-8">Are you certain you wish to delete this reservation?</p>
+
+            <div class="flex flex-row justify-around">
+                <button class='bg-red-600 hover:bg-red-500 px-4 py-2 text-white rounded align-middle justify-start cursor-pointer'>
+                    Delete
+                </button>
+            </div>
+
+        </x-popup-modal>
+
         <div id="reservationsContainer" class="dark:text-white h-full max-h-[87vh] overflow-scroll col-span-2">
             @foreach ($reservations as $reservation)
                 <x-reservation-item
