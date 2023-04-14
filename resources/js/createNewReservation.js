@@ -59,7 +59,6 @@ async function checkPlaces(url) {
     })
     .then(response => response.data)
     .then(data => {
-        console.log(data);
         tableContainer.innerHTML = '';
         for (const d in data) {
             let div =  createGroupedTableContainer(parseInt(d))
@@ -130,6 +129,7 @@ function addGroupedTableRow(imgSrc, content) {
 
 async function submitReservation(data) {
     emptyErrorFields(info);
+    
     await axios.post('/reservations/edit', data)
         .then(() => {
             reservationBtn.click();
@@ -153,12 +153,13 @@ function newNotification(message) {
 
 function fillErrorFields(response) {
     for(let res in response.errors) {
-        document.getElementById(res + "-error").innerText = response.errors[res]
+        if (document.getElementById(res + "-error")) {
+          document.getElementById(res + "-error").innerText = response.errors[res];
+        }
     }
 }
 
 function emptyErrorFields(form) {
     const errors = form.querySelectorAll('.form-error');
     errors.forEach(elem => elem.innerText = '');
-
 }
