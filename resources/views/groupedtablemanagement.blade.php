@@ -80,9 +80,9 @@
 </div>
 
 Delete Table Group modal
-<x-popup-modal class="flex flex-col gap-10" id="deleteModal">
+{{-- <x-popup-modal class="flex flex-col gap-10" id="deleteModal">
 
-    <p class="pt-8">Are you certain you wish to delete this table group?</p>
+    <p class="pt-8 dark:text-white text-black">Are you certain you wish to delete this table group?</p>
 
     <div class="flex flex-row justify-around">
         <button class='bg-red-600 hover:bg-red-500 px-4 py-2 text-white rounded align-middle justify-start cursor-pointer'>
@@ -90,6 +90,36 @@ Delete Table Group modal
         </button>
     </div>
 
+</x-popup-modal> --}}
+
+<x-popup-modal class="flex flex-col gap-10 dark:text-white text-black" id="editModal">
+
+    <form action="">
+
+        <h2>Edit Table</h2>
+
+        {{-- <p>ID: {{ $tableID }} </p> --}}
+
+        <p>Merge Table</p>
+
+        {{-- <p>Current Table: {{ $tableID }}</p> --}}
+
+        <label for="">Table ID</label>
+        <input class="text-black" type="number">
+
+    </form>
+
+    <div class="flex flex-row justify   -around">
+        <button class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer'>
+            <p>Update</p>
+        </button>
+    </div>
+
 </x-popup-modal>
 
-        </x-app-layout>
+{{-- <x-popup-modal class="flex flex-col gap-10" id="editModal">
+</x-popup-modal>
+
+<x-popup-modal class="flex flex-col gap-10" id="editModal">
+</x-popup-modal> --}}
+</x-app-layout>
