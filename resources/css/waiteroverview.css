@@ -1,6 +1,17 @@
 @media only screen and (max-width: 321px) {
-    nav {
-        width: auto;
+
+    .detailbutton {
+        background: #309bcf;
+        padding: 0.5rem;
+    }
+
+    .peoplep {
+        display: flex;
+    }
+
+    .peopleimg {
+        width: 1.5rem;
+        margin-bottom: 0.5rem;
     }
 
     .levelandterrace {
@@ -9,28 +20,113 @@
 
     .waiteroverview {
         display: flex;
-        padding-left: 1rem;
     }
 
-    @media (prefers-color-scheme: dark) {
-
-        .upperlevel {
-            color: #fff;
-            padding-top: 1rem;
-            padding-left: 1.5rem;
-        }
-
-        .lowerlevel {
-            color: #fff;
-            padding-top: 1rem;
-            padding-left: 0.8rem;
-        }
-
-        .terrace {
-            color: #fff;
-            padding-top: 1rem;
-            padding-left: 1.5rem;
-        }
-
+    .upperlevel {
+        padding-top: 1rem;
+        padding-left: 0.8rem;
+        padding-bottom: 0.5rem;
     }
+
+    .lowerlevel {
+        padding-top: 1rem;
+        padding-left: 1.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .terrace {
+        padding-top: 1rem;
+        padding-left: 2.4rem;
+        padding-bottom: 0.5rem;
+    } 
+
+}
+
+@media (prefers-color-scheme: dark) {
+
+    .detailbutton {
+        background: #005693;
+        padding: 0.5rem;
+    }
+
+    .peoplep {
+        display: flex;
+    }
+
+    .peopleimg {
+        width: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .levelandterrace {
+        display: flex;
+    }
+
+    .waiteroverview {
+        display: flex;
+    }
+
+    .upperlevel {
+        color: white;
+        padding-top: 1rem;
+        padding-left: 0.8rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .lowerlevel {
+        color: white;
+        padding-top: 1rem;
+        padding-left: 1.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .terrace {
+        color: white;
+        padding-top: 1rem;
+        padding-left: 2.4rem;
+        padding-bottom: 0.5rem;
+    } 
+}
+
+@media only screen and (min-width: 321px) {
+
+    .detailbutton {
+        background: #309bcf;
+        padding: 0.5rem;
+    }
+
+    .peoplep {
+        display: flex;
+    }
+
+    .peopleimg {
+        width: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .levelandterrace {
+        display: flex;
+    }
+
+    .waiteroverview {
+        display: flex;
+    }
+
+    .upperlevel {
+        padding-top: 1rem;
+        padding-left: 0.8rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .lowerlevel {
+        padding-top: 1rem;
+        padding-left: 1.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .terrace {
+        padding-top: 1rem;
+        padding-left: 2.4rem;
+        padding-bottom: 0.5rem;
+    } 
 }

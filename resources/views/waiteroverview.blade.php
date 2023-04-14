@@ -8,32 +8,37 @@
         <span class="lowerlevel">Lower Level</span>
         <span class="terrace">Terrace</span>
     </div>
+
     <div class="waiteroverview">
-        @foreach ($tables as $table)
-            <div class="<?php echo $loop->index + 1; ?>">
-                @foreach ($table as $t)
-                    @php($statusColor = "bg-green-500")
+            @foreach ($tables as $table)
+                <div class="-<?php echo $loop->index + 1;?>" >
+                    @foreach ($table as $t)
+
+                        @php($statusColor = "border-green-600")
+                        @php($st = $status[0]->status)
                         @if(!empty($t->reservation[0]))
                             @php(date_default_timezone_set('Europe/Amsterdam'))
                             @if (strtotime(date("Y-m-d H:i")) < strtotime($t->reservation[0]->reservation_time))
-                                @php($statusColor = "bg-orange-500")
+                                @php($statusColor = "border-amber-700")
+                                @php($st = $status[2]->status)
                             @elseif (strtotime(date("Y-m-d H:i")) > strtotime($t->reservation[0]->reservation_time))
-                                @php($statusColor = "bg-red-600")
+                                @php($statusColor = "border-red-600")
+                                @php($st = $status[1]->status)
                             @endif
                         @endif
+
                         <x-waiter-table-groups
-                        class="<?php echo $statusColor; ?> p-4 w-auto h-auto"
+                        class="<?php echo $statusColor; ?>"
                         :id="$t->id"
                         :tableSectionId="$t->table_section_id"
                         :combined="$t->combined"
                         :comments="$t->comments"
                         :chairs="$t->chairs"
-                        />
-                    
+                        :status="$st"
+                        :statusId="$t->status_id" />
+                    @endforeach
+                </div>
                 @endforeach
             </div>
-            @endforeach
-        </div>
-    </div>
 
 </x-app-layout>

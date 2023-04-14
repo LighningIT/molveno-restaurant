@@ -68,4 +68,10 @@ Route::middleware("auth")
 
 Route::middleware('auth')->get('/waiteroverview', [OrderController::class,'getAllTable'])->name('waiteroverview');
 
+Route::get("/orderoverview", function () {
+    return view("orderoverview");
+})
+    ->middleware(["auth", "verified"])
+    ->name("orderoverview");
+
 require __DIR__ . "/auth.php";
