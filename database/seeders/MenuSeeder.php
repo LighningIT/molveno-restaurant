@@ -12,6 +12,22 @@ class MenuSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        for($i = 0; $i < 14; $i++) {
+            Menu::factory()->create([
+                "category_id" => $i + 1
+            ]);
+        }
+
+        for($i = 0; $i < 4; $i++) {
+            Menu::factory()->create([
+                "meal_type_id" => $i + 1
+            ]);
+        }
+
+        for($i = 0; $i < 4; $i++) {
+            Menu::factory()->create([
+                "meal_item_id" => $i + 1
+            ]);
+        }
     }
 }

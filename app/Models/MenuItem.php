@@ -11,4 +11,8 @@ class MenuItem extends Model
 
     protected $guarded = ['id'];
 
+    public static function getMenuItem() {
+        return MenuItem::get();
+    }
+
 }

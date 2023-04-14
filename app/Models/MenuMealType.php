@@ -13,5 +13,7 @@ class MenuMealType extends Model
 
     protected $guarded = ['id'];
 
-
+    public static function getMenuMealType() {
+        return MenuMealType::get();
+    }
 }

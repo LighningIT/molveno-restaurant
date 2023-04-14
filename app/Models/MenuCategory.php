@@ -13,4 +13,8 @@ class MenuCategory extends Model
 
     protected $guarded = ['id'];
 
+    public static function getMenuCategories() {
+        return MenuCategory::get();
+    }
+
 }

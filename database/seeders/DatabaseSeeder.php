@@ -21,7 +21,11 @@ class DatabaseSeeder extends Seeder
             TableStatusSeeder::class,
             GroupedTableSeeder::class,
             TableSeeder::class,
-            ReservationSeeder::class
+            ReservationSeeder::class,
+            MenuCategorySeeder::class,
+            MenuItemSeeder::class,
+            MenuMealTypeSeeder::class
+            // MenuSeeder::class
         ]);
 
 
