@@ -8,7 +8,7 @@
         </span>
      </p>
     <p>
-        <img class="w-6 h-6 inline" src="{{ Vite::asset('resources/img/people.png') }}" alt="table SVG"/>
+        <img class="w-6 h-6 inline" src="{{ Vite::asset('resources/img/persons.svg') }}" alt="table SVG"/>
         <span class="ml-2">
             {{ $chairs }}
         </span>
