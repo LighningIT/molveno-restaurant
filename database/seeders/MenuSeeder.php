@@ -19,11 +19,12 @@ class MenuSeeder extends Seeder
         //     ]);
         // }
 
-        for($i = 0; $i < 4; $i++) {
-            Menu::factory()->create([
+        //for($i = 0; $i < 4; $i++) {
+            Menu::factory(1)->create();
+                /* [
                 "meal_type_id" => $i + 1
             ]);
-        }
+        } */
 
         // for($i = 0; $i < 4; $i++) {
         //     Menu::factory()->create([

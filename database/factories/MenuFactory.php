@@ -18,7 +18,7 @@ class MenuFactory extends Factory
     {
         return [
             // 'category_id' => 1,
-            'meal_type_id' => 1,
+            // 'meal_type_id' => 1,
             // 'menu_item_id' => 1
         ];
     }

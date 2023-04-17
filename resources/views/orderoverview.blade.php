@@ -6,28 +6,30 @@
     <h2>Menu</h2>
 </div>
 
-<div class="tablemenudiv">
+<div class="tablemenudiv dark:text-white">
     <table>
         <tr>
             <th>Mealtype</th>
             <th>Category</th>
-            <th>item</th>       
+            <th>item</th>
         </tr>
         <tbody>
+
             @foreach($menu as $m)
-            <tr>
-                @foreach($m as $item)
-                {{ dd($m) }}
-                <td></td>
-                <td></td>
-                <td>{{ $item->name}}</td>
+                {{-- {{ dd()}} --}}
+                @foreach($m->getRelations()['menuMealType'] as $item)
+                <tr>
+                    {{ dd($item) }}
+                   {{--  <td>{{ $m[0]->name}}</td>
+                    <td>{{ $m[1]->name }}</td>
+                    <td>{{ $m[2]->name}}</td> --}}
+                </tr>
                 @endforeach
-            </tr>
             @endforeach
         </tbody>
         <tr>
         </tr>
-    </table>      
+    </table>
 </div>
 
 </x-app-layout>

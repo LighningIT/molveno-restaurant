@@ -18,7 +18,7 @@ class MenuCategoryFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'menu_items_id' => 1
+            'meal_types_id' => 1
         ];
     }
 }
