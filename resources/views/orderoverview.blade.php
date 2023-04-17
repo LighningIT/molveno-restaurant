@@ -7,29 +7,30 @@
 </div>
 
 <div class="tablemenudiv dark:text-white">
-    <table>
-        <tr>
-            <th>Mealtype</th>
-            <th>Category</th>
-            <th>item</th>
-        </tr>
-        <tbody>
-
-            @foreach($menu as $m)
-                {{-- {{ dd()}} --}}
-                @foreach($m->getRelations()['menuMealType'] as $item)
+    @foreach($menu as $m)
+        <table>
+            <thead>
                 <tr>
-                    {{ dd($item) }}
-                   {{--  <td>{{ $m[0]->name}}</td>
-                    <td>{{ $m[1]->name }}</td>
-                    <td>{{ $m[2]->name}}</td> --}}
+                    <th>Mealtype</th>
+                    <th>Category</th>
+                    <th>item</th>
                 </tr>
-                @endforeach
-            @endforeach
+            </thead>
+        @foreach($m->getRelations()['menuMealType'] as $item)
+        <tbody>
+            <tr>
+                <td>
+                    {{ $item }}
+                </td>
+                {{--  <td>{{ $m[0]->name}}</td>
+                <td>{{ $m[1]->name }}</td>
+                <td>{{ $m[2]->name}}</td> --}}
+            </tr>
         </tbody>
-        <tr>
-        </tr>
-    </table>
+        @endforeach
+
+        </table>
+    @endforeach
 </div>
 
 </x-app-layout>
