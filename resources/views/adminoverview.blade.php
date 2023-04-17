@@ -26,13 +26,14 @@
             <tbody id="user-table">
             @foreach ($users as $user)
                 <tr>
-                    <td>{{ $user->id }}</td>
+                    <td><input type="text" size="5" disabled value="{{$user->id}}"
+                            class="border-none bg-inherit"/></td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->role->role }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->password }}</td>
                     <td>{{ $user->created_at }}</td>
-                    <td><x-edit-button /></td>
+                    <td><x-edit-button class="edit-user"/></td>
                     <td><x-delete-button class="delete-user" /></td>
                 </tr>
             @endforeach

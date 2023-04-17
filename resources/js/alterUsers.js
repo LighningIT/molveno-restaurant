@@ -19,7 +19,21 @@ deleteBtns.forEach((btn) => {
 });
 
 editBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        let parent = btn.closest('tr');
+        console.log(parent.cells);
+        Array.prototype.forEach.call(parent.cells, (elem) => {
+            console.log(elem);
+            elem.firstElementChild.toggleAttribute("disabled");
+            elem.firstElementChild.classList.toggle('bg-inherit');
+            // elem.toggle('bg-inherit');
+        })
+
+       /*
+        parent.cells.forEach((elem) => {
+            console.log(elem);
+        }) */
 
     })
 })
