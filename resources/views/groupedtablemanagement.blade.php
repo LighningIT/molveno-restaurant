@@ -87,7 +87,7 @@
 
 </div>
 
-Delete Table Group modal
+{{-- Delete Table Group modal --}}
 <x-popup-modal class="flex flex-col gap-10" id="deleteModal">
 
     <p class="pt-8">Are you certain you wish to delete this table group?</p>
