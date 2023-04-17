@@ -13,20 +13,20 @@ class Tablegroups extends Component
     private $combined;
     private $comments;
     private $chairs;
-    private $statusId;
+    //private $statusId;
     private $status;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($id, $tableSectionId, $combined, $comments, $chairs, $statusId, $status)
+    public function __construct($id, $tableSectionId, $combined, $comments, $chairs, /* $statusId, */ $status)
     {
         $this->id = $id;
         $this->tableSectionId = $tableSectionId;
         $this->combined = $combined;
         $this->comments = $comments;
         $this->chairs = $chairs;
-        $this->statusId = $statusId;
+        //$this->statusId = $statusId;
         $this->status = $status;
     }
 
@@ -41,7 +41,7 @@ class Tablegroups extends Component
             'combined' => $this->combined,
             'comments' => $this->comments,
             'chairs' => $this->chairs,
-            'statusId' => $this->statusId,
+            //'statusId' => $this->statusId,
             'status' => $this->status,
         ]);
     }

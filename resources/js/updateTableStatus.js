@@ -1,34 +1,30 @@
 import axios from "axios";
 
-const allGroupedTables = Array.from(document.getElementsByClassName('tablegroup'));
+const allGroupedTables = document.querySelectorAll('.tablegroup');
 
 document.addEventListener('DOMContentLoaded',() => {
     allGroupedTables.forEach(elem => {
-        elem.addEventListener('click', (event) => {
-            sendUpdateStatus(event.target.closest("div"))
+        elem.addEventListener('click', () => {
+            sendUpdateStatus(elem.closest("[data-status"))
         })
     })
 })
 
 function sendUpdateStatus(element) {
-    console.log(element);
     const data = {
-        id: element.children[0].textContent,
-        statusId: element.dataset.statusId,
+        id: parseInt(element.children[0].textContent),
+        statusId: element.dataset.status,
     }
     axios.post("/reservations", data)
     .then(response => {
-        if (response.status == 200) {
-            element.dataset.statusId = response.data.id;
-            // element.children[3].textContent = response.data.status
+        element.dataset.status = response.data.status;
 
-            if (response.data.id == 1) {
-                element.classList.remove("bg-red-600", "bg-orange-500");
-                element.classList.add("bg-green-500");
-            } else {
-                element.classList.remove("bg-green-500");
-                element.classList.add("bg-red-600");
-            }
+        if (response.data.id == 1) {
+            element.classList.remove("border-red-600", "border-amber-700");
+            element.classList.add("border-green-600");
+        } else {
+            element.classList.remove("border-green-600");
+            element.classList.add("border-red-600");
         }
     });
 }
