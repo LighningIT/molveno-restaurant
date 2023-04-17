@@ -96,20 +96,58 @@ Delete Table Group modal
 
     <form action="">
 
-        <h2>Edit Table</h2>
+        <h2 class="text-3xl mb-12">Edit Table</h2>
 
-        {{-- <p>ID: {{ $tableID }} </p> --}}
+        <p>Current Table: </p>
 
-        <p>Merge Table</p>
+        <div class="flex gap-20 justify-between">
+            <p>Add chairs:</p>
 
-        {{-- <p>Current Table: {{ $tableID }}</p> --}}
+            <div class="flex row gap-4">
+                <button>+</button>
 
-        <label for="">Table ID</label>
-        <input class="text-black" type="number">
+                <div>
+                    <p>0</p>
+                </div>
+
+                <button>-</button>
+
+            </div>
+        </div>
+
+        <div class="flex gap-20 justify-between">
+            <p>Add High chairs:</p>
+
+            <div class="flex row gap-4">
+                <button>+</button>
+
+                <div>
+                    <p>0</p>
+                </div>
+
+                <button>-</button>
+
+            </div>
+        </div>
+
+        <div class="flex gap-20 justify-between">
+            <p>Add Booster seats:</p>
+
+            <div class="flex row gap-4">
+                <button>+</button>
+
+                <div>
+                    <p>0</p>
+                </div>
+
+                <button>-</button>
+
+            </div>
+        </div>
 
     </form>
 
-    <div class="flex flex-row justify   -around">
+    <div class="flex flex-row justify-center">
         <button class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer'>
             <p>Update</p>
         </button>
