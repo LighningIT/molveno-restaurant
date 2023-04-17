@@ -25,7 +25,7 @@ class GroupedTableController extends Controller
         return GroupedTable::updateStatus('free');
     }
 
-    public  function getTableManagement()
+    public function getTableManagement()
     {
         $totalTableAmount = $this->countTables();
 

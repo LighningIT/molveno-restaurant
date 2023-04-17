@@ -28,11 +28,16 @@
                 <tr>
                     <td><input type="text" size="5" disabled value="{{$user->id}}"
                             class="border-none bg-inherit"/></td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->role->role }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->password }}</td>
-                    <td>{{ $user->created_at }}</td>
+                    <td><input type="text" size="5" disabled value="{{ $user->name }}"
+                        class="border-none bg-inherit"/></td>
+                    <td><input type="text" size="5" disabled value="{{ $user->role->role }}"
+                        class="border-none bg-inherit"/></td>
+                    <td><input type="text" size="5" disabled value="{{ $user->email }}"
+                        class="border-none bg-inherit"/></td>
+                    <td><input type="text" size="5" disabled value="{{ $user->password }}"
+                        class="border-none bg-inherit"/></td>
+                    <td><input type="text" size="5" disabled value="{{ $user->created_at }}"
+                        class="border-none bg-inherit"/></td>
                     <td><x-edit-button class="edit-user"/></td>
                     <td><x-delete-button class="delete-user" /></td>
                 </tr>

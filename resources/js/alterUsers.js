@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import persons from '../img/persons.svg';
+
 const deleteBtns = document.querySelectorAll("button.delete-user");
 const editBtns = document.querySelectorAll("button.edit-user");
 const deleteModal = document.getElementById('deleteModal');
@@ -22,18 +24,19 @@ editBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         let parent = btn.closest('tr');
-        console.log(parent.cells);
         Array.prototype.forEach.call(parent.cells, (elem) => {
-            console.log(elem);
-            elem.firstElementChild.toggleAttribute("disabled");
-            elem.firstElementChild.classList.toggle('bg-inherit');
-            // elem.toggle('bg-inherit');
-        })
+                if (elem.firstElementChild.nodeName == "INPUT") {
+                    elem.firstElementChild.toggleAttribute("disabled");
+                    elem.firstElementChild.classList.toggle('bg-inherit');
+                }
 
-       /*
-        parent.cells.forEach((elem) => {
-            console.log(elem);
-        }) */
+                if (elem.firstElementChild.nodeName == "BUTTON" && elem.firstElementChild.classList.contains("edit-user")) {
+                    btn.removeChild(btn.firstElementChild);
+                    let img = document.createElement('img')
+                    img.src = persons;
+                    btn.appendChild(img);
+                }
+        });
 
     })
 })
