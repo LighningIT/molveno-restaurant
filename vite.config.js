@@ -14,6 +14,7 @@ export default defineConfig({
                 'resources/js/checkInReservation.js',
                 'resources/js/updateTableStatus.js',
                 'resources/js/loginPasswordField.js',
+                'resources/js/confirmDelete.js'
             ],
             refresh: true,
         }),
