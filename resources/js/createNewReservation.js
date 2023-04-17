@@ -129,6 +129,7 @@ function addGroupedTableRow(imgSrc, content) {
 
 async function submitReservation(data) {
     emptyErrorFields(info);
+    
     await axios.post('/reservations/edit', data)
         .then(() => {
             reservationBtn.click();
@@ -152,7 +153,9 @@ function newNotification(message) {
 
 function fillErrorFields(response) {
     for(let res in response.errors) {
-        document.getElementById(res + "-error").innerText = response.errors[res]
+        if (document.getElementById(res + "-error")) {
+          document.getElementById(res + "-error").innerText = response.errors[res];
+        }
     }
 }
 
