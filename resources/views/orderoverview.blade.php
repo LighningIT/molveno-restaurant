@@ -2,31 +2,32 @@
 
 @vite(['resources/css/app.css', 'resources/css/orderoverview.css', 'resources/js/app.js'])
 
-<x-order-overview>
+<div class="menudiv">
+    <h2>Menu</h2>
+</div>
 
-    <div class="tablemenudiv">
-        <table>
+<div class="tablemenudiv">
+    <table>
+        <tr>
+            <th>Mealtype</th>
+            <th>Category</th>
+            <th>item</th>       
+        </tr>
+        <tbody>
+            @foreach($menu as $m)
             <tr>
-                <th>Item</th>
-                <th>Category</th>
-                <th>Mealtype</th>       
-            </tr>
-            <tr>
-                @foreach($menumealtypes as $menumealtype)
-                    <td>$menumealtype->name</td>
-                @endforeach
-
-                @foreach($menucategories as $menucategory)
-                    <td>$menucategory->name</td>
-                @endforeach
-
-                @foreach($menuitems as $menuitem)
-                    <td>$menuitem->name</td>
+                @foreach($m as $item)
+                {{ dd($m) }}
+                <td></td>
+                <td></td>
+                <td>{{ $item->name}}</td>
                 @endforeach
             </tr>
-        </table>      
-    </div>
-
-</x-order-overview>
+            @endforeach
+        </tbody>
+        <tr>
+        </tr>
+    </table>      
+</div>
 
 </x-app-layout>

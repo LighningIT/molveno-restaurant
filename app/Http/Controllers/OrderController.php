@@ -13,9 +13,11 @@ class OrderController extends Controller
     public static function menuIndex()
     {
         return view('orderoverview',[
-            'menucategories' => MenuCategory::getMenuCategories(),
-            'menuitems' => MenuItem::getMenuItem(),
-            'menumealtypes' => MenuMealType::getMenuMealType()
+            'menu' => [
+                'menucategories' => MenuCategory::getMenuCategories(),
+                'menuitems' => MenuItem::getMenuItem(),
+                'menumealtypes' => MenuMealType::getMenuMealType() 
+            ]
         ]);
     }
    

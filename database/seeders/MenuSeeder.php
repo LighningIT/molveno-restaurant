@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Menu;
 
 class MenuSeeder extends Seeder
 {
@@ -12,11 +13,11 @@ class MenuSeeder extends Seeder
      */
     public function run(): void
     {
-        for($i = 0; $i < 14; $i++) {
-            Menu::factory()->create([
-                "category_id" => $i + 1
-            ]);
-        }
+        // for($i = 0; $i < 14; $i++) {
+        //     Menu::factory()->create([
+        //         "category_id" => $i + 1
+        //     ]);
+        // }
 
         for($i = 0; $i < 4; $i++) {
             Menu::factory()->create([
@@ -24,10 +25,10 @@ class MenuSeeder extends Seeder
             ]);
         }
 
-        for($i = 0; $i < 4; $i++) {
-            Menu::factory()->create([
-                "meal_item_id" => $i + 1
-            ]);
-        }
+        // for($i = 0; $i < 4; $i++) {
+        //     Menu::factory()->create([
+        //         "menu_item_id" => $i + 1
+        //     ]);
+        // }
     }
 }

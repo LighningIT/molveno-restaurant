@@ -6,9 +6,9 @@
     }
     
     .menudiv {
-        display: flex;
-        justify-content: center;
-        padding-top: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        text-align: center;
     }
     
     .tablemenudiv {
@@ -23,7 +23,6 @@
     tr {
         font-size: 1rem;
     }
-
 }
 
 @media (prefers-color-scheme: dark) {

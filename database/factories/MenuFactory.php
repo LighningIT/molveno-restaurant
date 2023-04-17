@@ -17,9 +17,9 @@ class MenuFactory extends Factory
     public function definition(): array
     {
         return [
-            'category_id' => 1,
+            // 'category_id' => 1,
             'meal_type_id' => 1,
-            'menu_item_id' => 1
+            // 'menu_item_id' => 1
         ];
     }
 }

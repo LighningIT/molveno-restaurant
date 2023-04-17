@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
             ReservationSeeder::class,
             MenuCategorySeeder::class,
             MenuItemSeeder::class,
-            MenuMealTypeSeeder::class
-            // MenuSeeder::class
+            MenuMealTypeSeeder::class,
+            MenuSeeder::class
         ]);
 
 

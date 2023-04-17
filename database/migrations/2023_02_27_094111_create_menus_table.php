@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id');
+            // $table->foreignId('category_id');
             $table->foreignId('meal_type_id');
-            $table->foreignId("menu_item_id");
+            // $table->foreignId('menu_item_id');
             $table->timestamps();
         });
     }
