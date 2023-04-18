@@ -38,7 +38,9 @@
                         class="border-none bg-inherit"/></td>
                     <td><input type="text" size="5" disabled value="{{ $user->created_at }}"
                         class="border-none bg-inherit"/></td>
-                    <td><x-edit-button class="edit-user"/></td>
+                    <td><x-edit-button class="edit-user" />
+                        <x-save-button class="save-user hidden" />
+                    </td>
                     <td><x-delete-button class="delete-user" /></td>
                 </tr>
             @endforeach

@@ -23,7 +23,7 @@ class AdminController extends Controller
     }
 
     public static function update(Request $request) {
-        
+        return $request;
     }
 
     public static function destroy(Request $request) {

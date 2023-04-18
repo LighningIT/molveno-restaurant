@@ -1,21 +1,21 @@
 import axios from "axios";
 
-import persons from '../img/persons.svg';
-
 const deleteBtns = document.querySelectorAll("button.delete-user");
 const editBtns = document.querySelectorAll("button.edit-user");
+const saveBtns = document.querySelectorAll("button.save-user");
+
 const deleteModal = document.getElementById('deleteModal');
 const userTable = document.getElementById('user-table');
 
 deleteBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        toggleHiddenModal(deleteModal.parentElement);
+        toggleHiddenClass(deleteModal.parentElement);
         deleteModal.querySelectorAll('button')[1].addEventListener('click', () => {
             deleteUser(btn.closest('tr'));
         });
         deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
-            toggleHiddenModal(deleteModal.parentElement);
+            toggleHiddenClass(deleteModal.parentElement);
         });
     });
 });
@@ -23,26 +23,45 @@ deleteBtns.forEach((btn) => {
 editBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        let parent = btn.closest('tr');
-        Array.prototype.forEach.call(parent.cells, (elem) => {
-                if (elem.firstElementChild.nodeName == "INPUT") {
-                    elem.firstElementChild.toggleAttribute("disabled");
-                    elem.firstElementChild.classList.toggle('bg-inherit');
-                }
+        toggleDisabledInput(btn.closest('tr').cells);
 
-                if (elem.firstElementChild.nodeName == "BUTTON" && elem.firstElementChild.classList.contains("edit-user")) {
-                    btn.removeChild(btn.firstElementChild);
-                    let img = document.createElement('img')
-                    img.src = persons;
-                    btn.appendChild(img);
-                }
-        });
+        toggleHiddenClass(btn);
+        toggleHiddenClass(btn.nextElementSibling);
+    });
+});
 
-    })
-})
+saveBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleDisabledInput(btn.closest('tr').cells);
 
-function toggleHiddenModal(element) {
+        // save
+        saveUser(btn.closest('tr'));
+
+        toggleHiddenClass(btn);
+        toggleHiddenClass(btn.previousElementSibling);
+    });
+});
+
+function toggleHiddenClass(element) {
     element.classList.toggle('hidden');
+}
+
+function toggleDisabledInput(element) {
+    Array.prototype.forEach.call(element, (elem) => {
+        if (elem.firstElementChild.nodeName == "INPUT") {
+            elem.firstElementChild.toggleAttribute("disabled");
+            elem.firstElementChild.classList.toggle('bg-inherit');
+        }
+    });
+}
+
+function saveUser(element) {
+    const user = createUserObj(element);
+
+    axios.patch('/adminoverview/edit', user)
+        .then(response => console.log(response))
+        .catch(error => console.error(error));
 }
 
 function deleteUser(element) {
@@ -50,16 +69,16 @@ function deleteUser(element) {
     const user = createUserObj(element);
 
     axios.delete('/adminoverview/edit', {data: user })
-        .then(toggleHiddenModal(deleteModal.parentElement));
+        .then(toggleHiddenClass(deleteModal.parentElement))
+        .catch(error => console.error(error));
 }
 
 function createUserObj(user) {
     return {
-        id: user.children[0].textContent,
-        name: user.children[1].textContent,
-        role: user.children[2].textContent,
-        email: user.children[3].textContent,
-        password: user.children[4].textContent
+        id: user.children[0].firstElementChild.value,
+        name: user.children[1].firstElementChild.value,
+        role: user.children[2].firstElementChild.value,
+        email: user.children[3].firstElementChild.value,
+        password: user.children[4].firstElementChild.value
     }
 }
-
