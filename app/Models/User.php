@@ -50,4 +50,8 @@ class User extends Authenticatable
     public function userRole() {
         return User::role()->select('role')->get();
     }
+
+    public static function getUserById($id) {
+        return User::where('id', $id)->get();
+    }
 }

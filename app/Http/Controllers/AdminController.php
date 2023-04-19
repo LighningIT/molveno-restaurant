@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -23,6 +24,23 @@ class AdminController extends Controller
     }
 
     public static function update(Request $request) {
+        if (is_numeric($request->id)) {
+            $user = User::getUserById($request->id);
+
+            if ($request->name != $user->name) {
+
+            }
+
+            if ($request->username != $user->username) {
+
+            }
+
+            if ($request->role != $user->role) {
+
+            }
+
+
+        }
         return $request;
     }
 
