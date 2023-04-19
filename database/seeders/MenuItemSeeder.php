@@ -13,19 +13,23 @@ class MenuItemSeeder extends Seeder
     public function run(): void
     {
         \App\Models\MenuItem::factory()->create([
-            'name' => 'White whine'
+            'name' => 'White whine',
+            'menu_category_id' => 12
         ]);
 
         \App\Models\MenuItem::factory()->create([
-            'name' => 'Red wine'
+            'name' => 'Red wine',
+            'menu_category_id' => 12
         ]);
 
         \App\Models\MenuItem::factory()->create([
-            'name' => 'Rosé'
+            'name' => 'Rosé',
+            'menu_category_id' => 12
         ]);
 
         \App\Models\MenuItem::factory()->create([
-            'name' => 'Sparkling wine'
+            'name' => 'Sparkling wine',
+            'menu_category_id' => 12
         ]);
     }
 }

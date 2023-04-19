@@ -20,7 +20,8 @@ class MenuSeeder extends Seeder
         // }
 
         //for($i = 0; $i < 4; $i++) {
-            Menu::factory(1)->create();
+            Menu::factory()->create(['name' => 'Food']);
+            Menu::factory()->create(['name' => 'Beverage']);
                 /* [
                 "meal_type_id" => $i + 1
             ]);

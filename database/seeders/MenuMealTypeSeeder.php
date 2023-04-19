@@ -13,19 +13,23 @@ class MenuMealTypeSeeder extends Seeder
     public function run(): void
     {
         \App\Models\MenuMealType::factory()->create([
-            'name' => 'Finger food'
+            'name' => 'Finger food',
+            'menu_id' => 1
         ]);
 
         \App\Models\MenuMealType::factory()->create([
-            'name' => 'Lunch'
+            'name' => 'Lunch',
+            'menu_id' => 1
         ]);
 
         \App\Models\MenuMealType::factory()->create([
-            'name' => 'Diner'
+            'name' => 'Diner',
+            'menu_id' => 1
         ]);
 
         \App\Models\MenuMealType::factory()->create([
-            'name' => 'Beverage'
+            'name' => 'Beverage',
+            'menu_id' => 2
         ]);
     }
 }

@@ -26,8 +26,8 @@ class Menu extends Model
         return $this->hasMany(MenuMealType::class)->with('categories');
     }
 
-    public static function getMenu() {
-        return Menu::with('menuMealType')->get();
+    public static function getMenuById($id) {
+        return Menu::where('id',$id)->with('menuMealType')->get();
     }
 
 }

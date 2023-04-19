@@ -13,59 +13,73 @@ class MenuCategorySeeder extends Seeder
     public function run(): void
     {
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Sandwiches'
+            'name' => 'Sandwiches',
+            'menu_meal_type_id' => 2
         ]);
 
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Salads'
+            'name' => 'Salads',
+            'menu_meal_type_id' => 2
         ]);
 
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Warm meals'
+            'name' => 'Warm meals',
+            'menu_meal_type_id' => 2
         ]);
 
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Side dishes'
+            'name' => 'Side dishes',
+            'menu_meal_type_id' => 2
         ]);
 
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Appetizer'
+            'name' => 'Appetizer',
+            'menu_meal_type_id' => 3
         ]);
 
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Main dish'
+            'name' => 'Main dish',
+            'menu_meal_type_id' => 3
         ]);
 
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Dessert'
+            'name' => 'Dessert',
+            'menu_meal_type_id' => 3
         ]);
 
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Children’s menu'
+            'name' => 'Children’s menu',
+            'menu_meal_type_id' => 3
         ]);
 
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Hot drinks'
+            'name' => 'Hot drinks',
+            'menu_meal_type_id' => 4
         ]);
 
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Soda'
+            'name' => 'Soda',
+            'menu_meal_type_id' => 4
         ]);
 
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Beer'
+            'name' => 'Beer',
+            'menu_meal_type_id' => 4
         ]);
 
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Wine'
+            'name' => 'Wine',
+            'menu_meal_type_id' => 4
         ]);
 
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Liquor'
+            'name' => 'Liquor',
+            'menu_meal_type_id' => 4
         ]);
 
         \App\Models\MenuCategory::factory()->create([
-            'name' => 'Cocktails'
+            'name' => 'Cocktails',
+            'menu_meal_type_id' => 4
         ]);
     }
 }
