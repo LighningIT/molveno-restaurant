@@ -80,6 +80,11 @@
 
 </div>
 
+<<<<<<< HEAD
+=======
+{{-- Delete Table Group modal --}}
+<x-popup-modal class="flex flex-col gap-10" id="deleteModal">
+>>>>>>> 35ea66136599b4802383603f905b1a7c08a0b216
 
 <x-popup-modal class="gap-10" id="deleteModal">
     <h2 class="text-3xl mb-12 -mt-8">Delete Table!</h2>

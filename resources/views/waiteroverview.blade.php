@@ -1,13 +1,16 @@
 <x-app-layout>
 
-    <div class="col-span-full grid grid-cols-9 m-1 mr-4 text-lg text-center leading-loose">
-        <span class="dark:text-white col-span-1">Upper Level</span>
-        <span class="dark:text-white col-span-3">Lower Level</span>
-        <span class="dark:text-white col-span-5">Terrace</span>
+    @vite(['resources/css/app.css', 'resources/css/waiteroverview.css', 'resources/js/app.js'])
+
+    <!-- <div class="col-span-full grid grid-cols-9 m-1 mr-4 text-lg text-center leading-loose"> -->
+    <div class="levelandterrace">
+        <span class="upperlevel">Upper Level</span>
+        <span class="lowerlevel">Lower Level</span>
+        <span class="terrace">Terrace</span>
     </div>
-    <div class="flex">
+    <div class="waiteroverview">
         @foreach ($tables as $table)
-            <div class="flex flex-wrap justify-start items-center max-h-[87vh] col-start-<?php echo $loop->index + 1;?>" >
+            <div class="<?php echo $loop->index + 1; ?>">
                 @foreach ($table as $t)
                     @php($statusColor = "bg-green-500")
                         @if(!empty($t->reservation[0]))
@@ -18,15 +21,13 @@
                                 @php($statusColor = "bg-red-600")
                             @endif
                         @endif
-                        <x-table-groups-waiter
+                        <x-waiter-table-groups
                         class="<?php echo $statusColor; ?> p-4 w-auto h-auto"
                         :id="$t->id"
                         :tableSectionId="$t->table_section_id"
                         :combined="$t->combined"
                         :comments="$t->comments"
                         :chairs="$t->chairs"
-                        :status="$t->status->status"
-                        :statusId="$t->status_id" 
                         />
                     
                 @endforeach

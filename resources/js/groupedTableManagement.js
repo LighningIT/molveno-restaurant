@@ -19,6 +19,7 @@ allTables.addEventListener ('click',(event) => {
     }
 })
 
+// alue directly to the function parameter. This is done by putting the function call in the parameters list of the other function call, jus
 function editGroupedTable (element) {
 
     const groupedTableId = element.children[0]

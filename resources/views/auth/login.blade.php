@@ -14,12 +14,19 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+            <x-input-label for="password" :value="__('Password')" />
+                <x-text-input id="password" class="mt-1 w-full"
+                                type="password"
+                                name="password"
+                                required autocomplete="current-password" />
+                <x-text-input id="toggle-password"
+                                type="checkbox"
+                                name="toggle-password"
+                                class="w-12 h-100 -ml-14 z-50 absolute -left-96 hidden" />
+                <label for="toggle-password" id="toggle-password-label"
+                    class="w-12 h-12 z-50 inline-block">
+                </label>
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>

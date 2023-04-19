@@ -1,30 +1,42 @@
-<div {{$attributes->merge(['class'=>'flex m-2 p-4 text-white dark:text-white bg-molveno-lightestBlue dark:bg-molveno-darkestBlue'])}}>
-    <div class="flex flex-col justify-evenly w-52">
-        <p>{{$guest}}</p>
-        <p>{{$reservationTime}}</p>
-        <p class="flex gap-2">
-            <span class="ml-2">
-                <img class="w-6 h-6 inline" src="{{ Vite::asset('resources/img/table_icon_125938.svg') }}" alt="table SVG"/>{{$tableNumber}}
-            </span>
-            <span class="ml-auto mr-12">
-                <img class="w-6 h-6 inline" src="{{ Vite::asset('resources/img/people.png') }}" alt="table SVG"/> {{$numberPersons}}
-            </span>
-        </p>
-        <p class="flex justify-center">
-            <button class="ml-2 border border-white border-solid rounded py-2 px-4" for="checkedIn">Check-in</button>
-        </p>
-    </div>
-    <div class="flex flex-col items-center gap-3">
-        <div class="flex flex-col justify-center gap-1 w-fit">
-            <a class="bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded
-            dark:text-white justify-start cursor-pointer" href="{{ route('reservationpages' , ['id' => $reservationId]) }}">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
-                </svg>
-            </a>
+<div {{$attributes->merge(['class'=>'flex flex-col m-2 p-4 text-white dark:text-white bg-molveno-lightestBlue dark:bg-molveno-darkestBlue']) }}
+        data-name="reservation">
+    <div class="flex justify-start w-full mb-2">
+        <div class="flex flex-col gap-2">
+            <p>{{$guest}}</p>
+            <p>
+                <span class="pr-4">
+                    {{ date_create($reservationTime)->format('H:i') }}
+                </span>
+                <span>
+                    {{ date_create($reservationTime)->format('d-m-Y') }}
+                </span>
+            </p>
         </div>
-        <div class="flex flex-col justify-center gap-4">
-            <form action="/reservations/edit{{$reservationId}}" method="POST">
+        <div class="self-end ml-auto mr-4">
+            <p class="flex flex-col gap-2">
+                <span class="ml-2 inline-block">
+                    <img class="table-number w-6 h-6 inline" src="{{ Vite::asset('resources/img/table_icon_125938.svg') }}" alt="table SVG"/>{{$tableNumber}}
+                </span>
+                <span class="mx-2 inline-block">
+                    <img class="w-6 h-6 inline" src="{{ Vite::asset('resources/img/persons.svg') }}" alt="persons SVG"/> {{$numberPersons}}
+                </span>
+            </p>
+        </div>
+    </div>
+    <div class="flex items-center gap-3 mt-2 w-full">
+        <div class="flex justify-evenly gap-4 w-full">
+            <div class="flex flex-col justify-center gap-1 w-fit">
+                <a class="bg-molveno-blue hover:bg-molveno-lightBlue px-4 py-2 text-white rounded
+                dark:text-white justify-start cursor-pointer" href="{{ route('reservationpages' , ['id' => $reservationId]) }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                    </svg>
+                </a>
+            </div>
+
+            <button class="border border-white border-solid rounded py-1 px-4 bg-molveno-darkBlue hover:bg-molveno-lightBlue" data-btn="check-in" for="checkedIn">Check-in</button>
+
+            <form action="/reservations/edit{{$reservationId}}" method="POST" class="deleteReservation">
                 @csrf
                 @method('DELETE')
                 <button type="submit"
