@@ -11,4 +11,20 @@ class Order extends Model
 
     protected $guarded = ['id'];
 
+    public static function getOrders() {
+        return Order::get();
+    }
+
+    public function tablesection() : HasMany{
+        return $this->hasMany(TableSection::class);
+    }
+
+    public function ordertype() : HasMany{
+        return $this->hasMany(OrderType::class);
+    }
+
+    public function orderstatus() : HasMany{
+        return $this->hasMany(OrderStatus::class);
+    }
+
 }

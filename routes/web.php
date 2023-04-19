@@ -68,6 +68,8 @@ Route::middleware("auth")
 
 Route::middleware('auth')->get('/waiteroverview', [OrderController::class,'getAllTable'])->name('waiteroverview');
 
-Route::middleware('auth')->get('/orderoverview', [OrderController::class,'menuIndex'])->name('orderoverview');
+Route::middleware('auth')->get('/menuoverview', [OrderController::class,'menuIndex'])->name('menuoverview');
+
+Route::middleware('auth')->get('/orderoverview', [OrderController::class,'orderIndex'])->name('orderoverview');
 
 require __DIR__ . "/auth.php";

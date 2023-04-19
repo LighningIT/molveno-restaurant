@@ -5,6 +5,14 @@
         margin: 0;
     }
 
+    .orderoverviewdivfirstdetail {
+        display: flex;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
     .menudiv {
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -12,23 +20,25 @@
         justify-content: center;
     }
 
-    .tablemenudiv {
-        margin-top: 1rem;
+    .orderoverviewblade {
+        padding-bottom: 2.5rem;
+    }
+
+    .orderoverviewdiv {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-bottom: 3rem;
+        padding-left: 1rem;
     }
 
-    th {
-        font-size: 1.22rem;
-    }
-
-    tr {
-        font-size: 1rem;
-    }
-
-    .winetd {
+    .orderoverviewdivfirst {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem;
+        margin: 1rem;
         background: #68b6da;
     }
 }
@@ -40,30 +50,44 @@
         margin: 0;
     }
 
+    .orderoverviewdivfirstdetail {
+        display: flex;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
     .menudiv {
         color: #fff;
         margin-top: 1rem;
         margin-bottom: 1rem;
-        text-align: center;
+        display: flex;
+        justify-content: center;
     }
 
-    .tablemenudiv {
-        padding-left: 0.5rem;
-        margin-top: 1rem;
+    .orderoverviewblade {
         padding-bottom: 2.5rem;
     }
 
-    th {
-        font-size: 1.22rem;
+    .orderoverviewdiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 1rem;
     }
 
-    tr {
-        font-size: 1rem;
+    .orderoverviewdivfirst {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem;
+        margin: 1rem;
+        background: #68b6da;
     }
 
-    .winetd {
-        background: #309bcf;
-    }
 }
 
 @media only screen and (min-width: 321px) {
@@ -73,29 +97,40 @@
         margin: 0;
     }
 
+    .orderoverviewdivfirstdetail {
+        display: flex;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
     .menudiv {
         margin-top: 1rem;
         margin-bottom: 1rem;
-        text-align: center;
+        display: flex;
+        justify-content: center;
     }
 
-    .tablemenudiv {
-        margin-top: 1rem;
+    .orderoverviewblade {
+        padding-bottom: 2.5rem;
+    }
+
+    .orderoverviewdiv {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-bottom: 3rem;
+        padding-left: 1rem;
     }
 
-    th {
-        font-size: 1.22rem;
-    }
-
-    tr {
-        font-size: 1rem;
-    }
-
-    .winetd {
-        background: #309bcf;
+    .orderoverviewdivfirst {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem;
+        margin: 1rem;
+        background: #68b6da;
     }
 }

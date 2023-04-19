@@ -5,6 +5,7 @@ use App\Models\GroupedTable;
 use App\Models\TableStatus;
 use App\Models\MenuCategory;
 use App\Models\Menu;
+use App\Models\Order;
 use App\Models\MenuMealType;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class OrderController extends Controller
 {
     public static function menuIndex()
     {
-        return view('orderoverview',[
+        return view('menuoverview',[
             'FoodMenu' => Menu::getMenuById(1),
             'BeverageMenu' => Menu::getMenuById(2)
             /* [
@@ -20,6 +21,13 @@ class OrderController extends Controller
                 'menuitems' => MenuItem::getMenuItem(),
                 'menumealtypes' => MenuMealType::getMenuMealType()
             ] */
+        ]);
+    }
+
+    public static function orderIndex()
+    {
+        return view('orderoverview', [
+            'orders' => Order::getOrders()
         ]);
     }
 

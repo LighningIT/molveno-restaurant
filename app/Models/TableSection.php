@@ -13,4 +13,8 @@ class TableSection extends Model
 
     protected $guarded = ['id'];
 
+    public function order() : BelongsTo {
+        return $this->belongsTo(Order::class);
+    }
+
 }

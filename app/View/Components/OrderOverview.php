@@ -8,12 +8,16 @@ use Illuminate\View\Component;
 
 class OrderOverview extends Component
 {
+    private $tableSectionId;
+    private $orderStatus;
+
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($tableSectionId, $orderStatus)
     {
-        //
+        $this->tableSectionId = $tableSectionId;
+        $this->orderStatus = $orderStatus;
     }
 
     /**
@@ -21,6 +25,9 @@ class OrderOverview extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.order-overview');
+        return view('components.order-overview', [
+            'tableSectionId' => $this->tableSectionId,
+            'orderStatus' => $this->orderStatus,
+        ]);
     }
 }

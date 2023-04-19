@@ -11,7 +11,7 @@
 
     <div class="waiteroverview">
             @foreach ($tables as $table)
-                <div class="-<?php echo $loop->index + 1;?>" >
+                <div class="waitertable-<?php echo $loop->index + 1;?>" >
                     @foreach ($table as $t)
 
                         @php($statusColor = "border-green-600")
