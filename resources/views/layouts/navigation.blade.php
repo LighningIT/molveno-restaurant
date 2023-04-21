@@ -5,23 +5,13 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-
                     <a href="{{ route('reservations') }}">
                         <x-application-logo class="rounded-full w-11 bg-white dark:w-11"/>
-
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-
-                    <x-nav-link :href="route('reservations')" :active="request()->routeIs('reservations')">
-                        {{ __('Reservations') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('tablemanagement')" :active="request()->routeIs('tablemanagement')">
-                        {{ __('Table management')}}
-                    </x-nav-link>
-
                     @if (Auth::user()->role->role == 'reception' || Auth::user()->role->role == 'admin' || Auth::user()->role->role == 'owner' )
                         <x-nav-link :href="route('reservations')" :active="request()->routeIs('reservations')">
                             {{ __('Reservations') }}
@@ -40,7 +30,7 @@
                             {{ __('Admin')}}
                         </x-nav-link>
                     @endif
-                    
+
                 </div>
             </div>
 

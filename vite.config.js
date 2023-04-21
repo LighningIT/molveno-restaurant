@@ -12,8 +12,11 @@ export default defineConfig({
                 'resources/js/updateTableStatus.js',
                 'resources/js/loginPasswordField.js',
                 'resources/js/confirmDelete.js',
-                'resources/js/alterUsers.js'
-
+                'resources/js/alterUsers.js',
+                'resources/css/groupedTableManagement.css',
+                'resources/css/login.css',
+                'resources/css/orderoverview.css',
+                'resources/css/waiteroverview.css'
             ],
             refresh: true,
         }),
