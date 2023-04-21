@@ -22,4 +22,6 @@ class Admin extends Model
     public static function destroy($id) {
         User::where('id', $id)->delete();
     }
+
+
 }

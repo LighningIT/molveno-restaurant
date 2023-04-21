@@ -30,12 +30,12 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
 
-        return redirect()->intended(self::getUserHomePage());
+        return redirect()->intended(self::getUserHomePage($request));
             //RouteServiceProvider::HOME);
     }
 
-    public function getUserHomePage() {
-        $role = Auth::user()->userRole();
+    public function getUserHomePage(Request $request) {
+        $role = $request->user()->userRole();
 
         $home = '';
         switch ($role[0]->role) {

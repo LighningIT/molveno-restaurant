@@ -47,6 +47,8 @@ class User extends Authenticatable
         return $this->hasOne(UserRoles::class, 'id', 'user_roles_id');
     }
 
+    
+
     public function userRole() {
         return User::role()->select('role')->get();
     }
@@ -54,4 +56,8 @@ class User extends Authenticatable
     public static function getUserById($id) {
         return User::where('id', $id)->get();
     }
+
+    /* public static function update($column, $value) {
+
+    } */
 }

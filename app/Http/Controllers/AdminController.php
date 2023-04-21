@@ -4,15 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public static function getAllUsers() {
-        return view('adminoverview', [
-            'users' => Admin::getAllUsers(),
-            'roles' => Admin::getAllRoles()
-        ]);
+    public static function getAllUsers(Request $request) {
+        if ($request->user()->can('view', Admin::class)) {
+            return view('adminoverview', [
+                'users' => Admin::getAllUsers(),
+                'roles' => Admin::getAllRoles()
+            ]);
+        } else {
+            return view('dashboard');
+        }
     }
 
     public static function create() {
@@ -28,18 +33,24 @@ class AdminController extends Controller
             $user = User::getUserById($request->id);
 
             if ($request->name != $user->name) {
-
+               // Auth::user()->update();
             }
 
             if ($request->username != $user->username) {
 
             }
 
-            if ($request->role != $user->role) {
+            if ($request->role != $user->role->role) {
 
             }
 
+            if ($request->email != $user->email) {
 
+            }
+
+            if ($request->password != $user->password) {
+
+            }
         }
         return $request;
     }
