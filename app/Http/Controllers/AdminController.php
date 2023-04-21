@@ -33,11 +33,15 @@ class AdminController extends Controller
             $user = User::getUserById($request->id);
 
             if ($request->name != $user->name) {
-               // Auth::user()->update();
+                $user->update([
+                    'name' => $request->name
+                ]);
             }
 
             if ($request->username != $user->username) {
-
+                $user->update([
+                    'user_name' => $request->username
+                ]);
             }
 
             if ($request->role != $user->role->role) {

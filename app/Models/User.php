@@ -47,14 +47,14 @@ class User extends Authenticatable
         return $this->hasOne(UserRoles::class, 'id', 'user_roles_id');
     }
 
-    
+
 
     public function userRole() {
         return User::role()->select('role')->get();
     }
 
     public static function getUserById($id) {
-        return User::where('id', $id)->get();
+        return User::find($id);
     }
 
     /* public static function update($column, $value) {
