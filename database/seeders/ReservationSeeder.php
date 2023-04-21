@@ -22,7 +22,7 @@ class ReservationSeeder extends Seeder
                 "num_persons" => random_int(1, 8),
                 "timespan" => random_int(60,240),
                 "reservation_time" => Carbon::now()
-                        ->addDays(rand(0, 14))
+                        ->addDays(rand(0, 1))
                         ->addHours(rand(0, 24))
                         ->addMinutes(rand(0, 60))
                         ->format("Y-m-d H:i")

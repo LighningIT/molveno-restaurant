@@ -1,4 +1,5 @@
-<div {{$attributes->merge(['class'=>'flex flex-col m-2 p-4 text-white dark:text-white bg-molveno-lightestBlue dark:bg-molveno-darkestBlue'])}}>
+<div {{$attributes->merge(['class'=>'flex flex-col m-2 p-4 text-white dark:text-white bg-molveno-lightestBlue dark:bg-molveno-darkestBlue']) }}
+        data-name="reservation">
     <div class="flex justify-start w-full mb-2">
         <div class="flex flex-col gap-2">
             <p>{{$guest}}</p>
@@ -14,16 +15,16 @@
         <div class="self-end ml-auto mr-4">
             <p class="flex flex-col gap-2">
                 <span class="ml-2 inline-block">
-                    <img class="w-6 h-6 inline" src="{{ Vite::asset('resources/img/table_icon_125938.svg') }}" alt="table SVG"/>{{$tableNumber}}
+                    <img class="table-number w-6 h-6 inline" src="{{ Vite::asset('resources/img/table_icon_125938.svg') }}" alt="table SVG"/>{{$tableNumber}}
                 </span>
                 <span class="mx-2 inline-block">
-                    <img class="w-6 h-6 inline" src="{{ Vite::asset('resources/img/people.png') }}" alt="table SVG"/> {{$numberPersons}}
+                    <img class="w-6 h-6 inline" src="{{ Vite::asset('resources/img/persons.svg') }}" alt="persons SVG"/> {{$numberPersons}}
                 </span>
             </p>
         </div>
     </div>
-    <div class="flex items-center gap-3 mt-2">
-        <div class="flex justify-evenly gap-4">
+    <div class="flex items-center gap-3 mt-2 w-full">
+        <div class="flex justify-evenly gap-4 w-full">
             <div class="flex flex-col justify-center gap-1 w-fit">
                 <a class="bg-molveno-blue hover:bg-molveno-lightBlue px-4 py-2 text-white rounded
                 dark:text-white justify-start cursor-pointer" href="{{ route('reservationpages' , ['id' => $reservationId]) }}">
@@ -32,9 +33,10 @@
                     </svg>
                 </a>
             </div>
-            <button class="ml-2 border border-white border-solid rounded py-1 px-4" for="checkedIn">Check-in</button>
 
-            <form action="/reservations/edit{{$reservationId}}" method="POST">
+            <button class="border border-white border-solid rounded py-1 px-4 bg-molveno-darkBlue hover:bg-molveno-lightBlue" data-btn="check-in" for="checkedIn">Check-in</button>
+
+            <form action="/reservations/edit{{$reservationId}}" method="POST" class="deleteReservation">
                 @csrf
                 @method('DELETE')
                 <button type="submit"
