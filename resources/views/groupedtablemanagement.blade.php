@@ -10,6 +10,14 @@
     <span class="dark:text-white">Terrace</span>
 </div>
 
+<div class="absolute top-2 text-2xl w-full">
+    @if (!empty(session()->get('success')))
+        <div class="text-center">
+            <p>{{ session()->get('success') }}</p>
+        </div>
+    @endif
+</div>
+
 <div class="grid grid-cols-4 justify-items-center">
     <div>
         <div class="border border-solid border-black bg-molveno-darkestBlue dark:border-white h-auto text-white font-bold text-lg">
@@ -79,6 +87,9 @@
     @endforeach
 
 </div>
+
+Delete Table Group modal
+{{-- <x-popup-modal class="flex flex-col gap-10" id="deleteModal">
 
 
 <x-popup-modal class="gap-10" id="deleteModal">

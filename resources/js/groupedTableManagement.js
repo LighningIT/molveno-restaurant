@@ -19,6 +19,7 @@ allTables.addEventListener ('click',(event) => {
     }
 })
 
+
 function editGroupedTable (element) {
 
     const groupedTableId = element.children[0]

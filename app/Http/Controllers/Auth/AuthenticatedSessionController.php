@@ -29,7 +29,33 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+
+        return redirect()->intended(self::getUserHomePage($request));
+            //RouteServiceProvider::HOME);
+    }
+
+    public function getUserHomePage(Request $request) {
+        $role = $request->user()->userRole();
+
+        $home = '';
+        switch ($role[0]->role) {
+            case 'waiter':
+                $home = '/waiteroverview';
+                break;
+            case 'kitchen':
+            case 'souschef':
+            case 'chef':
+                $home = '/kitchenoverview';
+                break;
+            case 'reception':
+                $home = '/reservations';
+                break;
+            case 'admin':
+            case 'owner':
+                $home = '/adminoverview';
+                break;
+        }
+        return $home;
     }
 
     /**

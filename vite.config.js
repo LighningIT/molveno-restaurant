@@ -7,6 +7,13 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
+                'resources/js/createNewReservation.js',
+                'resources/js/checkInReservation.js',
+                'resources/js/updateTableStatus.js',
+                'resources/js/loginPasswordField.js',
+                'resources/js/confirmDelete.js',
+                'resources/js/alterUsers.js'
+
             ],
             refresh: true,
         }),

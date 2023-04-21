@@ -1,5 +1,11 @@
 <?php
 
+
+use App\Http\Controllers\ChildSeatController;
+
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +24,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get("/reservations", function () {
+    return view("reservations");
+})
+    ->middleware(["auth", "verified"])
+    ->name("reservations");
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,4 +38,44 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::middleware('auth')->controller(ReservationController::class)->group(function() {
+    Route::get('/reservations/edit', 'check');
+    Route::post('/reservations/edit', 'store');
+    Route::patch('/reservations/edit{id}','update');
+    Route::delete('/reservations/edit{id}', 'destroy');
+});
+
+Route::middleware("auth")
+    ->get("/reservations", [GroupedTableController::class, "getAllTable"])
+    ->name("reservations");
+
+Route::middleware("auth")->post("/reservations", [
+    GroupedTableController::class,
+    "updateStatus",
+]);
+
+Route::middleware("auth")->get("/tablemanagement", [
+    GroupedTableController::class,
+    "getTableManagement",
+    ])
+    ->name('tablemanagement');
+
+Route::middleware("auth")->post("/childseats", [ChildSeatController::class, "store"]);
+
+Route::middleware("auth")
+    ->get("/reservationpages{id}", [ReservationController::class, "edit"])
+    ->name("reservationpages");
+
+Route::middleware('auth')->get('/waiteroverview', [OrderController::class,'getAllTable'])->name('waiteroverview');
+
+Route::middleware('auth', 'verified')->get('/adminoverview', [AdminController::class, 'getAllUsers'] )->name('adminoverview');
+
+Route::middleware('auth')->controller(AdminController::class)->group(function() {
+    Route::get('/adminoverview/edit', 'create');
+    Route::post('/adminoverview/edit', 'store');
+    Route::patch('/adminoverview/edit', 'update');
+    Route::delete('adminoverview/edit', 'destroy');
+});
+
+require __DIR__ . "/auth.php";
+
