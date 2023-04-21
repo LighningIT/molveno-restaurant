@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GroupedTableController;
 use App\Http\Controllers\ReservationController;
@@ -66,5 +68,14 @@ Route::middleware("auth")
     ->name("reservationpages");
 
 Route::middleware('auth')->get('/waiteroverview', [OrderController::class,'getAllTable'])->name('waiteroverview');
+
+Route::middleware('auth', 'verified')->get('/adminoverview', [AdminController::class, 'getAllUsers'] )->name('adminoverview');
+
+Route::middleware('auth')->controller(AdminController::class)->group(function() {
+    Route::get('/adminoverview/edit', 'create');
+    Route::post('/adminoverview/edit', 'store');
+    Route::patch('/adminoverview/edit', 'update');
+    Route::delete('adminoverview/edit', 'destroy');
+});
 
 require __DIR__ . "/auth.php";

@@ -19,7 +19,5 @@ function removeFromReservationList(id) {
 }
 
 function addToGroupedTable(tableNum) {
-
     document.querySelector('[data-table-number="'+ parseInt(tableNum) + '"]').click();
-
 }
