@@ -7,9 +7,6 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\GroupedTableController;
-use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +20,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/", function () {
-    return view("welcome");
+Route::get('/', function () {
+    return view('welcome');
 });
+
 
 Route::get("/reservations", function () {
     return view("reservations");
@@ -33,16 +31,11 @@ Route::get("/reservations", function () {
     ->middleware(["auth", "verified"])
     ->name("reservations");
 
-Route::middleware("auth")->group(function () {
-    Route::get("/profile", [ProfileController::class, "edit"])->name(
-        "profile.edit"
-    );
-    Route::patch("/profile", [ProfileController::class, "update"])->name(
-        "profile.update"
-    );
-    Route::delete("/profile", [ProfileController::class, "destroy"])->name(
-        "profile.destroy"
-    );
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::middleware('auth')->controller(ReservationController::class)->group(function() {
@@ -85,3 +78,4 @@ Route::middleware('auth')->controller(AdminController::class)->group(function() 
 });
 
 require __DIR__ . "/auth.php";
+
