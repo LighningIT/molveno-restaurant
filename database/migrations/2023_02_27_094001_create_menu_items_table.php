@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string("description");
             $table->double("price");
-            $table->foreignId('category_id');
-            $table->foreignId('meal_type_id');
+            $table->foreignId('menu_category_id');
             $table->timestamps();
         });
     }

@@ -68,6 +68,9 @@ Route::middleware("auth")
 
 Route::middleware('auth')->get('/waiteroverview', [OrderController::class,'getAllTable'])->name('waiteroverview');
 
+
+Route::middleware('auth')->get('/orderoverview', [OrderController::class,'menuIndex'])->name('orderoverview');
+
 Route::middleware('auth', 'verified')->get('/adminoverview', [AdminController::class, 'getAllUsers'] )->name('adminoverview');
 
 Route::middleware('auth')->controller(AdminController::class)->group(function() {
@@ -76,6 +79,7 @@ Route::middleware('auth')->controller(AdminController::class)->group(function() 
     Route::patch('/adminoverview/edit', 'update');
     Route::delete('adminoverview/edit', 'destroy');
 });
+
 
 require __DIR__ . "/auth.php";
 
