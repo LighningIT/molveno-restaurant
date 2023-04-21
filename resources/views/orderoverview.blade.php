@@ -3,7 +3,7 @@
     @vite(['resources/css/app.css', 'resources/css/orderoverview.css', 'resources/js/app.js'])
 
     <div class="menudiv">
-        <h2>The orders</h2>
+        <h2>The orders for kitchen</h2>
     </div>
 
     <div class="orderoverviewblade">
