@@ -24,8 +24,7 @@
                 <h1 class="text-molveno-darkestBlue dark:text-white text-6xl z-10  dark:py-4">Molveno Lake Resort</h1>
 
             </div>
-
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-molveno-darkBlue dark:bg-molveno-darkestBlue shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>
         </div>
