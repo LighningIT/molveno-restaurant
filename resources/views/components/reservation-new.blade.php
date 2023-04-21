@@ -13,7 +13,7 @@
            {{--  </div>
             <div class="mx-auto text-center">
                 <label for="time" class="justify-self-end">time</label> --}}
-                <input type="time" id="time" name="time" value="<?= date('H:i') ?>" />
+                <input type="time" id="time" name="time" value="<?= date('H:i') ?>" step="3600" min="00:00" max="23:59" />
             </div>
             <div class="mx-auto text-center">
                 <button type="button" id="checkBtn" name="checkBtn"

@@ -28,7 +28,7 @@
 
         </div>
     @endif
-</div>
+    </div>
 <div class="grid grid-cols-12 h-full max-h-[95vh]">
 
         <x-reservation-new />
