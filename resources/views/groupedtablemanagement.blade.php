@@ -9,6 +9,14 @@
     <span class="dark:text-white">Terrace</span>
 </div>
 
+<div class="absolute top-2 text-2xl w-full">
+    @if (!empty(session()->get('success')))
+        <div class="text-center">
+            <p>{{ session()->get('success') }}</p>
+        </div>
+    @endif
+</div>
+
 <div class="grid grid-cols-4 justify-items-center">
     <div>
         <div class="border border-solid border-black bg-molveno-darkestBlue dark:border-white h-auto text-white font-bold text-lg">
@@ -79,10 +87,15 @@
 
 </div>
 
+<<<<<<< HEAD
 {{-- Delete Table Group modal --}}
 <x-popup-modal class="flex flex-col gap-10" id="deleteModal">
+=======
+Delete Table Group modal
+{{-- <x-popup-modal class="flex flex-col gap-10" id="deleteModal">
+>>>>>>> d38e3be154793e451d21c4981dd195feeb322a64
 
-    <p class="pt-8">Are you certain you wish to delete this table group?</p>
+    <p class="pt-8 dark:text-white text-black">Are you certain you wish to delete this table group?</p>
 
     <div class="flex flex-row justify-around">
         <button class='bg-red-600 hover:bg-red-500 px-4 py-2 text-white rounded align-middle justify-start cursor-pointer'>
@@ -90,6 +103,74 @@
         </button>
     </div>
 
+</x-popup-modal> --}}
+
+<x-popup-modal class="flex flex-col gap-10 dark:text-white text-black" id="editModal">
+
+    <form action="">
+
+        <h2 class="text-3xl mb-12">Edit Table</h2>
+
+        <p>Current Table: </p>
+
+        <div class="flex gap-20 justify-between">
+            <p>Add chairs:</p>
+
+            <div class="flex row gap-4">
+                <button>+</button>
+
+                <div>
+                    <p>0</p>
+                </div>
+
+                <button>-</button>
+
+            </div>
+        </div>
+
+        <div class="flex gap-20 justify-between">
+            <p>Add High chairs:</p>
+
+            <div class="flex row gap-4">
+                <button>+</button>
+
+                <div>
+                    <p>0</p>
+                </div>
+
+                <button>-</button>
+
+            </div>
+        </div>
+
+        <div class="flex gap-20 justify-between">
+            <p>Add Booster seats:</p>
+
+            <div class="flex row gap-4">
+                <button>+</button>
+
+                <div>
+                    <p>0</p>
+                </div>
+
+                <button>-</button>
+
+            </div>
+        </div>
+
+    </form>
+
+    <div class="flex flex-row justify-center">
+        <button class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer'>
+            <p>Update</p>
+        </button>
+    </div>
+
 </x-popup-modal>
 
-        </x-app-layout>
+{{-- <x-popup-modal class="flex flex-col gap-10" id="editModal">
+</x-popup-modal>
+
+<x-popup-modal class="flex flex-col gap-10" id="editModal">
+</x-popup-modal> --}}
+</x-app-layout>

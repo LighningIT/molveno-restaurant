@@ -1,7 +1,11 @@
 <?php
 
+
+use App\Http\Controllers\ChildSeatController;
+
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GroupedTableController;
 use App\Http\Controllers\ReservationController;
@@ -62,6 +66,8 @@ Route::middleware("auth")->get("/tablemanagement", [
     "getTableManagement",
     ])
     ->name('tablemanagement');
+
+Route::middleware("auth")->post("/childseats", [ChildSeatController::class, "store"]);
 
 Route::middleware("auth")
     ->get("/reservationpages{id}", [ReservationController::class, "edit"])
