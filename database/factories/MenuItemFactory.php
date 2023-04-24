@@ -20,8 +20,7 @@ class MenuItemFactory extends Factory
             'name' => fake()->name(),
             'description' => fake()->word(),
             'price' => 0,
-            'category_id' => 1,
-            'meal_type_id' => 1
+            'menu_category_id' => 1
         ];
     }
 }

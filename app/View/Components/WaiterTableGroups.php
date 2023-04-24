@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class TableGroupsWaiter extends Component
+class WaiterTableGroups extends Component
 {
     private $id;
     private $tableSectionId;
@@ -35,7 +35,7 @@ class TableGroupsWaiter extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.table-groups-waiter', [
+        return view('components.waiter-table-groups', [
             'id'=> $this->id,
             'tableSectionId' => $this->tableSectionId,
             'combined' => $this->combined,

@@ -18,14 +18,14 @@ class GroupedTableController extends Controller
     }
 
     public static function updateStatus(Request $request) {
-        if ($request->statusId == 1 || $request->statusId == 3) {
-        return GroupedTable::updateStatus($request->id, 2);
+        if ($request->statusId == 'free' || $request->statusId == 'soon') {
+        return GroupedTable::updateStatus('taken');
         }
 
-        return GroupedTable::updateStatus($request->id, 1);
+        return GroupedTable::updateStatus('free');
     }
 
-    public  function getTableManagement()
+    public function getTableManagement()
     {
         $totalTableAmount = $this->countTables();
 
@@ -41,9 +41,5 @@ class GroupedTableController extends Controller
         $countTables = GroupedTable::all()->count();
         return $countTables;
 
-    }
-
-    public static function checkFreeTables(Request $request) {
-        return 'free';
     }
 }

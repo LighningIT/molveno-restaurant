@@ -21,13 +21,28 @@ class DatabaseSeeder extends Seeder
             TableStatusSeeder::class,
             GroupedTableSeeder::class,
             TableSeeder::class,
-            ReservationSeeder::class
+            ReservationSeeder::class,
+            MenuCategorySeeder::class,
+            MenuItemSeeder::class,
+            MenuMealTypeSeeder::class,
+            MenuSeeder::class,
+            UserRolesSeeder::class
+
         ]);
 
 
         \App\Models\User::factory()->create([
             'name' => 'Test User',
+            'username' => 'tuser',
             'email' => 'test@example.com',
+            'user_roles_id' => 1
+        ]);
+
+        \App\Models\User::factory()->create([
+            'name' => 'admin',
+            'username' => 'admin',
+            'email' => 'admin@example.com',
+            'user_roles_id' => 6
         ]);
 
         ChildSeat::factory(10)->create();
