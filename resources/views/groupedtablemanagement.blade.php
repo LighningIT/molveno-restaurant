@@ -88,7 +88,7 @@
 </div>
 
 
-{{-- <x-popup-modal class="flex flex-col gap-10" id="deleteModal">
+{{-- <x-popup-modal class="flex flex-col gap-10" id="deleteModal" />
 
 
 <x-popup-modal class="gap-10" id="deleteModal">

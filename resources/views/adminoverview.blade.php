@@ -39,8 +39,7 @@
                         class="border-none bg-inherit table-cell" /></td>
                     <td><input type="text" size="20" name="email" disabled value="{{ $user->email }}"
                         class="border-none bg-inherit table-cell" /></td>
-                    <td><input type="text" size="5" name="password" disabled value="{{ $user->password }}"
-                        class="border-none bg-inherit table-cell" /></td>
+
                     <td><input type="text" size="12" name="created" disabled value="{{ date_create($user->created_at)->format('H:i d-m-Y') }}"
                         class="border-none bg-inherit table-cell" /></td>
                     <td><input type="text" size="12" name="updated" disabled value="{{ date_create($user->updated_at)->format("H:i d-m-Y") }}"
@@ -48,7 +47,9 @@
                     <td><x-edit-button class="edit-user" />
                         <x-save-button class="save-user hidden" />
                     </td>
-                    <td><x-delete-button class="delete-user" /></td>
+                    <td><x-delete-button class="delete-user" />
+
+                    </td>
                 </tr>
             @endforeach
             </tbody>
