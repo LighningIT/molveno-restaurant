@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-molveno-lightestBlue dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -22,7 +22,7 @@
                     @endif
                     @if (Auth::user()->role->role == 'waiter' || Auth::user()->role->role == 'admin' || Auth::user()->role->role == 'owner' )
                         <x-nav-link :href="route('waiteroverview')" :active="request()->routeIs('waiteroverview')">
-                            {{ __('Waiteroverview') }}
+                            {{ __('Service') }}
                         </x-nav-link>
                         {{-- <x-nav-link :href="route('orderoverview')" :active="request()->routeIs('orderoverview')">
                             {{ __('Orderoverview') }}
