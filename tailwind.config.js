@@ -13,8 +13,6 @@ module.exports = {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
-<<<<<<< HEAD
-=======
             colors: {
                 molveno: {
                     lightestBlue: '#68b6da',
@@ -27,7 +25,6 @@ module.exports = {
             gridTemplateColumns: {
                 reservation: "1fr 2fr 3fr .5fr"
             }
->>>>>>> 35ea66136599b4802383603f905b1a7c08a0b216
         },
     },
 

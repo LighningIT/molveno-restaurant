@@ -1,7 +1,7 @@
 <x-app-layout>
 
 @vite(['resources/js/groupedTableManagement.js'])
-@vite(['resources/js/groupedTableManagement.css'])
+@vite(['resources/css/groupedTableManagement.css'])
 
 <div class="grid grid-cols-4 m-1 pb-2git text-lg text-center leading-loose">
     <span class="dark:text-white flex justify-center">Overview</span>
@@ -80,12 +80,7 @@
 
 </div>
 
-<<<<<<< HEAD
-=======
 {{-- Delete Table Group modal --}}
-<x-popup-modal class="flex flex-col gap-10" id="deleteModal">
->>>>>>> 35ea66136599b4802383603f905b1a7c08a0b216
-
 <x-popup-modal class="gap-10" id="deleteModal">
     <h2 class="text-3xl mb-12 -mt-8">Delete Table!</h2>
 
