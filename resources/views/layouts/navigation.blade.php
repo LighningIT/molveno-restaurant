@@ -17,12 +17,12 @@
                             {{ __('Reservations') }}
                         </x-nav-link>
                         <x-nav-link :href="route('tablemanagement')" :active="request()->routeIs('tablemanagement')">
-                            {{ __('Table management')}}
+                            {{ __('Table Management')}}
                         </x-nav-link>
                     @endif
                     @if (Auth::user()->role->role == 'waiter' || Auth::user()->role->role == 'admin' || Auth::user()->role->role == 'owner' )
                         <x-nav-link :href="route('waiteroverview')" :active="request()->routeIs('waiteroverview')">
-                            {{ __('Waiteroverview') }}
+                            {{ __('Service') }}
                         </x-nav-link>
                         {{-- <x-nav-link :href="route('orderoverview')" :active="request()->routeIs('orderoverview')">
                             {{ __('Orderoverview') }}

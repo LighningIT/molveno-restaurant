@@ -14,14 +14,14 @@
         <table class="col-span-10 col-start-2 mt-8">
             <thead>
                 <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>username</th>
-                    <th>role</th>
-                    <th>email</th>
-                    <th>password</th>
-                    <th>created</th>
-                    <th>updated</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Created at</th>
+                    <th>Updated at</th>
                     <th></th>
                     <th></th>
                 </tr>
