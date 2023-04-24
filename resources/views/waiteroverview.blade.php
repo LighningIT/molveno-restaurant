@@ -3,13 +3,13 @@
     @vite(['resources/css/app.css', 'resources/css/waiteroverview.css', 'resources/js/app.js'])
 
     <!-- <div class="col-span-full grid grid-cols-9 m-1 mr-4 text-lg text-center leading-loose"> -->
-    <div class="levelandterrace">
+    <div class="levelandterrace flex justify-center -ml-4">
         <span class="upperlevel">Upper Level</span>
         <span class="lowerlevel">Lower Level</span>
         <span class="terrace">Terrace</span>
     </div>
 
-    <div class="waiteroverview">
+    <div class="waiteroverview flex justify-center">
             @foreach ($tables as $table)
                 <div class="-<?php echo $loop->index + 1;?>" >
                     @foreach ($table as $t)
