@@ -47,3 +47,37 @@ function openModal () {
 
 
 }
+
+
+let countEl = document.getElementById("chair-amount");
+let minbutton = document.getElementById('minus');
+let plusbutton = document.getElementById("plus");
+let totaltableamount = parseInt(document.getElementById("totaltableamount").textContent) * 2;
+let count = totaltableamount;
+
+minbutton.addEventListener('click', (event) => {
+    minus(count);
+})
+
+plusbutton.addEventListener("click", ()=>{
+    plus(count);
+})
+
+function plus(count) {
+
+    if (count < totaltableamount) {
+        count+=2;
+        countEl.value = parseInt(countEl.value)+2;
+    }
+}    
+    
+
+function minus(count) {
+
+  if (parseInt(countEl.value) > 0) {
+    count-=2;
+    countEl.value = parseInt(countEl.value)-2;
+  }  
+
+}
+
