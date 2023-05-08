@@ -23,15 +23,10 @@ class GroupedTable extends Model
         return $this->hasMany(Table::class);
     }
 
-    /* public function status() : HasOne {
-        return $this->hasOne(TableStatus::class, 'id', 'status_id');
-    } */
-
     public static function getAllTable() {
         $start = Carbon::now()->subHours(2);
         $end = Carbon::now()->addHours(2);
         $tables = GroupedTable::with(['reservation' => fn($query) => $query->whereBetween('reservation_time', [$start, $end])])
-           // ->with('status')
             ->get();
         return $tables->groupBy('table_section_id');
     }
@@ -56,5 +51,9 @@ class GroupedTable extends Model
     public static function updateStatus($statusId) {
         // GroupedTable::where("id", $id)->update(["status_id" => $statusId]);
         return TableStatus::where("status", $statusId)->first();
+    }
+
+    public static function updateTableLocation($id, $amount) {
+        GroupedTable::where('id', $id)->update(["chairs" => $amount]);
     }
 }
