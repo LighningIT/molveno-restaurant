@@ -37,6 +37,12 @@
                     <p>{{ $totalTableAmount }}</p>
                 </div>
             </div>
+            <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
+                <p>Free tables:</p>
+                <div class="flex justify-center w-14 h-6">
+                    <p id="free-count">0</p>
+                </div>
+            </div>
 
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
                 <p>Total booster seats:</p>
