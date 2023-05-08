@@ -1,3 +1,5 @@
+import axios from "axios"
+
 const allTables = document.getElementById('allTables')
 const deleteModal = document.getElementById('deleteModal')
 let lastSelectedTable
@@ -80,7 +82,7 @@ function minus(parent) {
   if (parseInt(parent.querySelector("input").value) > 0) {
     count += 2;
     parent.querySelector("input").value -= 2;
-    updateCount(count)
+    updateCount(count, parent.previousElementSibling.textContent);
   }
 }
 
