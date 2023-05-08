@@ -49,7 +49,8 @@ function toggleHiddenClass(element) {
 
 function toggleDisabledInput(element) {
     Array.prototype.forEach.call(element, (elem) => {
-        if (elem.firstElementChild.nodeName == "INPUT") {
+        console.log(elem.firstElementChild.name);
+        if (elem.firstElementChild.nodeName == "INPUT" && elem.firstElementChild.name != 'id') {
             elem.firstElementChild.toggleAttribute("disabled");
             elem.firstElementChild.classList.toggle('bg-inherit');
         }

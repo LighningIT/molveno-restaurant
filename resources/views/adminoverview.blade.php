@@ -27,30 +27,52 @@
                 </tr>
             </thead>
             <tbody id="user-table">
-            @foreach ($users as $user)
-                <tr>
-                    <td><input type="text" size="3" name="id" disabled value="{{$user->id}}"
-                            class="border-none bg-inherit table-cell" /></td>
-                    <td><input type="text" name="name" size="15" disabled value="{{ $user->name }}"
-                        class="border-none bg-inherit table-cell" /></td>
-                        <td><input type="text" size="10" name="username" disabled value="{{ $user->username }}"
-                            class="border-none bg-inherit table-cell" /></td>
-                    <td><input type="text" size="10" name="role" disabled value="{{ $user->role->role }}"
-                        class="border-none bg-inherit table-cell" /></td>
-                    <td><input type="text" size="20" name="email" disabled value="{{ $user->email }}"
-                        class="border-none bg-inherit table-cell" /></td>
-                    <td><input type="text" size="5" name="password" disabled value="{{ $user->password }}"
-                        class="border-none bg-inherit table-cell" /></td>
-                    <td><input type="text" size="12" name="created" disabled value="{{ date_create($user->created_at)->format('H:i d-m-Y') }}"
-                        class="border-none bg-inherit table-cell" /></td>
-                    <td><input type="text" size="12" name="updated" disabled value="{{ date_create($user->updated_at)->format("H:i d-m-Y") }}"
-                        class="border-none bg-inherit table-cell" /></td>
-                    <td><x-edit-button class="edit-user" />
-                        <x-save-button class="save-user hidden" />
-                    </td>
-                    <td><x-delete-button class="delete-user" /></td>
-                </tr>
-            @endforeach
+                @foreach ($users as $user)
+                    <tr>
+                        <td>
+                            <input type="text" size="3" name="id" disabled value="{{ $user->id }}"
+                                class="border-none bg-inherit table-cell" />
+                        </td>
+                        <td>
+                            <input type="text" name="name" size="15" disabled value="{{ $user->name }}"
+                                class="border-none bg-inherit table-cell" />
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="username" disabled value="{{ $user->username }}"
+                                class="border-none bg-inherit table-cell" />
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="role" disabled value="{{ $user->role->role }}"
+                                class="border-none bg-inherit table-cell" />
+                        </td>
+                        <td>
+                            <input type="text" size="20" name="email" disabled value="{{ $user->email }}"
+                                class="border-none bg-inherit table-cell" />
+                        </td>
+                        <td>
+                            <input type="text" size="5" name="password" disabled value="{{ $user->password }}"
+                                class="border-none bg-inherit table-cell" />
+                        </td>
+                        <td>
+                            <input type="text" size="12" name="created" disabled
+                                value="{{ date_create($user->created_at)->format('H:i d-m-Y') }}"
+                                class="border-none bg-inherit table-cell" />
+                        </td>
+                        <td>
+                            <input type="text" size="12" name="updated" disabled
+                                value="{{ date_create($user->updated_at)->format('H:i d-m-Y') }}"
+                                class="border-none bg-inherit table-cell" />
+                        </td>
+                        <td>
+                            <x-edit-button class="edit-user" />
+                            <x-save-button class="save-user hidden" />
+                        </td>
+                        <td>
+                            <x-delete-button class="delete-user" />
+                            <x-cancel-button class="cancel hidden" />
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
