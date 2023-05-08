@@ -51,11 +51,15 @@ function openModal () {
 }
 
 
-// let countEl = document.querySelectorAll(".chair-amount");
+let countEl = Array.from(document.querySelectorAll(".chair-amount"));
 let minbutton = document.querySelectorAll('.minus');
 let plusbutton = document.querySelectorAll(".plus");
 let totaltableamount = parseInt(document.getElementById("totaltableamount").textContent) * 2;
-let count = parseInt(document.getElementById("free-count").textContent);
+let count = countEl.reduce((sum, current) => {
+    console.log(sum)
+   return sum -= parseInt(current.value);
+}, totaltableamount);
+console.log(count);
 
 minbutton.forEach((btn)=> {
     btn.addEventListener('click', () => {
