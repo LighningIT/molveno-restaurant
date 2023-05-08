@@ -40,7 +40,7 @@
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
                 <p>Free tables:</p>
                 <div class="flex justify-center w-14 h-6">
-                    <p id="free-count" data-totalChairs="{{ $totalChairs }}">0 </p>
+                    <p id="free-count" data-total-chairs="{{ $totalChairs }}"></p>
                 </div>
             </div>
 
@@ -68,8 +68,8 @@
             <tr>
                 <th>ID</th>
                 <th>Chairs</th>
-                <!-- <th>Edit</th>
-                <th>Delete</th> -->
+                <th>All</th>
+                <th>Reset</th>
             </tr>
 
             @foreach ($table as $t)
