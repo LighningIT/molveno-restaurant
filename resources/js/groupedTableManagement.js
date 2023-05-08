@@ -49,35 +49,42 @@ function openModal () {
 }
 
 
-let countEl = document.getElementById("chair-amount");
-let minbutton = document.getElementById('minus');
-let plusbutton = document.getElementById("plus");
+// let countEl = document.querySelectorAll(".chair-amount");
+let minbutton = document.querySelectorAll('.minus');
+let plusbutton = document.querySelectorAll(".plus");
 let totaltableamount = parseInt(document.getElementById("totaltableamount").textContent) * 2;
-let count = totaltableamount;
+let count = parseInt(document.getElementById("free-count").textContent);
 
-minbutton.addEventListener('click', (event) => {
-    minus(count);
+minbutton.forEach((btn)=> {
+    btn.addEventListener('click', () => {
+        minus(btn.closest("td"));
+    })
 })
 
-plusbutton.addEventListener("click", ()=>{
-    plus(count);
+plusbutton.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        plus(btn.closest("td"));
+    })
 })
 
-function plus(count) {
-
-    if (count < totaltableamount) {
-        count+=2;
-        countEl.value = parseInt(countEl.value)+2;
+function plus(parent) {
+    console.log(count);
+    if (count > 0 && count < totaltableamount) {
+        count -= 2;
+        parent.querySelector("input").value = parseInt(parent.querySelector("input").value) + 2;
+        updateCount(count)
     }
-}    
-    
+}
 
-function minus(count) {
+function minus(parent) {
+  if (parseInt(parent.querySelector("input").value) > 0) {
+    count += 2;
+    parent.querySelector("input").value -= 2;
+    updateCount(count)
+  }
+}
 
-  if (parseInt(countEl.value) > 0) {
-    count-=2;
-    countEl.value = parseInt(countEl.value)-2;
-  }  
-
+function updateCount(count) {
+    document.getElementById("free-count").textContent = count;
 }
 
