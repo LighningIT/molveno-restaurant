@@ -70,7 +70,6 @@ plusbutton.forEach((btn) => {
 })
 
 function plus(parent) {
-    console.log(count);
     if (count > 0 && count < totaltableamount) {
         count -= 2;
         parent.querySelector("input").value = parseInt(parent.querySelector("input").value) + 2;
