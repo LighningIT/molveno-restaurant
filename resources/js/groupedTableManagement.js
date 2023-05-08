@@ -73,7 +73,7 @@ function plus(parent) {
     if (count > 0 && count < totaltableamount) {
         count -= 2;
         parent.querySelector("input").value = parseInt(parent.querySelector("input").value) + 2;
-        updateCount(count)
+        updateCount(parent.querySelector("input").value, parent.previousElementSibling.textContent);
     }
 }
 
@@ -81,11 +81,15 @@ function minus(parent) {
   if (parseInt(parent.querySelector("input").value) > 0) {
     count += 2;
     parent.querySelector("input").value -= 2;
-    updateCount(count, parent.previousElementSibling.textContent);
+    updateCount(parent.querySelector("input").value, parent.previousElementSibling.textContent);
   }
 }
 
-function updateCount(count) {
+function updateCount(count, tableid) {
     document.getElementById("free-count").textContent = count;
+    axios.post("/updateTableLocation", {
+        id: tableid,
+        amount: count
+    })
 }
 
