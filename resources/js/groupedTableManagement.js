@@ -53,14 +53,35 @@ function openModal () {
 
 
 let countEl = Array.from(document.querySelectorAll(".chair-amount"));
-let minbutton = document.querySelectorAll('.minus');
-let plusbutton = document.querySelectorAll(".plus");
-let totaltableamount = parseInt(document.getElementById("totaltableamount").textContent) * 2;
+const minbutton = document.querySelectorAll('.minus');
+const plusbutton = document.querySelectorAll(".plus");
+const totaltableamount = parseInt(document.getElementById("totaltableamount").textContent) * 2;
+const freecount = document.getElementById("free-count");
+const addall = document.querySelectorAll('.add-all');
+const removeall = document.querySelectorAll(".remove-all");
+
 let count = countEl.reduce((sum, current) => {
-    console.log(sum)
    return sum -= parseInt(current.value);
-}, totaltableamount);
-console.log(count);
+}, freecount.dataset.totalChairs * 2);
+
+
+freecount.textContent = count;
+
+addall.forEach((btn)=> {
+    btn.addEventListener('click', () => {
+        btn.closest("tr").querySelector("input").value = parseInt(btn.closest("tr").querySelector("input").value) + count;
+        count = 0;
+        updateCount(count, btn.closest("tr").querySelector("input").value, btn.closest("tr").firstElementChild.textContent); 
+    })
+})
+
+removeall.forEach((btn)=> {
+    btn.addEventListener('click', () => {
+        count += parseInt(btn.closest("tr").querySelector("input").value);
+        btn.closest("tr").querySelector("input").value = 0;
+        updateCount(count, btn.closest("tr").querySelector("input").value, btn.closest("tr").firstElementChild.textContent); 
+    })
+})
 
 minbutton.forEach((btn)=> {
     btn.addEventListener('click', () => {
@@ -79,10 +100,10 @@ resetBtn.addEventListener("click", () => {
 })
 
 function plus(parent) {
-    if (count > 0 && count < totaltableamount) {
+    if (count > 0 && count <= freecount.dataset.totalChairs * 2) {
         count -= 2;
         parent.querySelector("input").value = parseInt(parent.querySelector("input").value) + 2;
-        updateCount(parent.querySelector("input").value, parent.previousElementSibling.textContent);
+        updateCount(count, parent.querySelector("input").value, parent.previousElementSibling.textContent);
     }
 }
 
@@ -90,15 +111,18 @@ function minus(parent) {
   if (parseInt(parent.querySelector("input").value) > 0) {
     count += 2;
     parent.querySelector("input").value -= 2;
-    updateCount(parent.querySelector("input").value, parent.previousElementSibling.textContent);
+    updateCount(count, parent.querySelector("input").value, parent.previousElementSibling.textContent);
   }
 }
 
-function updateCount(count, tableid) {
-    document.getElementById("free-count").textContent = count;
+function updateCount(count, amount, tableid) {
+    freecount.textContent = count;
     axios.post("/updateTableLocation", {
         id: tableid,
-        amount: count
+        amount: amount
     })
 }
+
+
+
 
