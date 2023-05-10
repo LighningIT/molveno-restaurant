@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\GroupedTable;
 use App\Models\Reservation;
 use App\Models\TableStatus;
+use App\Models\Table;
 use Illuminate\Http\Request;
 use App\Models\ChildSeat;
 
@@ -25,21 +26,28 @@ class GroupedTableController extends Controller
         return GroupedTable::updateStatus('free');
     }
 
-    public  function getTableManagement()
+    public function getTableManagement()
     {
-        $totalTableAmount = $this->countTables();
+        $totalTableAmount = $this->countGroupedTables();
+        $totalChairs = $this->countTables();
 
         return view('groupedtablemanagement', [
             'tables' => GroupedTable::getAllTable(),
             'totalTableAmount' => $totalTableAmount,
+            'totalChairs' => $totalChairs,
             'totalChildSeats' => ChildSeat::getAllChildSeats()
         ]);
     }
 
+    public static function countGroupedTables() {
+        return GroupedTable::all()->count();
+    }
     public static function countTables()
     {
-        $countTables = GroupedTable::all()->count();
-        return $countTables;
+        return Table::all()->count();
+    }
 
+    public static function updateTableLocation(Request $request) {
+        GroupedTable::updateTableLocation($request->id, $request->amount);
     }
 }

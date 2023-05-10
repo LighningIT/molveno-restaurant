@@ -19,7 +19,8 @@ function removeFromReservationList(id) {
 }
 
 function addToGroupedTable(tableNum) {
-
-    document.querySelector('[data-table-number="'+ parseInt(tableNum) + '"]').click();
-
+    let table = document.querySelector('[data-table-number="'+ parseInt(tableNum) + '"]');
+    if (!table.classList.contains('border-red-600')) {
+        table.click();
+    }
 }

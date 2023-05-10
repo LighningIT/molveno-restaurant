@@ -6,6 +6,9 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
+                'resources/css/login.css',
+                'resources/css/groupedTableManagement.css',
+                'resources/js/groupedTableManagement.js',
                 'resources/js/app.js',
                 'resources/js/createNewReservation.js',
                 'resources/js/checkInReservation.js',
@@ -14,6 +17,8 @@ export default defineConfig({
                 'resources/js/confirmDelete.js',
                 'resources/js/groupedTableManagement.js',
                 'resources/js/groupedTableManagement.css',
+                'resources/js/confirmDelete.js',
+                'resources/js/alterUsers.js'
             ],
             refresh: true,
         }),

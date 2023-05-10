@@ -18,7 +18,7 @@
                     <img class="table-number w-6 h-6 inline" src="{{ Vite::asset('resources/img/table_icon_125938.svg') }}" alt="table SVG"/>{{$tableNumber}}
                 </span>
                 <span class="mx-2 inline-block">
-                    <img class="w-6 h-6 inline" src="{{ Vite::asset('resources/img/persons.svg') }}" alt="persons SVG"/> {{$numberPersons}}
+                    <img class="w-6 h-6 inline stroke-white" src="{{ Vite::asset('resources/img/persons.svg') }}" alt="persons SVG"/> {{$numberPersons}}
                 </span>
             </p>
         </div>

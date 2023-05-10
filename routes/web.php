@@ -1,5 +1,14 @@
 <?php
 
+
+use App\Http\Controllers\ChildSeatController;
+
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\GroupedTableController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GroupedTableController;
 use Illuminate\Support\Facades\Route;
@@ -19,14 +28,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get("/reservations", function () {
     return view("reservations");
 })
     ->middleware(["auth", "verified"])
     ->name("reservations");
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -56,10 +64,28 @@ Route::middleware("auth")->get("/tablemanagement", [
     ])
     ->name('tablemanagement');
 
+Route::middleware("auth")->post("/updateTableLocation", [GroupedTableController::class, "updateTableLocation"])->name("updateTableLocation");
+
+Route::middleware("auth")->post("/childseats", [ChildSeatController::class, "store"]);
+
 Route::middleware("auth")
     ->get("/reservationpages{id}", [ReservationController::class, "edit"])
     ->name("reservationpages");
 
 Route::middleware('auth')->get('/waiteroverview', [OrderController::class,'getAllTable'])->name('waiteroverview');
 
+
+Route::middleware('auth')->get('/orderoverview', [OrderController::class,'menuIndex'])->name('orderoverview');
+
+Route::middleware('auth', 'verified')->get('/adminoverview', [AdminController::class, 'getAllUsers'] )->name('adminoverview');
+
+Route::middleware('auth')->controller(AdminController::class)->group(function() {
+    Route::get('/adminoverview/edit', 'create');
+    Route::post('/adminoverview/edit', 'store');
+    Route::patch('/adminoverview/edit', 'update');
+    Route::delete('adminoverview/edit', 'destroy');
+});
+
+
 require __DIR__ . "/auth.php";
+

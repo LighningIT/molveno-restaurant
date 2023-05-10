@@ -16,7 +16,6 @@ class Guest extends Model
         return $this->hasOne(Reservation::class);
     }
 
-
     public function getGuestInfo() {
         return $this->firstname;
     }

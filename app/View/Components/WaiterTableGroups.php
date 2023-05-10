@@ -13,17 +13,21 @@ class WaiterTableGroups extends Component
     private $combined;
     private $comments;
     private $chairs;
+    private $statusId;
+    private $status;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($id, $tableSectionId, $combined, $comments, $chairs)
+    public function __construct($id, $tableSectionId, $combined, $comments, $chairs, $statusId, $status)
     {
         $this->id = $id;
         $this->tableSectionId = $tableSectionId;
         $this->combined = $combined;
         $this->comments = $comments;
         $this->chairs = $chairs;
+        $this->statusId = $statusId;
+        $this->status = $status;
     }
 
     /**
@@ -37,6 +41,8 @@ class WaiterTableGroups extends Component
             'combined' => $this->combined,
             'comments' => $this->comments,
             'chairs' => $this->chairs,
+            'statusId' => $this->statusId,
+            'status' => $this->status,
         ]);
     }
 }

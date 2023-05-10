@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\MenuItem>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\MenuCategory>
  */
-class MenuItemFactory extends Factory
+class MenuCategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +18,7 @@ class MenuItemFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'description' => fake()->word(),
-            'price' => 0,
-            'menu_category_id' => 1
+            'menu_meal_type_id' => 1
         ];
     }
 }

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('menu_meal_types', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('menu_id');
             $table->string('name');
         });
     }
