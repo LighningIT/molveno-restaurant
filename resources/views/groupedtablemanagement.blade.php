@@ -1,6 +1,6 @@
 <x-app-layout>
 
-@vite(['resources/js/groupedTableManagement.js', 'resources/js/groupedTableManagement.css'])
+@vite(['resources/js/groupedTableManagement.js', 'resources/css/groupedTableManagement.css'])
 
 <div class="grid grid-cols-4 m-1 pb-2git text-lg text-center leading-loose">
     <span class="dark:text-white flex justify-center">Overview</span>
@@ -34,7 +34,13 @@
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
                 <p>Total tables:</p>
                 <div class="flex justify-center w-14 h-6">
-                    <p>{{ $totalTableAmount }}</p>
+                    <p id="totaltableamount">{{ $totalTableAmount }}</p>
+                </div>
+            </div>
+            <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
+                <p>Free tables:</p>
+                <div class="flex justify-center w-14 h-6">
+                    <p id="free-count" data-total-chairs="{{ $totalChairs }}"></p>
                 </div>
             </div>
 
@@ -62,8 +68,8 @@
             <tr>
                 <th>ID</th>
                 <th>Chairs</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>All</th>
+                <th>Reset</th>
             </tr>
 
             @foreach ($table as $t)
