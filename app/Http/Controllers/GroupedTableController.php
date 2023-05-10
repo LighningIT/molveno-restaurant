@@ -50,4 +50,19 @@ class GroupedTableController extends Controller
     public static function updateTableLocation(Request $request) {
         GroupedTable::updateTableLocation($request->id, $request->amount);
     }
+
+    public static function resetGroupedTables() {
+        // Artisan::call("migrate", ["--path" => "2023_03_01_144548_create_grouped_tables_table", "--force" => true]);
+        // Artisan::call("db:seed", ["--class" => "GroupedTableSeeder"]);
+
+        $tables = Table::all();
+
+        $groupedTables = GroupedTable::all();
+
+        foreach ($tables as $table) {
+            $groupedTables[$table->id]->chairs += $table->chairs;
+        }
+
+
+    }
 }

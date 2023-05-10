@@ -1,8 +1,9 @@
 import axios from "axios"
 
-const allTables = document.getElementById('allTables')
-const deleteModal = document.getElementById('deleteModal')
-let lastSelectedTable
+const allTables = document.getElementById('allTables');
+const deleteModal = document.getElementById('deleteModal');
+const resetBtn = document.getElementById("reset-button");
+let lastSelectedTable;
 
 allTables.addEventListener ('click',(event) => {
 
@@ -71,6 +72,10 @@ plusbutton.forEach((btn) => {
     btn.addEventListener("click", () => {
         plus(btn.closest("td"));
     })
+})
+
+resetBtn.addEventListener("click", () => {
+    axios.get("/resetGroupedTables").then(response => console.log(response));
 })
 
 function plus(parent) {
