@@ -18,6 +18,11 @@ class Table extends Model
         return $this->belongsTo(GroupedTable::class);
     }
 
+    public static function countTables()
+    {
+        return Table::all()->count();
+    }
+
     public static function getCombinedTables() {
         $tables = Table::select("chairs", "grouped_table_id")->get();
 

@@ -29,7 +29,7 @@ class GroupedTableController extends Controller
     public function getTableManagement()
     {
         $totalTableAmount = $this->countGroupedTables();
-        $totalChairs = $this->countTables();
+        $totalChairs = Table::countTables();
 
         return view('groupedtablemanagement', [
             'tables' => GroupedTable::getAllTable(),
@@ -42,10 +42,7 @@ class GroupedTableController extends Controller
     public static function countGroupedTables() {
         return GroupedTable::all()->count();
     }
-    public static function countTables()
-    {
-        return Table::all()->count();
-    }
+
 
     public static function updateTableLocation(Request $request) {
         GroupedTable::updateTableLocation($request->id, $request->amount);
