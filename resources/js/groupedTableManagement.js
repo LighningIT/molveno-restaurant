@@ -71,7 +71,7 @@ addall.forEach((btn)=> {
     btn.addEventListener('click', () => {
         btn.closest("tr").querySelector("input").value = parseInt(btn.closest("tr").querySelector("input").value) + count;
         count = 0;
-        updateCount(count, btn.closest("tr").querySelector("input").value, btn.closest("tr").firstElementChild.textContent); 
+        updateCount(count, btn.closest("tr").querySelector("input").value, btn.closest("tr").firstElementChild.textContent);
     })
 })
 
@@ -79,7 +79,7 @@ removeall.forEach((btn)=> {
     btn.addEventListener('click', () => {
         count += parseInt(btn.closest("tr").querySelector("input").value);
         btn.closest("tr").querySelector("input").value = 0;
-        updateCount(count, btn.closest("tr").querySelector("input").value, btn.closest("tr").firstElementChild.textContent); 
+        updateCount(count, btn.closest("tr").querySelector("input").value, btn.closest("tr").firstElementChild.textContent);
     })
 })
 
@@ -120,7 +120,7 @@ function updateCount(count, amount, tableid) {
     axios.post("/updateTableLocation", {
         id: tableid,
         amount: amount
-    })
+    }).then(response => console.log(response.data));
 }
 
 

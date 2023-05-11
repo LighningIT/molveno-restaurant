@@ -52,17 +52,12 @@ class GroupedTableController extends Controller
     }
 
     public static function resetGroupedTables() {
-        // Artisan::call("migrate", ["--path" => "2023_03_01_144548_create_grouped_tables_table", "--force" => true]);
-        // Artisan::call("db:seed", ["--class" => "GroupedTableSeeder"]);
+        $combineTables = Table::getCombinedTables();
 
-        $tables = Table::all();
-
-        $groupedTables = GroupedTable::all();
-
-        foreach ($tables as $table) {
-            $groupedTables[$table->id]->chairs += $table->chairs;
+        foreach($combineTables as $table) {
+            GroupedTable::updateTableLocation($table->grouped_table_id, $table->chairs);
         }
 
-
+        return $combineTables;
     }
 }
