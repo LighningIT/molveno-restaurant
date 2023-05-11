@@ -60,10 +60,7 @@ const freecount = document.getElementById("free-count");
 const addall = document.querySelectorAll('.add-all');
 const removeall = document.querySelectorAll(".remove-all");
 
-let count = countEl.reduce((sum, current) => {
-   return sum -= parseInt(current.value);
-}, freecount.dataset.totalChairs * 2);
-
+let count = countFreeChairs();
 
 freecount.textContent = count;
 
@@ -96,8 +93,22 @@ plusbutton.forEach((btn) => {
 })
 
 resetBtn.addEventListener("click", () => {
-    axios.get("/resetGroupedTables").then(response => console.log(response));
-})
+    axios.get("/resetGroupedTables")
+        .then(response => response.data)
+        .then(data => {
+            console.log(data)
+            countEl.forEach((elem, index) => {
+                elem.value = data[index].chairs;
+            });
+            freecount.textContent = countFreeChairs();
+        });
+});
+
+function countFreeChairs() {
+    return countEl.reduce((sum, current) => {
+        return sum -= parseInt(current.value);
+        }, freecount.dataset.totalChairs * 2);
+}
 
 function plus(parent) {
     if (count > 0 && count <= freecount.dataset.totalChairs * 2) {
@@ -120,7 +131,7 @@ function updateCount(count, amount, tableid) {
     axios.post("/updateTableLocation", {
         id: tableid,
         amount: amount
-    }).then(response => console.log(response.data));
+    })
 }
 
 

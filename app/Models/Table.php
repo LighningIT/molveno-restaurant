@@ -29,10 +29,10 @@ class Table extends Model
         $combineTables = [];
 
         foreach($tables as $table) {
-            if (!array_key_exists($table->grouped_table_id, $combineTables)) {
+            if (!array_key_exists($table->grouped_table_id - 1 , $combineTables)) {
                 array_push($combineTables, $table);
             } else {
-                $combineTables[$table->grouped_table_id]->chairs += $table->chairs;
+                $combineTables[$table->grouped_table_id - 1]->chairs += $table->chairs;
             }
         }
         return $combineTables;
