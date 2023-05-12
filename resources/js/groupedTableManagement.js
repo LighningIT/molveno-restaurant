@@ -92,14 +92,16 @@ plusbutton.forEach((btn) => {
     })
 })
 
-resetBtn.addEventListener("click", () => {
-    axios.get("/resetGroupedTables")
+resetBtn.addEventListener("click", async () => {
+    await axios.get("/resetGroupedTables")
         .then(response => response.data)
         .then(data => {
             countEl.forEach((elem) => {
                 elem.value = data[elem.closest("tr").id].chairs;
             });
-            freecount.textContent = countFreeChairs();
+
+            freecount.textContent = countFreeChairs()
+            count = countFreeChairs();
         });
 });
 
