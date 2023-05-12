@@ -17,4 +17,24 @@ class Table extends Model
     public function groupedTable(): BelongsTo {
         return $this->belongsTo(GroupedTable::class);
     }
+
+    public static function countTables()
+    {
+        return Table::all()->count();
+    }
+
+    public static function getCombinedTables() {
+        $tables = Table::select("chairs", "grouped_table_id")->orderBy("grouped_table_id")->get();
+
+        $combineTables = [];
+
+        foreach($tables as $table) {
+            if (!array_key_exists($table->grouped_table_id, $combineTables)) {
+                $combineTables[$table->grouped_table_id] = $table;
+            } else {
+                $combineTables[$table->grouped_table_id]->chairs += $table->chairs;
+            }
+        }
+        return $combineTables;
+    }
 }
