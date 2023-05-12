@@ -98,7 +98,7 @@ resetBtn.addEventListener("click", () => {
         .then(data => {
             console.log(data)
             countEl.forEach((elem, index) => {
-                elem.value = data[index].chairs;
+                elem.value = data[elem.closest("tr").id].chairs;
             });
             freecount.textContent = countFreeChairs();
         });
