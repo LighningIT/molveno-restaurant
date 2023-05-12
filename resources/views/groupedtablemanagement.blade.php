@@ -24,12 +24,12 @@
 
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
                 <p>Add new table</p>
-                <x-add-button></x-add-button>
+                <x-add-button id="addTableBTN"></x-add-button>
             </div>
 
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
                 <p>Add child seats</p>
-                <x-add-button></x-add-button>
+                <x-add-button id="addChildSeatsBTN"></x-add-button>
             </div>
 
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
@@ -252,6 +252,6 @@
         </button>
     </div>
 
-</x-popup-modal> --}}
+</x-popup-modal>
 
 </x-app-layout>

@@ -1,31 +1,35 @@
 import axios from "axios"
 
-const allTables = document.getElementById('allTables')
-const modalBackground = document.getElementById('modalBackground')
+// const allTables = document.getElementById('allTables')
+// const modalBackground = document.getElementById('modalBackground')
 const addTableModal = document.getElementById('addTableModal')
+const addChildSeatsModal = document.getElementById('addChildSeatsModal')
+
+const addChildSeatsBTN = document.getElementById('addChildSeatsBTN')
+const addTableBTN = document.getElementById('addTableBTN')
 
 const deleteModal = document.getElementById('deleteModal')
 const editModal = document.getElementById('editModal')
 
-let lastSelectedTable
+// let lastSelectedTable
 
-allTables.addEventListener ('click',(event) => {
+// allTables.addEventListener ('click',(event) => {
 
-    let closestButton = event.target.closest('button')
+//     let closestButton = event.target.closest('button')
 
-    if (closestButton != null) {
-        if (closestButton.dataset.type == 'edit') {
-            editGroupedTable (closestButton.closest('tr'))
-            editModal.parentElement.classList.toggle('hidden')
+//     if (closestButton != null) {
+//         if (closestButton.dataset.type == 'edit') {
+//             editGroupedTable (closestButton.closest('tr'))
+//             editModal.parentElement.classList.toggle('hidden')
 
-        }
+//         }
 
-        if (closestButton.dataset.type == 'delete') {
-            lastSelectedTable = closestButton.closest('tr')
-            deleteModal.parentElement.classList.toggle('hidden')
-        }
-    }
-})
+//         if (closestButton.dataset.type == 'delete') {
+//             lastSelectedTable = closestButton.closest('tr')
+//             deleteModal.parentElement.classList.toggle('hidden')
+//         }
+//     }
+// })
 
 
 window.addEventListener ('click',(event) => {
@@ -50,10 +54,17 @@ window.addEventListener ('click',(event) => {
         }
 
     }
-
+// Open Modals Add table and Add child seat
+})
+addTableBTN.addEventListener ('click',(event) => {
+    addTableModal.parentElement.classList.toggle('hidden')
 })
 
+addChildSeatsBTN.addEventListener ('click',(event) => {
+    addChildSeatsModal.parentElement.classList.toggle('hidden')
+})
 
+// Close Modals
 deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
     deleteModal.parentElement.classList.toggle('hidden')
 })
@@ -62,38 +73,44 @@ editModal.querySelectorAll('button')[0].addEventListener('click', () => {
     editModal.parentElement.classList.toggle('hidden')
 })
 
-deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
+addTableModal.querySelectorAll('button')[0].addEventListener('click', () => {
     addTableModal.parentElement.classList.toggle('hidden')
 })
 
-deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
-    deleteModal.parentElement.classList.toggle('hidden')
+addChildSeatsModal.querySelectorAll('button')[0].addEventListener('click', () => {
+    addChildSeatsModal.parentElement.classList.toggle('hidden')
 })
 
+
+
+
+
+
+
 // alue directly to the function parameter. This is done by putting the function call in the parameters list of the other function call, jus
-function editGroupedTable (element) {
+// function editGroupedTable (element) {
 
-    const groupedTableId = element.children[0]
-    const groupedTableChairs = element.children[1]
+//     const groupedTableId = element.children[0]
+//     const groupedTableChairs = element.children[1]
 
-}
+// }
 
-function openDeleteModal (element) {
+// function openDeleteModal (element) {
 
-    const groupedTableId = element.children[0]
-    const groupedTableChairs = element.children[1]
+//     const groupedTableId = element.children[0]
+//     const groupedTableChairs = element.children[1]
 
-}
+// }
 
-function deleteGroupedTable () {
+// function deleteGroupedTable () {
 
-}
-
-
-function openModal () {
+// }
 
 
-}
+// function openModal () {
+
+
+// }
 
 
 let countEl = Array.from(document.querySelectorAll(".chair-amount"));
