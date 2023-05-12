@@ -96,8 +96,7 @@ resetBtn.addEventListener("click", () => {
     axios.get("/resetGroupedTables")
         .then(response => response.data)
         .then(data => {
-            console.log(data)
-            countEl.forEach((elem, index) => {
+            countEl.forEach((elem) => {
                 elem.value = data[elem.closest("tr").id].chairs;
             });
             freecount.textContent = countFreeChairs();
