@@ -7,6 +7,6 @@
     </td>
     <td><x-edit-button class="add-all"/></td>
     <td><x-reset-all-chairs-button class="reset-all-chairs"/></td>
-    <td><x-delete-button class="remove-all"/></td>
+    <td><x-delete-button class="deleteModalBTN"/></td>
 </tr>
 

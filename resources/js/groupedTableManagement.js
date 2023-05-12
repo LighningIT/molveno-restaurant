@@ -117,7 +117,7 @@ addChildSeatsModal.querySelectorAll('button')[0].addEventListener('click', () =>
 let countEl = Array.from(document.querySelectorAll(".chair-amount"));
 const minbutton = document.querySelectorAll('.minus');
 const plusbutton = document.querySelectorAll(".plus");
-const deleteModalBTN = document.querySelectorAll(".plus");
+const deleteModalBTN = document.querySelectorAll(".deleteModalBTN");
 const totaltableamount = parseInt(document.getElementById("totaltableamount").textContent) * 2;
 const freecount = document.getElementById("free-count");
 const addall = document.querySelectorAll('.add-all');
@@ -159,9 +159,11 @@ plusbutton.forEach((btn) => {
 
 deleteModalBTN.forEach((btn)=> {
     btn.addEventListener('click', () => {
-        minus(btn.closest("td"));
+        btn.closest("tr").remove()
+        freecount.textContent = countFreeChairs()
     })
 })
+
 
 resetBtn.addEventListener("click", () => {
     axios.get("/resetGroupedTables")

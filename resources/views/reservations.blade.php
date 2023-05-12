@@ -21,14 +21,16 @@
         </div>
     </div>
 
-    <div class="absolute top-4 text-3xl w-full">
+    <div class="absolute top-8 text-3xl w-55 z-10 left-1/2" style="transform: translate(-50%, -50%)">
     @if (session('success'))
-        <div class="text-center dark:text-white">
+        <div class="text-center dark:text-white ">
             <p>{{ session()->pull('success', '') }}</p>
 
         </div>
     @endif
     </div>
+
+
 <div class="grid grid-cols-12 h-full max-h-[95vh]">
 
         <x-reservation-new />
