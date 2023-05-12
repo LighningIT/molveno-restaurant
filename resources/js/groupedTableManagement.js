@@ -117,6 +117,7 @@ addChildSeatsModal.querySelectorAll('button')[0].addEventListener('click', () =>
 let countEl = Array.from(document.querySelectorAll(".chair-amount"));
 const minbutton = document.querySelectorAll('.minus');
 const plusbutton = document.querySelectorAll(".plus");
+const deleteModalBTN = document.querySelectorAll(".plus");
 const totaltableamount = parseInt(document.getElementById("totaltableamount").textContent) * 2;
 const freecount = document.getElementById("free-count");
 const addall = document.querySelectorAll('.add-all');
@@ -153,6 +154,12 @@ minbutton.forEach((btn)=> {
 plusbutton.forEach((btn) => {
     btn.addEventListener("click", () => {
         plus(btn.closest("td"));
+    })
+})
+
+deleteModalBTN.forEach((btn)=> {
+    btn.addEventListener('click', () => {
+        minus(btn.closest("td"));
     })
 })
 
