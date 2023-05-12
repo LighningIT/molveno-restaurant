@@ -1,6 +1,6 @@
 import axios from "axios"
 
-// const allTables = document.getElementById('allTables')
+// const allTables = document.getElementById('allTables');
 // const modalBackground = document.getElementById('modalBackground')
 const addTableModal = document.getElementById('addTableModal')
 const addChildSeatsModal = document.getElementById('addChildSeatsModal')
@@ -8,10 +8,11 @@ const addChildSeatsModal = document.getElementById('addChildSeatsModal')
 const addChildSeatsBTN = document.getElementById('addChildSeatsBTN')
 const addTableBTN = document.getElementById('addTableBTN')
 
-const deleteModal = document.getElementById('deleteModal')
+const deleteModal = document.getElementById('deleteModal');
+const resetBtn = document.getElementById("reset-button");
 const editModal = document.getElementById('editModal')
 
-// let lastSelectedTable
+// let lastSelectedTable;
 
 // allTables.addEventListener ('click',(event) => {
 
@@ -121,10 +122,7 @@ const freecount = document.getElementById("free-count");
 const addall = document.querySelectorAll('.add-all');
 const removeall = document.querySelectorAll(".remove-all");
 
-let count = countEl.reduce((sum, current) => {
-   return sum -= parseInt(current.value);
-}, freecount.dataset.totalChairs * 2);
-
+let count = countFreeChairs();
 
 freecount.textContent = count;
 
@@ -133,6 +131,7 @@ addall.forEach((btn)=> {
         btn.closest("tr").querySelector("input").value = parseInt(btn.closest("tr").querySelector("input").value) + count;
         count = 0;
         updateCount(count, btn.closest("tr").querySelector("input").value, btn.closest("tr").firstElementChild.textContent);
+        updateCount(count, btn.closest("tr").querySelector("input").value, btn.closest("tr").firstElementChild.textContent);
     })
 })
 
@@ -140,6 +139,7 @@ removeall.forEach((btn)=> {
     btn.addEventListener('click', () => {
         count += parseInt(btn.closest("tr").querySelector("input").value);
         btn.closest("tr").querySelector("input").value = 0;
+        updateCount(count, btn.closest("tr").querySelector("input").value, btn.closest("tr").firstElementChild.textContent);
         updateCount(count, btn.closest("tr").querySelector("input").value, btn.closest("tr").firstElementChild.textContent);
     })
 })
@@ -155,6 +155,23 @@ plusbutton.forEach((btn) => {
         plus(btn.closest("td"));
     })
 })
+
+resetBtn.addEventListener("click", () => {
+    axios.get("/resetGroupedTables")
+        .then(response => response.data)
+        .then(data => {
+            countEl.forEach((elem) => {
+                elem.value = data[elem.closest("tr").id].chairs;
+            });
+            freecount.textContent = countFreeChairs();
+        });
+});
+
+function countFreeChairs() {
+    return countEl.reduce((sum, current) => {
+        return sum -= parseInt(current.value);
+        }, freecount.dataset.totalChairs * 2);
+}
 
 function plus(parent) {
     if (count > 0 && count <= freecount.dataset.totalChairs * 2) {

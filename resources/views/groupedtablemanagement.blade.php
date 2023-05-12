@@ -59,7 +59,12 @@
                 </div>
             </div>
         </div>
+        <div class="mt-8 flex justify-center">
+            <x-danger-button id="reset-button">Reset</x-danger-button>
+        </div>
+
     </div>
+
 
     @foreach ($tables as $table)
 
