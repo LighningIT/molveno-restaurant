@@ -184,7 +184,8 @@ minTableButton.forEach((btn)=> {
         event.preventDefault()
 
         if (btn.closest("div").querySelector("input").value > 0) {
-            btn.closest("div").querySelector("input").value -= 2
+            btn.closest("div").querySelector("input").value -=
+            parseInt(btn.closest("div").querySelector("input").dataset.value)
         }
     })
 })
@@ -192,7 +193,8 @@ minTableButton.forEach((btn)=> {
 plusTableButton.forEach((btn) => {
     btn.addEventListener("click", (event) => {
         event.preventDefault()
-        btn.closest("div").querySelector("input").value = parseInt(btn.closest("div").querySelector("input").value) +2
+        btn.closest("div").querySelector("input").value = parseInt(btn.closest("div").querySelector("input").value)
+            + parseInt(btn.closest("div").querySelector("input").dataset.value)
     })
 })
 

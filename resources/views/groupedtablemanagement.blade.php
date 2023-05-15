@@ -214,7 +214,7 @@
                 <button class="plus-minus-button minusTable">-</button>
 
                 <div>
-                    <input size="1" type="text" value="0" disabled>
+                    <input size="1" type="text" value="0" disabled data-value="2" name="chaircount">
                 </div>
 
                 <button class="plus-minus-button plusTable">+</button>
@@ -251,7 +251,7 @@
             <button class="plus-minus-button minusTable">-</button>
 
             <div>
-                <input size="1" type="text" value="0" disabled>
+                <input size="1" type="text" value="0" disabled data-value="1" name="chaircount">
             </div>
 
             <button class="plus-minus-button plusTable">+</button>
