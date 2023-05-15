@@ -28,24 +28,6 @@ let lastSelectedTable;
 let count = countFreeChairs();
 
 freecount.textContent = count;
-// allTables.addEventListener ('click',(event) => {
-
-//     let closestButton = event.target.closest('button')
-
-//     if (closestButton != null) {
-//         if (closestButton.dataset.type == 'edit') {
-//             editGroupedTable (closestButton.closest('tr'))
-//             editModal.parentElement.classList.toggle('hidden')
-
-//         }
-
-//         if (closestButton.dataset.type == 'delete') {
-//             lastSelectedTable = closestButton.closest('tr')
-//             deleteModal.parentElement.classList.toggle('hidden')
-//         }
-//     }
-// })
-
 
 window.addEventListener ('click',(event) => {
 
@@ -68,9 +50,7 @@ window.addEventListener ('click',(event) => {
 
         }
 
-    }
 // Open Modals Add table and Add child seat
-})
 addTableBTN.addEventListener ('click',(event) => {
     addTableModal.parentElement.classList.toggle('hidden')
 })
@@ -98,10 +78,6 @@ deleteModalBTN.addEventListener ('click',(event) => {
 deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
     deleteModal.parentElement.classList.toggle('hidden')
 })
-
-// editModal.querySelectorAll('button')[0].addEventListener('click', () => {
-//     editModal.parentElement.classList.toggle('hidden')
-// })
 
 addTableModal.querySelectorAll('button')[0].addEventListener('click', () => {
     addTableModal.parentElement.classList.toggle('hidden')
