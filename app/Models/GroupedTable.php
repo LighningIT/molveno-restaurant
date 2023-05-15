@@ -56,4 +56,9 @@ class GroupedTable extends Model
     public static function updateTableLocation($id, $amount) {
         GroupedTable::where('id', $id)->update(["chairs" => $amount]);
     }
+
+    public static function destroy($id) {
+        GroupedTable::where("id", $id)->delete();
+    }
+
 }

@@ -88,9 +88,9 @@ deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
     deleteModal.parentElement.classList.toggle('hidden')
 })
 
-editModal.querySelectorAll('button')[0].addEventListener('click', () => {
-    editModal.parentElement.classList.toggle('hidden')
-})
+// editModal.querySelectorAll('button')[0].addEventListener('click', () => {
+//     editModal.parentElement.classList.toggle('hidden')
+// })
 
 addTableModal.querySelectorAll('button')[0].addEventListener('click', () => {
     addTableModal.parentElement.classList.toggle('hidden')
@@ -103,42 +103,19 @@ addChildSeatsModal.querySelectorAll('button')[0].addEventListener('click', () =>
 function deleteTable (lastSelectedTable) {
     lastSelectedTable.closest("tr").remove()
     freecount.textContent = countFreeChairs()
-    axios.delete("/tablemanagement/delete", {id: lastSelectedTable.closest("tr").firstElementChild.dataset.id})
+    axios.delete("/tablemanagementDelete", {data: { id: lastSelectedTable.closest("tr").firstElementChild.dataset.id}})
 }
 
 
 
 
 
-// alue directly to the function parameter. This is done by putting the function call in the parameters list of the other function call, jus
-// function editGroupedTable (element) {
-
-//     const groupedTableId = element.children[0]
-//     const groupedTableChairs = element.children[1]
-
-// }
-
-// function openDeleteModal (element) {
-
-//     const groupedTableId = element.children[0]
-//     const groupedTableChairs = element.children[1]
-
-// }
-
-// function deleteGroupedTable () {
-
-// }
-
-
-// function openModal () {
-
-
-// }
-
 
 let countEl = Array.from(document.querySelectorAll(".chair-amount"));
 const minbutton = document.querySelectorAll('.minus');
 const plusbutton = document.querySelectorAll(".plus");
+const minTableButton = document.querySelectorAll('.minusTable');
+const plusTableButton = document.querySelectorAll(".plusTable");
 
 const totaltableamount = parseInt(document.getElementById("totaltableamount").textContent) * 2;
 
@@ -167,60 +144,42 @@ removeall.forEach((btn)=> {
     })
 })
 
-minbutton.forEach((btn)=> {
-    btn.addEventListener('click', () => {
-        minus(btn.closest("td"));
-    })
-})
 
-plusbutton.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        plus(btn.closest("td"));
-    })
-})
+// minseatsbutton.forEach((btn)=> {
+//     btn.addEventListener('click', () => {
+//         seatsminus(btn.closest("td"));
+//     })
+// })
 
-// seats plus and min //
-let countseats = 1;
-let countSeatsEl = document.querySelectorAll('.seats-amount-div');
-const minseatsbutton = document.querySelectorAll('.minus-seats-button');
-const plusseatsbutton = document.querySelectorAll(".plus-seats-button");
+// plusseatsbutton.forEach((btn) => {
+//     btn.addEventListener("click", () => {
+//         seatsplus(btn.closest("td"));
+//     })
+// })
 
-
-minseatsbutton.forEach((btn)=> {
-    btn.addEventListener('click', () => {
-        seatsminus(btn.closest("td"));
-    })
-})
-
-plusseatsbutton.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        seatsplus(btn.closest("td"));
-    })
-})
-
-function seatsplus(parent) {
+// function seatsplus(parent) {
     // if (countseats > 0 && countseats <= freecount.dataset.totalChairs * 2) {
     //     count -= 2;
     //     parent.querySelector("p").value = parseInt(parent.querySelector("p").value) + 2;
     //     updateCount(count, parent.querySelector("p").value, parent.previousElementSibling.textContent);
     // }
 
-    countseats++;
-    countSeatsEl.textContent = countseats;
-}
+//     countseats++;
+//     countSeatsEl.textContent = countseats;
+// }
 
-function seatsminus(parent) {
+// function seatsminus(parent) {
 //   if (parseInt(parent.querySelector("p").value) > 0) {
 //     count += 2;
 //     parent.querySelector("p").value -= 2;
 //     updateCount(count, parent.querySelector("p").value, parent.previousElementSibling.textContent);
 //   }
       
-        if (countseats > 1) {
-            countseats--;
-            countSeatsEl.textContent = countseats;
-        }
-}
+//         if (countseats > 1) {
+//             countseats--;
+//             countSeatsEl.textContent = countseats;
+//         }
+// }
 
 //End of function seats//
 
@@ -243,9 +202,41 @@ function countFreeChairs() {
         }, freecount.dataset.totalChairs * 2);
 }
 
+
+// Table row plus minus
+minbutton.forEach((btn)=> {
+    btn.addEventListener('click', () => {
+        minus(btn.closest("td"));
+    })
+})
+
+plusbutton.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        plus(btn.closest("td"));
+    })
+})
+
+minTableButton.forEach((btn)=> {
+    btn.addEventListener('click', (event) => {
+        event.preventDefault()
+
+        if (btn.closest("div").querySelector("input").value > 0) {
+            btn.closest("div").querySelector("input").value -= 2
+        }
+    })
+})
+
+plusTableButton.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+        event.preventDefault()
+        btn.closest("div").querySelector("input").value = parseInt(btn.closest("div").querySelector("input").value) +2
+    })
+})
+
 function plus(parent) {
     if (count > 0 && count <= freecount.dataset.totalChairs * 2) {
         count -= 2;
+        console.log(parent)
         parent.querySelector("input").value = parseInt(parent.querySelector("input").value) + 2;
         updateCount(count, parent.querySelector("input").value, parent.previousElementSibling.textContent);
     }
@@ -266,3 +257,7 @@ function updateCount(count, amount, tableid) {
         amount: amount
     })
 }
+
+
+
+
