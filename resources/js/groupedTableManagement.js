@@ -17,49 +17,8 @@ const freecount = document.getElementById("free-count");
 
 let lastSelectedTable;
 
-// allTables.addEventListener ('click',(event) => {
 
-//     let closestButton = event.target.closest('button')
-
-//     if (closestButton != null) {
-//         if (closestButton.dataset.type == 'edit') {
-//             editGroupedTable (closestButton.closest('tr'))
-//             editModal.parentElement.classList.toggle('hidden')
-
-//         }
-
-//         if (closestButton.dataset.type == 'delete') {
-//             lastSelectedTable = closestButton.closest('tr')
-//             deleteModal.parentElement.classList.toggle('hidden')
-//         }
-//     }
-// })
-
-
-window.addEventListener ('click',(event) => {
-
-    let closestButton = event.target.closest('button')
-
-    if (closestButton != null) {
-        if (closestButton.dataset.type == 'close') {
-
-
-
-
-            // if(event.target.id == 'deleteModal') {
-            //     deleteModal.parentElement.classList.toggle('hidden')
-            //     console.log("close", element)
-
-            // }
-
-
-            // editModal.parentElement.classList.toggle('hidden')
-
-        }
-
-    }
 // Open Modals Add table and Add child seat
-})
 addTableBTN.addEventListener ('click',(event) => {
     addTableModal.parentElement.classList.toggle('hidden')
 })
@@ -87,10 +46,6 @@ deleteModalBTN.addEventListener ('click',(event) => {
 deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
     deleteModal.parentElement.classList.toggle('hidden')
 })
-
-// editModal.querySelectorAll('button')[0].addEventListener('click', () => {
-//     editModal.parentElement.classList.toggle('hidden')
-// })
 
 addTableModal.querySelectorAll('button')[0].addEventListener('click', () => {
     addTableModal.parentElement.classList.toggle('hidden')
@@ -122,7 +77,7 @@ const totaltableamount = parseInt(document.getElementById("totaltableamount").te
 const addall = document.querySelectorAll('.add-all');
 const removeall = document.querySelectorAll(".reset-all-chairs");
 
-let count = countFreeChairs();
+let count = countFreeChairs();  
 
 freecount.textContent = count;
 
