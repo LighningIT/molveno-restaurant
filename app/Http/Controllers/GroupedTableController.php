@@ -44,6 +44,8 @@ class GroupedTableController extends Controller
     }
 
     public static function deleteTable(Request $request) {
+        GroupedTable::destroy($request->id);
+        Table::updateTable($request->id);
         return $request->id;
     }
 

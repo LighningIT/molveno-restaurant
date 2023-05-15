@@ -121,7 +121,7 @@
 </x-popup-modal>
 
 
-<x-popup-modal class="text-black" id="editModal">
+{{-- <x-popup-modal class="text-black" id="editModal">
     <h2 class="text-3xl mb-12 -mt-8">Edit Table</h2>
 
     <form class="flex flex-col gap-3" action="">
@@ -181,7 +181,7 @@
 
     </form>
 
-</x-popup-modal>
+</x-popup-modal> --}}
 
 
 <x-popup-modal class="flex flex-col gap-4" id="addTableModal">
@@ -211,18 +211,18 @@
             <p>Total Seats:</p>
 
             <div class="flex flex-row gap-4 justify-center w-36 self-center">
-                <button class="plus-minus-button">-</button>
+                <button class="plus-minus-button minusTable">-</button>
 
                 <div>
-                    <p>0</p>
+                    <input size="1" type="text" value="0" disabled>
                 </div>
 
-                <button class="plus-minus-button">+</button>
+                <button class="plus-minus-button plusTable">+</button>
             </div>
         </div>
 
         <div class="flex flex-row justify-center mt-12">
-            <button class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer'>
+            <button type="submit" class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer'>
                 <p>Add</p>
             </button>
         </div>
@@ -248,13 +248,13 @@
         <p>Total Seats:</p>
 
         <div class="flex flex-row gap-4 justify-center w-36 self-center">
-            <button class="plus-minus-button">-</button>
+            <button class="plus-minus-button minusTable">-</button>
 
             <div>
-                <p>0</p>
+                <input size="1" type="text" value="0" disabled>
             </div>
 
-            <button class="plus-minus-button">+</button>
+            <button class="plus-minus-button plusTable">+</button>
         </div>
     </div>
 
