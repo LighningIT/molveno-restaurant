@@ -14,52 +14,23 @@ const deleteModalBTN = document.getElementById("deleteModalBTN");
 const resetBtn = document.getElementById("reset-button");
 
 const freecount = document.getElementById("free-count");
+let countEl = Array.from(document.querySelectorAll(".chair-amount"));
+const minbutton = document.querySelectorAll('.minus');
+const plusbutton = document.querySelectorAll(".plus");
+const minTableButton = document.querySelectorAll('.minusTable');
+const plusTableButton = document.querySelectorAll(".plusTable");
+
+const addall = document.querySelectorAll('.add-all');
+const removeall = document.querySelectorAll(".reset-all-chairs");
 
 let lastSelectedTable;
 
-// allTables.addEventListener ('click',(event) => {
+let count = countFreeChairs();
 
-//     let closestButton = event.target.closest('button')
-
-//     if (closestButton != null) {
-//         if (closestButton.dataset.type == 'edit') {
-//             editGroupedTable (closestButton.closest('tr'))
-//             editModal.parentElement.classList.toggle('hidden')
-
-//         }
-
-//         if (closestButton.dataset.type == 'delete') {
-//             lastSelectedTable = closestButton.closest('tr')
-//             deleteModal.parentElement.classList.toggle('hidden')
-//         }
-//     }
-// })
+freecount.textContent = count;
 
 
-window.addEventListener ('click',(event) => {
-
-    let closestButton = event.target.closest('button')
-
-    if (closestButton != null) {
-        if (closestButton.dataset.type == 'close') {
-
-
-
-
-            // if(event.target.id == 'deleteModal') {
-            //     deleteModal.parentElement.classList.toggle('hidden')
-            //     console.log("close", element)
-
-            // }
-
-
-            // editModal.parentElement.classList.toggle('hidden')
-
-        }
-
-    }
 // Open Modals Add table and Add child seat
-})
 addTableBTN.addEventListener ('click',(event) => {
     addTableModal.parentElement.classList.toggle('hidden')
 })
@@ -77,20 +48,14 @@ deleteBTN.forEach((btn)=> {
 
 deleteModalBTN.addEventListener ('click',(event) => {
     event.preventDefault()
-    deleteTable (lastSelectedTable)
+    deleteTable(lastSelectedTable)
     deleteModal.parentElement.classList.toggle('hidden')
 })
-
-
 
 // Close Modals
 deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
     deleteModal.parentElement.classList.toggle('hidden')
 })
-
-// editModal.querySelectorAll('button')[0].addEventListener('click', () => {
-//     editModal.parentElement.classList.toggle('hidden')
-// })
 
 addTableModal.querySelectorAll('button')[0].addEventListener('click', () => {
     addTableModal.parentElement.classList.toggle('hidden')
@@ -102,29 +67,17 @@ addChildSeatsModal.querySelectorAll('button')[0].addEventListener('click', () =>
 
 function deleteTable (lastSelectedTable) {
     lastSelectedTable.closest("tr").remove()
-    freecount.textContent = countFreeChairs()
+
     axios.delete("/tablemanagementDelete", {data: { id: lastSelectedTable.closest("tr").firstElementChild.dataset.id}})
+        .then(() => {
+            freecount.textContent = countFreeChairs()
+            lastSelectedTable = "";
+            count = countFreeChairs()
+
+        });
 }
 
 
-
-
-
-
-let countEl = Array.from(document.querySelectorAll(".chair-amount"));
-const minbutton = document.querySelectorAll('.minus');
-const plusbutton = document.querySelectorAll(".plus");
-const minTableButton = document.querySelectorAll('.minusTable');
-const plusTableButton = document.querySelectorAll(".plusTable");
-
-const totaltableamount = parseInt(document.getElementById("totaltableamount").textContent) * 2;
-
-const addall = document.querySelectorAll('.add-all');
-const removeall = document.querySelectorAll(".reset-all-chairs");
-
-let count = countFreeChairs();
-
-freecount.textContent = count;
 
 addall.forEach((btn)=> {
     btn.addEventListener('click', () => {
@@ -197,6 +150,7 @@ resetBtn.addEventListener("click", () => {
 });
 
 function countFreeChairs() {
+    countEl = Array.from(document.querySelectorAll(".chair-amount"));
     return countEl.reduce((sum, current) => {
         return sum -= parseInt(current.value);
         }, freecount.dataset.totalChairs * 2);
