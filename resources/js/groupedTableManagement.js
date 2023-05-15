@@ -14,9 +14,20 @@ const deleteModalBTN = document.getElementById("deleteModalBTN");
 const resetBtn = document.getElementById("reset-button");
 
 const freecount = document.getElementById("free-count");
+const countEl = Array.from(document.querySelectorAll(".chair-amount"));
+const minbutton = document.querySelectorAll('.minus');
+const plusbutton = document.querySelectorAll(".plus");
+const minTableButton = document.querySelectorAll('.minusTable');
+const plusTableButton = document.querySelectorAll(".plusTable");
+
+const addall = document.querySelectorAll('.add-all');
+const removeall = document.querySelectorAll(".reset-all-chairs");
 
 let lastSelectedTable;
 
+let count = countFreeChairs();
+
+freecount.textContent = count;
 // allTables.addEventListener ('click',(event) => {
 
 //     let closestButton = event.target.closest('button')
@@ -77,7 +88,7 @@ deleteBTN.forEach((btn)=> {
 
 deleteModalBTN.addEventListener ('click',(event) => {
     event.preventDefault()
-    deleteTable (lastSelectedTable)
+    deleteTable(lastSelectedTable)
     deleteModal.parentElement.classList.toggle('hidden')
 })
 
@@ -103,28 +114,10 @@ addChildSeatsModal.querySelectorAll('button')[0].addEventListener('click', () =>
 function deleteTable (lastSelectedTable) {
     lastSelectedTable.closest("tr").remove()
     freecount.textContent = countFreeChairs()
-    axios.delete("/tablemanagementDelete", {data: { id: lastSelectedTable.closest("tr").firstElementChild.dataset.id}})
+    axios.delete("/tablemanagementDelete", {data: { id: lastSelectedTable.closest("tr").firstElementChild.dataset.id}});
 }
 
 
-
-
-
-
-let countEl = Array.from(document.querySelectorAll(".chair-amount"));
-const minbutton = document.querySelectorAll('.minus');
-const plusbutton = document.querySelectorAll(".plus");
-const minTableButton = document.querySelectorAll('.minusTable');
-const plusTableButton = document.querySelectorAll(".plusTable");
-
-const totaltableamount = parseInt(document.getElementById("totaltableamount").textContent) * 2;
-
-const addall = document.querySelectorAll('.add-all');
-const removeall = document.querySelectorAll(".reset-all-chairs");
-
-let count = countFreeChairs();
-
-freecount.textContent = count;
 
 addall.forEach((btn)=> {
     btn.addEventListener('click', () => {
