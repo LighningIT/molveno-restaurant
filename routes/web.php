@@ -77,7 +77,7 @@ Route::middleware('auth')->get('/waiteroverview', [OrderController::class,'getAl
 
 Route::middleware('auth')->get('/orderoverview', [OrderController::class,'menuIndex'])->name('orderoverview');
 
-Route::middleware('auth')->delete('/tablemanagement/delete{id}', [GroupedTableController::class,'deleteTable'])->name('tablemanagement/delete');
+Route::middleware('auth')->delete('/tablemanagement/delete', [GroupedTableController::class,'deleteTables'])->name('tablemanagement/delete');
 
 Route::middleware('auth', 'verified')->get('/adminoverview', [AdminController::class, 'getAllUsers'] )->name('adminoverview');
 

@@ -5,7 +5,7 @@
         <input disabled type="text" name="chair-amount" class="chair-amount" value="{{ $chairs }}" size="1">
         <x-button-count class="plus">+</x-button-count>
     </td>
-    <td><x-edit-button class="add-all"/></td>
+    <td><x-in-button class="add-all"/></td>
     <td><x-reset-all-chairs-button class="reset-all-chairs"/></td>
     <td><x-delete-button class="deleteBTN"/></td>
 </tr>
