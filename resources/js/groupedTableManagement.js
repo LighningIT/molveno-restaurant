@@ -103,7 +103,7 @@ addChildSeatsModal.querySelectorAll('button')[0].addEventListener('click', () =>
 function deleteTable (lastSelectedTable) {
     lastSelectedTable.closest("tr").remove()
     freecount.textContent = countFreeChairs()
-    axios.delete("/tablemanagement/delete", {id: lastSelectedTable.closest("tr").firstElementChild.dataset.id})
+    axios.delete("/tablemanagementDelete", {data: { id: lastSelectedTable.closest("tr").firstElementChild.dataset.id}})
 }
 
 
