@@ -29,27 +29,6 @@ let count = countFreeChairs();
 
 freecount.textContent = count;
 
-window.addEventListener ('click',(event) => {
-
-    let closestButton = event.target.closest('button')
-
-    if (closestButton != null) {
-        if (closestButton.dataset.type == 'close') {
-
-
-
-
-            // if(event.target.id == 'deleteModal') {
-            //     deleteModal.parentElement.classList.toggle('hidden')
-            //     console.log("close", element)
-
-            // }
-
-
-            // editModal.parentElement.classList.toggle('hidden')
-
-        }
-
 // Open Modals Add table and Add child seat
 addTableBTN.addEventListener ('click',(event) => {
     addTableModal.parentElement.classList.toggle('hidden')
