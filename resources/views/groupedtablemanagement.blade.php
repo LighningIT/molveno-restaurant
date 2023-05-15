@@ -132,13 +132,13 @@
             <p>Add chairs:</p>
 
             <div class="flex row gap-4">
-                <button class="plus-minus-button">-</button>
+                <button class="minus-seats-button">-</button>
 
                 <div>
-                    <p>0</p>
+                    <p class="seats-amount">0</p>
                 </div>
 
-                <button class="plus-minus-button">+</button>
+                <button class="plus-seats-button">+</button>
 
             </div>
         </div>
@@ -147,13 +147,13 @@
             <p>Add High chairs:</p>
 
             <div class="flex row gap-4">
-                <button class="plus-minus-button">-</button>
+                <button class="minus-seats-button">-</button>
 
                 <div>
-                    <p>0</p>
+                    <p class="seats-amount">0</p>
                 </div>
 
-                <button class="plus-minus-button">+</button>
+                <button class="plus-seats-button">+</button>
 
             </div>
         </div>
@@ -162,13 +162,13 @@
             <p>Add Booster seats:</p>
 
             <div class="flex row gap-4">
-                <button class="plus-minus-button">-</button>
+                <button class="minus-seats-button">-</button>
 
                 <div>
-                    <p>0</p>
+                    <p class="seats-amount">0</p>
                 </div>
 
-                <button class="plus-minus-button">+</button>
+                <button class="plus-seats-button">+</button>
 
             </div>
         </div>
@@ -214,7 +214,7 @@
                 <button class="plus-minus-button">-</button>
 
                 <div>
-                    <p>0</p>
+                    <p class="seats-amount">0</p>
                 </div>
 
                 <button class="plus-minus-button">+</button>
@@ -248,13 +248,13 @@
         <p>Total Seats:</p>
 
         <div class="flex flex-row gap-4 justify-center w-36 self-center">
-            <button class="plus-minus-button">-</button>
+            <button class="minus-seats-button">-</button>
 
-            <div>
-                <p>0</p>
+            <div class="seats-amount-div">
+                <input type="text" class="seats-amount" size="2" value="0">
             </div>
 
-            <button class="plus-minus-button">+</button>
+            <button class="plus-seats-button">+</button>
         </div>
     </div>
 
