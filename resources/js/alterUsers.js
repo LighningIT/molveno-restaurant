@@ -7,17 +7,22 @@ const saveBtns = document.querySelectorAll("button.save-user");
 const deleteModal = document.getElementById('deleteModal');
 const userTable = document.getElementById('user-table');
 
+let selectedBtn;
+
 deleteBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         toggleHiddenClass(deleteModal.parentElement);
-        deleteModal.querySelectorAll('button')[1].addEventListener('click', () => {
-            deleteUser(btn.closest('tr'));
-        });
-        deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
-            toggleHiddenClass(deleteModal.parentElement);
-        });
+        selectedBtn = btn;
     });
+});
+
+deleteModal.querySelectorAll('button')[1].addEventListener('click', () => {
+    deleteUser(selectedBtn.closest('tr'));
+});
+
+deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
+    toggleHiddenClass(deleteModal.parentElement);
 });
 
 editBtns.forEach((btn) => {

@@ -50,8 +50,7 @@
                                 class="border-none bg-inherit table-cell" />
                         </td>
                         <td>
-                            <input type="text" size="5" name="password" disabled value="{{ $user->password }}"
-                                class="border-none bg-inherit table-cell" />
+                            <button>pw</button>
                         </td>
                         <td>
                             <input type="text" size="12" name="created" disabled
