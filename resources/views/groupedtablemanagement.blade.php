@@ -1,6 +1,6 @@
 <x-app-layout>
 
-@vite(['resources/js/groupedTableManagement.js'])
+@vite(['resources/js/groupedTableManagement.js', 'resources/js/confirmDelete.js'])
 @vite(['resources/css/groupedTableManagement.css'])
 
 <div class="grid grid-cols-4 m-1 pb-2git text-lg text-center leading-loose">

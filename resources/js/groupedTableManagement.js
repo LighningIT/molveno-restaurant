@@ -207,7 +207,3 @@ function updateCount(count, amount, tableid) {
         amount: amount
     })
 }
-
-
-
-
