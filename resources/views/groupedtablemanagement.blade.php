@@ -174,7 +174,7 @@
         </div>
 
         <div class="flex flex-row justify-center mt-14">
-            <button class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer'>
+            <button type="submit" class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer'>
                 <p>Update</p>
             </button>
         </div>
@@ -233,22 +233,24 @@
 
 <x-popup-modal class="flex flex-col gap-10" id="addChildSeatsModal">
     <h2 class="text-3xl mb-12 -mt-8">Add child seats</h2>
+    
+        <form class="flex flex-col gap-6" action="">
 
-    <div class="flex flex-row justify-between gap-60">
-        <p class="self-center">Seat type:</p>
-        <div class="select">
-            <select name="section" id="sectionSelect">
-                <option value="">High chair</option>
-                <option value="">Booster seat</option>
-            </select>
-        </div>
-    </div>
+            <div class="flex flex-row justify-between gap-60">
+                <p class="self-center">Seat type:</p>
+                <div class="select">
+                    <select name="section" id="sectionSelect">
+                        <option value="">High chair</option>
+                        <option value="">Booster seat</option>
+                    </select>
+                </div>
+            </div>
 
-    <div class="flex flex-row justify-between">
-        <p>Total Seats:</p>
+            <div class="flex flex-row justify-between">
+            <p>Total Seats:</p>
 
-        <div class="flex flex-row gap-4 justify-center w-36 self-center">
-            <button class="plus-minus-button minusTable">-</button>
+            <div class="flex flex-row gap-4 justify-center w-36 self-center">
+                <button class="plus-minus-button minusTable">-</button>
 
             <div>
                 <input size="1" type="text" value="0" disabled data-value="1" name="chaircount">
@@ -259,10 +261,12 @@
     </div>
 
     <div class="flex flex-row justify-center mt-12">
-        <button class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer'>
+        <button type="submit" class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer'>
             <p>Add</p>
         </button>
     </div>
+
+    </form>
 
 </x-popup-modal>
 
