@@ -4,15 +4,18 @@ import axios from "axios"
 // const modalBackground = document.getElementById('modalBackground')
 const addTableModal = document.getElementById('addTableModal')
 const addChildSeatsModal = document.getElementById('addChildSeatsModal')
+const deleteModal = document.getElementById('deleteModal');
+const editModal = document.getElementById('editModal')
 
 const addChildSeatsBTN = document.getElementById('addChildSeatsBTN')
 const addTableBTN = document.getElementById('addTableBTN')
-
-const deleteModal = document.getElementById('deleteModal');
+const deleteBTN = document.querySelectorAll(".deleteBTN");
+const deleteModalBTN = document.getElementById("deleteModalBTN");
 const resetBtn = document.getElementById("reset-button");
-const editModal = document.getElementById('editModal')
 
-// let lastSelectedTable;
+const freecount = document.getElementById("free-count");
+
+let lastSelectedTable;
 
 // allTables.addEventListener ('click',(event) => {
 
@@ -65,6 +68,21 @@ addChildSeatsBTN.addEventListener ('click',(event) => {
     addChildSeatsModal.parentElement.classList.toggle('hidden')
 })
 
+deleteBTN.forEach((btn)=> {
+    btn.addEventListener('click', () => {
+        lastSelectedTable = btn
+        deleteModal.parentElement.classList.toggle('hidden')
+    })
+})
+
+deleteModalBTN.addEventListener ('click',(event) => {
+    event.preventDefault()
+    deleteTable (lastSelectedTable)
+    deleteModal.parentElement.classList.toggle('hidden')
+})
+
+
+
 // Close Modals
 deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
     deleteModal.parentElement.classList.toggle('hidden')
@@ -82,7 +100,11 @@ addChildSeatsModal.querySelectorAll('button')[0].addEventListener('click', () =>
     addChildSeatsModal.parentElement.classList.toggle('hidden')
 })
 
-
+function deleteTable (lastSelectedTable) {
+    lastSelectedTable.closest("tr").remove()
+    freecount.textContent = countFreeChairs()
+    axios.delete("/tablemanagement/delete", {id: lastSelectedTable.closest("tr").firstElementChild.dataset.id})
+}
 
 
 
@@ -117,9 +139,9 @@ addChildSeatsModal.querySelectorAll('button')[0].addEventListener('click', () =>
 let countEl = Array.from(document.querySelectorAll(".chair-amount"));
 const minbutton = document.querySelectorAll('.minus');
 const plusbutton = document.querySelectorAll(".plus");
-const deleteModalBTN = document.querySelectorAll(".deleteModalBTN");
+
 const totaltableamount = parseInt(document.getElementById("totaltableamount").textContent) * 2;
-const freecount = document.getElementById("free-count");
+
 const addall = document.querySelectorAll('.add-all');
 const removeall = document.querySelectorAll(".reset-all-chairs");
 
@@ -157,12 +179,7 @@ plusbutton.forEach((btn) => {
     })
 })
 
-deleteModalBTN.forEach((btn)=> {
-    btn.addEventListener('click', () => {
-        btn.closest("tr").remove()
-        freecount.textContent = countFreeChairs()
-    })
-})
+
 
 
 resetBtn.addEventListener("click", () => {

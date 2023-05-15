@@ -43,6 +43,11 @@ class GroupedTableController extends Controller
         return GroupedTable::all()->count();
     }
 
+    public static function deleteTables(Request $request) {
+        
+
+    }
+
 
     public static function updateTableLocation(Request $request) {
         GroupedTable::updateTableLocation($request->id, $request->amount);
