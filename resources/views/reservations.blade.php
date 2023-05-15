@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div class="absolute top-4 text-3xl w-full">
+    <div id="succes-message" class="absolute top-4 text-3xl w-full">
     @if (session('success'))
         <div class="text-center dark:text-white">
             <p>{{ session()->pull('success', '') }}</p>
