@@ -25,7 +25,7 @@ class Table extends Model
 
     public static function updateTable($id)
     {
-        Table::where("grouped_table_id", $id)->update();
+        Table::where("grouped_table_id", $id)->update(['grouped_table_id' => 0]);
     }
 
 
