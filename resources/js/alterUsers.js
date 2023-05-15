@@ -3,6 +3,7 @@ import axios from "axios";
 const deleteBtns = document.querySelectorAll("button.delete-user");
 const editBtns = document.querySelectorAll("button.edit-user");
 const saveBtns = document.querySelectorAll("button.save-user");
+const cancelBtns = document.querySelectorAll("button.cancel");
 
 const deleteModal = document.getElementById('deleteModal');
 const userTable = document.getElementById('user-table');
@@ -32,6 +33,9 @@ editBtns.forEach((btn) => {
 
         toggleHiddenClass(btn);
         toggleHiddenClass(btn.nextElementSibling);
+        btn.parentElement.nextElementSibling.querySelectorAll("button").forEach((btn) => {
+            toggleHiddenClass(btn);
+        })
     });
 });
 
@@ -45,8 +49,23 @@ saveBtns.forEach((btn) => {
 
         toggleHiddenClass(btn);
         toggleHiddenClass(btn.previousElementSibling);
+        toggleHiddenClass(btn.parentElement.nextElementSibling.querySelector("button.delete-user"));
+        toggleHiddenClass(btn.parentElement.nextElementSibling.querySelector("button.cancel"));
+
     });
 });
+
+cancelBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        toggleDisabledInput(btn.closest('tr').cells);
+        toggleHiddenClass(btn);
+        toggleHiddenClass(btn.previousElementSibling);
+
+        toggleHiddenClass(btn.parentElement.previousElementSibling.querySelector("button.save-user"));
+        toggleHiddenClass(btn.parentElement.previousElementSibling.querySelector("button.edit-user"));
+
+    })
+})
 
 function toggleHiddenClass(element) {
     element.classList.toggle('hidden');
@@ -54,7 +73,6 @@ function toggleHiddenClass(element) {
 
 function toggleDisabledInput(element) {
     Array.prototype.forEach.call(element, (elem) => {
-        console.log(elem.firstElementChild.name);
         if (elem.firstElementChild.nodeName == "INPUT" && elem.firstElementChild.name != 'id') {
             elem.firstElementChild.toggleAttribute("disabled");
             elem.firstElementChild.classList.toggle('bg-inherit');

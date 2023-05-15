@@ -45,15 +45,21 @@ class AdminController extends Controller
             }
 
             if ($request->role != $user->role->role) {
-
+                $user->update([
+                    'user_roles_id' => $request->role
+                ]);
             }
 
             if ($request->email != $user->email) {
-
+                $user->update([
+                    'email' => $request->email
+                ]);
             }
 
             if ($request->password != $user->password) {
-
+                $user->update([
+                    'password' => bcrypt($request->password)
+                ]);
             }
         }
         return $request;
