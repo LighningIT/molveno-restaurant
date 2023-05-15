@@ -1,6 +1,6 @@
-<nav x-data="{ open: false }" class="bg-molveno-lightestBlue dark:bg-molveno-darkestBlue border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-molveno-lightestBlue dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
-    <div class="mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -12,33 +12,28 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-
-                    <x-nav-link :href="route('reservations')" :active="request()->routeIs('reservations')">
-                        {{ __('Reservations') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('tablemanagement')" :active="request()->routeIs('tablemanagement')">
-                        {{ __('Table management')}}
-                    </x-nav-link>
-
                     @if (Auth::user()->role->role == 'reception' || Auth::user()->role->role == 'admin' || Auth::user()->role->role == 'owner' )
                         <x-nav-link :href="route('reservations')" :active="request()->routeIs('reservations')">
                             {{ __('Reservations') }}
                         </x-nav-link>
                         <x-nav-link :href="route('tablemanagement')" :active="request()->routeIs('tablemanagement')">
-                            {{ __('Table management')}}
+                            {{ __('Table Management')}}
                         </x-nav-link>
                     @endif
                     @if (Auth::user()->role->role == 'waiter' || Auth::user()->role->role == 'admin' || Auth::user()->role->role == 'owner' )
                         <x-nav-link :href="route('waiteroverview')" :active="request()->routeIs('waiteroverview')">
-                            {{ __('Waiteroverview') }}
+                            {{ __('Service') }}
                         </x-nav-link>
+                        {{-- <x-nav-link :href="route('orderoverview')" :active="request()->routeIs('orderoverview')">
+                            {{ __('Orderoverview') }}
+                        </x-nav-link> --}}
                     @endif
                     @if (Auth::user()->role->role == 'admin' || Auth::user()->role->role == 'owner')
                         <x-nav-link :href="route('adminoverview')" :active="request()->routeIs('adminoverview')">
                             {{ __('Admin')}}
                         </x-nav-link>
                     @endif
-                    
+
                 </div>
             </div>
 
@@ -46,7 +41,7 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-molveno-lightestBlue dark:bg-molveno-darkestBlue hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">

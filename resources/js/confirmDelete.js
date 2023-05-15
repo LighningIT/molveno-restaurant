@@ -19,3 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function toggleHiddenModal(element) {
     element.classList.toggle('hidden');
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        document.getElementById("succes-message").textContent = "";
+    }, 5000);
+})

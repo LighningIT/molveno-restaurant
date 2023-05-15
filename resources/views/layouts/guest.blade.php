@@ -12,6 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
+
         @vite(['resources/css/app.css', 'resources/css/login.css', 'resources/js/app.js', 'resources/js/loginPasswordField.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
@@ -21,8 +22,8 @@
                     <x-application-logo class="w-44 h-44 mt-2"/>
                 </div>
                 <h1 class="text-molveno-darkestBlue dark:text-white text-6xl z-10  dark:py-4">Molveno Lake Resort</h1>
-            </div>
 
+            </div>
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-molveno-darkBlue dark:bg-molveno-darkestBlue shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>

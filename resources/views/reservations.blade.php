@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div class="absolute top-4 text-3xl w-full">
+    <div id="succes-message" class="absolute top-4 text-3xl w-full">
     @if (session('success'))
         <div class="text-center dark:text-white">
             <p>{{ session()->pull('success', '') }}</p>
@@ -59,7 +59,7 @@
 
         <div class="grid grid-cols-reservation col-span-10 gap-28 ml-4 max-h-[87vh] mr-12">
             @foreach ($tables as $table)
-                <div class="flex flex-col flex-wrap justify-start items-center max-h-[87vh] col-start-<?php echo $loop->index + 1;?>" >
+                <div class="flex flex-col flex-wrap justify-start items-center max-h-[87vh] border-r-4 border-r-molveno-lightestBlue col-start-<?php echo $loop->index + 1;?>" >
                     @foreach ($table as $t)
 
                         @php($statusColor = "border-green-600")

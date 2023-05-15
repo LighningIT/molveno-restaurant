@@ -22,7 +22,12 @@ class DatabaseSeeder extends Seeder
             GroupedTableSeeder::class,
             TableSeeder::class,
             ReservationSeeder::class,
+            MenuCategorySeeder::class,
+            MenuItemSeeder::class,
+            MenuMealTypeSeeder::class,
+            MenuSeeder::class,
             UserRolesSeeder::class
+
         ]);
 
 

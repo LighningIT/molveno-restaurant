@@ -1,11 +1,15 @@
 <?php
 
+
+use App\Http\Controllers\ChildSeatController;
+
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GroupedTableController;
 use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +23,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/", function () {
-    return view("welcome");
+Route::get('/', function () {
+    return view('welcome');
 });
+
 
 Route::get("/reservations", function () {
     return view("reservations");
@@ -29,16 +34,11 @@ Route::get("/reservations", function () {
     ->middleware(["auth", "verified"])
     ->name("reservations");
 
-Route::middleware("auth")->group(function () {
-    Route::get("/profile", [ProfileController::class, "edit"])->name(
-        "profile.edit"
-    );
-    Route::patch("/profile", [ProfileController::class, "update"])->name(
-        "profile.update"
-    );
-    Route::delete("/profile", [ProfileController::class, "destroy"])->name(
-        "profile.destroy"
-    );
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::middleware('auth')->controller(ReservationController::class)->group(function() {
@@ -63,11 +63,19 @@ Route::middleware("auth")->get("/tablemanagement", [
     ])
     ->name('tablemanagement');
 
+Route::middleware("auth")->post("/updateTableLocation", [GroupedTableController::class, "updateTableLocation"])->name("updateTableLocation");
+Route::middleware("auth")->get("/resetGroupedTables", [GroupedTableController::class, "resetGroupedTables"])->name("resetGroupedTables");
+
+Route::middleware("auth")->post("/childseats", [ChildSeatController::class, "store"]);
+
 Route::middleware("auth")
     ->get("/reservationpages{id}", [ReservationController::class, "edit"])
     ->name("reservationpages");
 
 Route::middleware('auth')->get('/waiteroverview', [OrderController::class,'getAllTable'])->name('waiteroverview');
+
+
+Route::middleware('auth')->get('/orderoverview', [OrderController::class,'menuIndex'])->name('orderoverview');
 
 Route::middleware('auth', 'verified')->get('/adminoverview', [AdminController::class, 'getAllUsers'] )->name('adminoverview');
 
@@ -78,4 +86,6 @@ Route::middleware('auth')->controller(AdminController::class)->group(function() 
     Route::delete('adminoverview/edit', 'destroy');
 });
 
+
 require __DIR__ . "/auth.php";
+
