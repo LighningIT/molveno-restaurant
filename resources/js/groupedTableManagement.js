@@ -188,6 +188,11 @@ addSeatsButton.addEventListener('click', (event) => {
         highchair: childSeatsValue.value,
         amount: parseInt(amountSeatsInput.value) 
     })
+    .then( (response) => {
+        addChildSeatsModal.parentElement.classList.toggle('hidden')
+        newNotification(response.data.amount + " " + response.data.chair + " added");
+
+    })
     
 })
 
@@ -203,5 +208,16 @@ function updateSeatsCount() {
 
     }
 
+}
+
+function newNotification(message) {
+    const div = document.createElement('div');
+    div.classList.add("absolute", "top-2", "w-full", "text-center", "dark:text-white", "py-2", "px-4", "text-2xl")
+    const text = document.createTextNode(message);
+    div.appendChild(text);
+    document.body.appendChild(div);
+    setTimeout(() => {
+        document.body.removeChild(div);
+    }, 5000);
 }
 
