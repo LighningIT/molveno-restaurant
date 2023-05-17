@@ -22,12 +22,13 @@
     </div>
 
     <div class="absolute top-8 text-3xl w-55 z-10 left-1/2" style="transform: translate(-50%, -50%)">
-    @if (session('success'))
-        <div class="text-center dark:text-white ">
-            <p>{{ session()->pull('success', '') }}</p>
+      <div id="succes-message" class="absolute top-4 text-3xl w-full">
+        @if (session('success'))
+          <div class="text-center dark:text-white ">
+              <p>{{ session()->pull('success', '') }}</p>
 
-        </div>
-    @endif
+          </div>
+      @endif
     </div>
 
 

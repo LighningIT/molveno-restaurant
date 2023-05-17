@@ -20,4 +20,8 @@ function toggleHiddenModal(element) {
     element.parentElement.classList.toggle('hidden');
 }
 
-
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        document.getElementById("succes-message").textContent = "";
+    }, 5000);
+})
