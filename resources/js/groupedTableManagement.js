@@ -15,6 +15,7 @@ const resetBtn = document.getElementById("reset-button");
 
 const freecount = document.getElementById("free-count");
 let countEl = Array.from(document.querySelectorAll(".chair-amount"));
+
 const minbutton = document.querySelectorAll('.minus');
 const plusbutton = document.querySelectorAll(".plus");
 const minTableButton = document.querySelectorAll('.minusTable');
@@ -64,7 +65,7 @@ addChildSeatsModal.querySelectorAll('button')[0].addEventListener('click', () =>
     addChildSeatsModal.parentElement.classList.toggle('hidden')
 })
 
-function deleteTable (lastSelectedTable) {
+function deleteTable(lastSelectedTable) {
     lastSelectedTable.closest("tr").remove()
 
     axios.delete("/tablemanagementDelete", {data: { id: lastSelectedTable.closest("tr").firstElementChild.dataset.id}})
@@ -75,8 +76,6 @@ function deleteTable (lastSelectedTable) {
 
         });
 }
-
-
 
 addall.forEach((btn)=> {
     btn.addEventListener('click', () => {
