@@ -23,6 +23,14 @@ const plusTableButton = document.querySelectorAll(".plusTable");
 const addall = document.querySelectorAll('.add-all');
 const removeall = document.querySelectorAll(".reset-all-chairs");
 
+const amountSeatsInput = document.getElementById("seats-input");
+const amountChildSeats = document.getElementById("child-seats");
+const amountBoosterSeats = document.getElementById("booster-seats");
+
+const addSeatsButton = document.getElementById("addseats");
+
+const seatsValue = document.getElementById('sectionSelect');
+
 let lastSelectedTable;
 
 let count = countFreeChairs();
@@ -77,8 +85,6 @@ function deleteTable (lastSelectedTable) {
         });
 }
 
-
-
 addall.forEach((btn)=> {
     btn.addEventListener('click', () => {
         btn.closest("tr").querySelector("input").value = parseInt(btn.closest("tr").querySelector("input").value) + count;
@@ -96,45 +102,6 @@ removeall.forEach((btn)=> {
         updateCount(count, btn.closest("tr").querySelector("input").value, btn.closest("tr").firstElementChild.textContent);
     })
 })
-
-
-// minseatsbutton.forEach((btn)=> {
-//     btn.addEventListener('click', () => {
-//         seatsminus(btn.closest("td"));
-//     })
-// })
-
-// plusseatsbutton.forEach((btn) => {
-//     btn.addEventListener("click", () => {
-//         seatsplus(btn.closest("td"));
-//     })
-// })
-
-// function seatsplus(parent) {
-    // if (countseats > 0 && countseats <= freecount.dataset.totalChairs * 2) {
-    //     count -= 2;
-    //     parent.querySelector("p").value = parseInt(parent.querySelector("p").value) + 2;
-    //     updateCount(count, parent.querySelector("p").value, parent.previousElementSibling.textContent);
-    // }
-
-//     countseats++;
-//     countSeatsEl.textContent = countseats;
-// }
-
-// function seatsminus(parent) {
-//   if (parseInt(parent.querySelector("p").value) > 0) {
-//     count += 2;
-//     parent.querySelector("p").value -= 2;
-//     updateCount(count, parent.querySelector("p").value, parent.previousElementSibling.textContent);
-//   }
-      
-//         if (countseats > 1) {
-//             countseats--;
-//             countSeatsEl.textContent = countseats;
-//         }
-// }
-
-//End of function seats//
 
 resetBtn.addEventListener("click", () => {
     axios.get("/resetGroupedTables")
@@ -214,6 +181,23 @@ function updateCount(count, amount, tableid) {
     })
 }
 
+addSeatsButton.addEventListener('click', () => {
+    
+    updateSeatsCount();
+    
+})
 
+function updateSeatsCount() {
+    
+    if (seatsValue == "High chair") {
 
+        amountChildSeats.textContent = parseInt(amountSeatsInput.value) + amountChildSeats;
+    
+    } else if (seatsValue == "Booster seat") {
+
+        amountBoosterSeats.textContent = parseInt(amountSeatsInput.value) + amountBoosterSeats;
+
+    }
+
+}
 
