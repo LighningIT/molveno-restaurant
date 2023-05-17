@@ -19,5 +19,3 @@ deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
 function toggleHiddenModal(element) {
     element.parentElement.classList.toggle('hidden');
 }
-
-
