@@ -66,6 +66,8 @@ Route::middleware("auth")->get("/tablemanagement", [
 Route::middleware("auth")->post("/updateTableLocation", [GroupedTableController::class, "updateTableLocation"])->name("updateTableLocation");
 Route::middleware("auth")->get("/resetGroupedTables", [GroupedTableController::class, "resetGroupedTables"])->name("resetGroupedTables");
 
+Route::middleware("auth")->post("/addGroupedTable", [GroupedTableController::class, "addGroupedTable"]);
+
 Route::middleware("auth")->post("/childseats", [ChildSeatController::class, "store"]);
 
 Route::middleware("auth")
