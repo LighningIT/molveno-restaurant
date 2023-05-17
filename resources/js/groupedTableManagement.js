@@ -107,6 +107,8 @@ removeall.forEach((btn)=> {
     })
 })
 
+
+
 resetBtn.addEventListener("click", () => {
     axios.get("/resetGroupedTables")
         .then(response => response.data)
