@@ -30,6 +30,7 @@ let count = countFreeChairs();
 
 freecount.textContent = count;
 
+
 // Open Modals Add table and Add child seat
 addTableBTN.addEventListener ('click',(event) => {
     addTableModal.parentElement.classList.toggle('hidden')
