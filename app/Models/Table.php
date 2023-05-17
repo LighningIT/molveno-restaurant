@@ -23,6 +23,12 @@ class Table extends Model
         return Table::all()->count();
     }
 
+    public static function updateTable($id)
+    {
+        Table::where("grouped_table_id", $id)->update(['grouped_table_id' => 0]);
+    }
+
+
     public static function getCombinedTables() {
         $tables = Table::select("chairs", "grouped_table_id")->orderBy("grouped_table_id")->get();
 
