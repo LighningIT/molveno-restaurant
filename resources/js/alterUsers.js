@@ -31,10 +31,16 @@ deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
 });
 
 passwordModal.querySelectorAll('button')[1].addEventListener('click', () => {
-    console.log(checkPassword(passwordModal));
+    console.log(selectedBtn.closest('tr'));
     if (checkPassword(passwordModal)) {
-        saveUser(selectedBtn.closest('tr'));
-        selectedBtn = '';
+        axios.patch('/adminoverview/edit', {
+            id: parseInt(selectedBtn.closest('tr').firstElementChild.firstElementChild.value),
+            newpw: document.getElementById("new-pw").value,
+            confirmpw: document.getElementById("confirm-pw").value
+        })
+        .then(response => selectedBtn = '')
+        .catch(error => console.error(error));
+
     }
 });
 
@@ -87,7 +93,7 @@ cancelBtns.forEach((btn) => {
 changePasswordBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
         toggleHiddenClass(passwordModal.parentElement);
-        selectedBtn = btn
+        selectedBtn = btn;
     })
 })
 
@@ -125,7 +131,9 @@ function deleteUser(element) {
 function checkPassword(modal) {
     let inp = modal.querySelectorAll("input");
 
-    return inp[0].value != "" && inp[1].value != "" && inp[0].value == inp[1].value ? true : false;
+    return (inp[0].value != "" && inp[0].value.length > 8) &&
+        (inp[1].value != "" && inp[0].value.length > 8) &&
+        inp[0].value == inp[1].value ? true : false;
 }
 
 function createUserObj(user) {
@@ -134,6 +142,5 @@ function createUserObj(user) {
         name: user.children[1].firstElementChild.value,
         role: user.children[2].firstElementChild.value,
         email: user.children[3].firstElementChild.value,
-        password: user.children[4].firstElementChild.value
     }
 }

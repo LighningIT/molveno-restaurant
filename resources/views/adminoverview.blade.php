@@ -28,6 +28,16 @@
                 </x-add-button>
             </div>
         </x-popup-modal>
+
+        @foreach ($users as $user)
+            {{ $user->role->role}}
+            @foreach ($roles as $role )
+            {{ $role->role }}
+                @if ($role->role == $user->role->role)
+                    {{ $role }}
+                @endif
+            @endforeach
+        @endforeach
         <table class="col-span-10 col-start-2 mt-8">
             <thead>
                 <tr>
@@ -59,14 +69,17 @@
                                 class="border-none bg-inherit table-cell" />
                         </td>
                         <td>
-                            <select name="role">
-                                {{-- @foreach ($role as $r) --}}
-
-                                {{-- @endforeach --}}
-                                <option value="{{ $user->role->role }}"></option>
+                            <select name="role" class="border-none bg-inherit table-cell" disabled>
+                                @foreach ($roles as $role)
+                                    @if ($role->role == $user->role->role)
+                                        <option value="{{ $role->role }}" checked>{{ $role->role }}</option>
+                                    @else
+                                        <option value="{{ $role->role }}">{{ $role->role }}</option>
+                                    @endif
+                                @endforeach
                             </select>
-                            <input type="text" size="10" name="role" disabled value="{{ $user->role->role }}"
-                                    class="border-none bg-inherit table-cell" />
+                            {{-- <input type="text" size="10" name="role" disabled value="{{ $user->role->role }}"
+                                    class="border-none bg-inherit table-cell" /> --}}
                         </td>
                         <td>
                             <input type="text" size="20" name="email" disabled value="{{ $user->email }}"
