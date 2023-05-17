@@ -1,11 +1,8 @@
 import axios from "axios"
 
-// const allTables = document.getElementById('allTables');
-// const modalBackground = document.getElementById('modalBackground')
 const addTableModal = document.getElementById('addTableModal')
 const addChildSeatsModal = document.getElementById('addChildSeatsModal')
 const deleteModal = document.getElementById('deleteModal');
-const editModal = document.getElementById('editModal')
 
 const addChildSeatsBTN = document.getElementById('addChildSeatsBTN')
 const addTableBTN = document.getElementById('addTableBTN')
@@ -13,6 +10,7 @@ const deleteBTN = document.querySelectorAll(".deleteBTN");
 const deleteModalBTN = document.getElementById("deleteModalBTN");
 const resetBtn = document.getElementById("reset-button");
 
+const newTableID = document.getElementById("newTableId");
 const freecount = document.getElementById("free-count");
 let countEl = Array.from(document.querySelectorAll(".chair-amount"));
 
@@ -25,15 +23,19 @@ const addall = document.querySelectorAll('.add-all');
 const removeall = document.querySelectorAll(".reset-all-chairs");
 
 let lastSelectedTable;
+let firstTableId;
 
 let count = countFreeChairs();
 
 freecount.textContent = count;
 
 
+
 // Open Modals Add table and Add child seat
 addTableBTN.addEventListener ('click',(event) => {
     addTableModal.parentElement.classList.toggle('hidden')
+    findMissingId()
+    newTableID.textContent = firstTableId
 })
 
 addChildSeatsBTN.addEventListener ('click',(event) => {
@@ -120,7 +122,7 @@ function countFreeChairs() {
 }
 
 
-// Table row plus minus
+// Table row plus / minus btn
 minbutton.forEach((btn)=> {
     btn.addEventListener('click', () => {
         minus(btn.closest("td"));
@@ -133,6 +135,7 @@ plusbutton.forEach((btn) => {
     })
 })
 
+// Table modals plus / minus btn
 minTableButton.forEach((btn)=> {
     btn.addEventListener('click', (event) => {
         event.preventDefault()
@@ -179,16 +182,19 @@ function updateCount(count, amount, tableid) {
 
 
 function findMissingId () {
-    const presentTableIds = document.querySelectorAll("[data-id]")
-
-    // console.log(presentTableIds)
+    const presentTableIds = document.querySelectorAll("[data-id]");
 
     for (var i = 0; i < presentTableIds.length; i++) {
-        console.log(presentTableIds)
-      }
+        if (i+ 1 != presentTableIds[i].dataset.id) {
+            firstTableId = presentTableIds[0].dataset.id -1
+        }
+    }
+    return firstTableId
 }
 
-findMissingId()
+
+
+
 
 
 

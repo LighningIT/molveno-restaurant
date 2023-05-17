@@ -129,7 +129,7 @@
         <div class="flex flex-row justify-between gap-60">
             <p>Table number:</p>
             <div class="flex justify-center w-36 h-6">
-                <p>{{ $totalTableAmount+1 }}</p>
+                <p id="newTableId"></p>
             </div>
         </div>
 
