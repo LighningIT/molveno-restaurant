@@ -166,7 +166,6 @@ plusTableButton.forEach((btn) => {
 function plus(parent) {
     if (count > 0 && count <= freecount.dataset.totalChairs * 2) {
         count -= 2;
-        console.log(parent)
         parent.querySelector("input").value = parseInt(parent.querySelector("input").value) + 2;
         updateCount(count, parent.querySelector("input").value, parent.previousElementSibling.textContent);
     }
@@ -194,7 +193,6 @@ function findMissingId () {
 
 
     for (var i = 0; i < presentTableIds.length; i++) {
-        console.log(presentTableIds)
         if (i+ 1 != presentTableIds[i].dataset.id) {
             firstTableId = presentTableIds[0].dataset.id -1
         } else {
