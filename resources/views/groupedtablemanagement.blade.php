@@ -239,9 +239,9 @@
             <div class="flex flex-row justify-between gap-60">
                 <p class="self-center">Seat type:</p>
                 <div class="select">
-                    <select name="section" id="sectionSelect">
-                        <option value="">High chair</option>
-                        <option value="">Booster seat</option>
+                    <select name="section" id="childSeatSelect">
+                        <option value="Highchair">High chair</option>
+                        <option value="Boosterseat">Booster seat</option>
                     </select>
                 </div>
             </div>

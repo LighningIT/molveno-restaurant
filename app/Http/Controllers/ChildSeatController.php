@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ChildSeatController extends Controller
 {
     public static function store(Request $request) {
-        $request->validated();
+        
         if (!empty($request->highchair) && $request->highchair == "Highchair") {
             for ($i = 0; $i < $request->amount; $i++) {
                 ChildSeat::store("highchair");

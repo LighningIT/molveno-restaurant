@@ -29,7 +29,7 @@ const amountBoosterSeats = document.getElementById("booster-seats");
 
 const addSeatsButton = document.getElementById("addseats");
 
-const seatsValue = document.getElementById('sectionSelect');
+const childSeatsValue = document.getElementById('childSeatSelect');
 
 let lastSelectedTable;
 
@@ -181,21 +181,25 @@ function updateCount(count, amount, tableid) {
     })
 }
 
-addSeatsButton.addEventListener('click', () => {
-    
+addSeatsButton.addEventListener('click', (event) => {
+    event.preventDefault();
     updateSeatsCount();
+    axios.post("/childseats", {
+        highchair: childSeatsValue.value,
+        amount: parseInt(amountSeatsInput.value) 
+    })
     
 })
 
 function updateSeatsCount() {
-    
-    if (seatsValue == "High chair") {
 
-        amountChildSeats.textContent = parseInt(amountSeatsInput.value) + amountChildSeats;
-    
-    } else if (seatsValue == "Booster seat") {
+    if (childSeatsValue.value == "Highchair") {
 
-        amountBoosterSeats.textContent = parseInt(amountSeatsInput.value) + amountBoosterSeats;
+        amountChildSeats.textContent = parseInt(amountSeatsInput.value) + parseInt(amountChildSeats.textContent);
+    
+    } else if (childSeatsValue.value == "Boosterseat") {
+
+        amountBoosterSeats.textContent = parseInt(amountSeatsInput.value) + parseInt(amountBoosterSeats.textContent);
 
     }
 
