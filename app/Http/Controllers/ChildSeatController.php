@@ -9,17 +9,17 @@ class ChildSeatController extends Controller
 {
     public static function store(Request $request) {
         $request->validated();
-        if (!empty($request->highchair)) {
-            for ($i = 0; $i < count($request->highchair); $i++) {
+        if (!empty($request->highchair) && $request->highchair == "Highchair") {
+            for ($i = 0; $i < $request->amount; $i++) {
                 ChildSeat::store("highchair");
             }
         }
-        if (!empty($request->boosterseat)) {
-            for ($i = 0; $i < count($request->boosterseat); $i++) {
+        if (!empty($request->boosterseat) && $request->highchair == "Boosterseat") {
+            for ($i = 0; $i < $request->amount; $i++) {
                 ChildSeat::store("boosterseat");
             }
         }
-        
+
         return redirect()->route("tablemanagement")->with("success", "Childseats added.");
     }
 }
