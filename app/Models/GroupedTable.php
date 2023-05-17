@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class GroupedTable extends Model
 {
@@ -49,7 +48,6 @@ class GroupedTable extends Model
     }
 
     public static function updateStatus($statusId) {
-        // GroupedTable::where("id", $id)->update(["status_id" => $statusId]);
         return TableStatus::where("status", $statusId)->first();
     }
 
@@ -61,4 +59,13 @@ class GroupedTable extends Model
         GroupedTable::where("id", $id)->delete();
     }
 
+    public static function addGroupedTable($id, $count) {
+        GroupedTable::create([
+            "id" => $id,
+            "table_section_id" => $id,
+            "combined" => false,
+            "comments" => "",
+            "chairs" => $count
+        ]);
+    }
 }

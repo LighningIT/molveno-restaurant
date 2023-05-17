@@ -57,6 +57,7 @@ async function checkPlaces(url) {
             'time': check.querySelector('#time').value,
         }
     })
+
     .then(response => response.data)
     .then(data => {
         tableContainer.innerHTML = '';
@@ -75,7 +76,6 @@ async function checkPlaces(url) {
                     } else {
                         table.classList.add("border-red-600");
                     }
-
                 }
 
                 div.appendChild(table);
@@ -129,7 +129,7 @@ function addGroupedTableRow(imgSrc, content) {
 
 async function submitReservation(data) {
     emptyErrorFields(info);
-    
+
     await axios.post('/reservations/edit', data)
         .then(() => {
             reservationBtn.click();

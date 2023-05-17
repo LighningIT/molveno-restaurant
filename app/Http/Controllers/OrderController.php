@@ -15,6 +15,8 @@ class OrderController extends Controller
         return view('orderoverview',[
             'FoodMenu' => Menu::getMenuById(1),
             'BeverageMenu' => Menu::getMenuById(2)
+
+            // WIP added this code for later use during waiter overview
             /* [
                 'menucategories' => MenuCategory::getMenuCategories(),
                 'menuitems' => MenuItem::getMenuItem(),

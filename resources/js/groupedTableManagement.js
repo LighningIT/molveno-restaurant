@@ -1,11 +1,8 @@
 import axios from "axios"
 
-// const allTables = document.getElementById('allTables');
-// const modalBackground = document.getElementById('modalBackground')
 const addTableModal = document.getElementById('addTableModal')
 const addChildSeatsModal = document.getElementById('addChildSeatsModal')
 const deleteModal = document.getElementById('deleteModal');
-const editModal = document.getElementById('editModal')
 
 const addChildSeatsBTN = document.getElementById('addChildSeatsBTN')
 const addTableBTN = document.getElementById('addTableBTN')
@@ -13,8 +10,10 @@ const deleteBTN = document.querySelectorAll(".deleteBTN");
 const deleteModalBTN = document.getElementById("deleteModalBTN");
 const resetBtn = document.getElementById("reset-button");
 
+const newTableID = document.getElementById("newTableId");
 const freecount = document.getElementById("free-count");
 let countEl = Array.from(document.querySelectorAll(".chair-amount"));
+
 const minbutton = document.querySelectorAll('.minus');
 const plusbutton = document.querySelectorAll(".plus");
 const minTableButton = document.querySelectorAll('.minusTable');
@@ -32,15 +31,19 @@ const addSeatsButton = document.getElementById("addseats");
 const childSeatsValue = document.getElementById('childSeatSelect');
 
 let lastSelectedTable;
+let firstTableId;
 
 let count = countFreeChairs();
 
 freecount.textContent = count;
 
 
+
 // Open Modals Add table and Add child seat
 addTableBTN.addEventListener ('click',(event) => {
     addTableModal.parentElement.classList.toggle('hidden')
+    findMissingId()
+    newTableID.textContent = firstTableId
 })
 
 addChildSeatsBTN.addEventListener ('click',(event) => {
@@ -73,7 +76,7 @@ addChildSeatsModal.querySelectorAll('button')[0].addEventListener('click', () =>
     addChildSeatsModal.parentElement.classList.toggle('hidden')
 })
 
-function deleteTable (lastSelectedTable) {
+function deleteTable(lastSelectedTable) {
     lastSelectedTable.closest("tr").remove()
 
     axios.delete("/tablemanagementDelete", {data: { id: lastSelectedTable.closest("tr").firstElementChild.dataset.id}})
@@ -84,6 +87,7 @@ function deleteTable (lastSelectedTable) {
 
         });
 }
+
 
 addall.forEach((btn)=> {
     btn.addEventListener('click', () => {
@@ -102,6 +106,8 @@ removeall.forEach((btn)=> {
         updateCount(count, btn.closest("tr").querySelector("input").value, btn.closest("tr").firstElementChild.textContent);
     })
 })
+
+
 
 resetBtn.addEventListener("click", () => {
     axios.get("/resetGroupedTables")
@@ -124,7 +130,7 @@ function countFreeChairs() {
 }
 
 
-// Table row plus minus
+// Table row plus / minus btn
 minbutton.forEach((btn)=> {
     btn.addEventListener('click', () => {
         minus(btn.closest("td"));
@@ -137,6 +143,7 @@ plusbutton.forEach((btn) => {
     })
 })
 
+// Table modals plus / minus btn
 minTableButton.forEach((btn)=> {
     btn.addEventListener('click', (event) => {
         event.preventDefault()
@@ -159,7 +166,6 @@ plusTableButton.forEach((btn) => {
 function plus(parent) {
     if (count > 0 && count <= freecount.dataset.totalChairs * 2) {
         count -= 2;
-        console.log(parent)
         parent.querySelector("input").value = parseInt(parent.querySelector("input").value) + 2;
         updateCount(count, parent.querySelector("input").value, parent.previousElementSibling.textContent);
     }
@@ -181,19 +187,34 @@ function updateCount(count, amount, tableid) {
     })
 }
 
+
+function findMissingId () {
+    const presentTableIds = document.querySelectorAll("[data-id]");
+
+
+    for (var i = 0; i < presentTableIds.length; i++) {
+        if (i+ 1 != presentTableIds[i].dataset.id) {
+            firstTableId = presentTableIds[0].dataset.id -1
+        } else {
+            firstTableId = parseInt(presentTableIds[i].dataset.id) +1
+        }
+    }
+    return firstTableId
+}
+
 addSeatsButton.addEventListener('click', (event) => {
     event.preventDefault();
     updateSeatsCount();
     axios.post("/childseats", {
         highchair: childSeatsValue.value,
-        amount: parseInt(amountSeatsInput.value) 
+        amount: parseInt(amountSeatsInput.value)
     })
     .then( (response) => {
         addChildSeatsModal.parentElement.classList.toggle('hidden')
         newNotification(response.data.amount + " " + response.data.chair + " added");
 
     })
-    
+
 })
 
 function updateSeatsCount() {
@@ -201,7 +222,7 @@ function updateSeatsCount() {
     if (childSeatsValue.value == "Highchair") {
 
         amountChildSeats.textContent = parseInt(amountSeatsInput.value) + parseInt(amountChildSeats.textContent);
-    
+
     } else if (childSeatsValue.value == "Boosterseat") {
 
         amountBoosterSeats.textContent = parseInt(amountSeatsInput.value) + parseInt(amountBoosterSeats.textContent);

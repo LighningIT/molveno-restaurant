@@ -24,9 +24,6 @@
                         <x-nav-link :href="route('waiteroverview')" :active="request()->routeIs('waiteroverview')">
                             {{ __('Service') }}
                         </x-nav-link>
-                        {{-- <x-nav-link :href="route('orderoverview')" :active="request()->routeIs('orderoverview')">
-                            {{ __('Orderoverview') }}
-                        </x-nav-link> --}}
                     @endif
                     @if (Auth::user()->role->role == 'admin' || Auth::user()->role->role == 'owner')
                         <x-nav-link :href="route('adminoverview')" :active="request()->routeIs('adminoverview')">

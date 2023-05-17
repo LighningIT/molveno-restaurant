@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
-                <p>Free tables:</p>
+                <p>Free chairs:</p>
                 <div class="flex justify-center w-14 h-6">
                     <p id="free-count" data-total-chairs="{{ $totalChairs }}"></p>
                 </div>
@@ -121,78 +121,15 @@
 </x-popup-modal>
 
 
-{{-- <x-popup-modal class="text-black" id="editModal">
-    <h2 class="text-3xl mb-12 -mt-8">Edit Table</h2>
-
-    <form class="flex flex-col gap-3" action="">
-
-        <p>Current Table: </p>
-
-        <div class="flex gap-60 justify-between">
-            <p>Add chairs:</p>
-
-            <div class="flex row gap-4">
-                <button class="minus-seats-button">-</button>
-
-                <div>
-                    <p class="seats-amount">0</p>
-                </div>
-
-                <button class="plus-seats-button">+</button>
-
-            </div>
-        </div>
-
-        <div class="flex gap-60 justify-between">
-            <p>Add High chairs:</p>
-
-            <div class="flex row gap-4">
-                <button class="minus-seats-button">-</button>
-
-                <div>
-                    <p class="seats-amount">0</p>
-                </div>
-
-                <button class="plus-seats-button">+</button>
-
-            </div>
-        </div>
-
-        <div class="flex gap-60 justify-between">
-            <p>Add Booster seats:</p>
-
-            <div class="flex row gap-4">
-                <button class="minus-seats-button">-</button>
-
-                <div>
-                    <p class="seats-amount">0</p>
-                </div>
-
-                <button class="plus-seats-button">+</button>
-
-            </div>
-        </div>
-
-        <div class="flex flex-row justify-center mt-14">
-            <button type="submit" class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer'>
-                <p>Update</p>
-            </button>
-        </div>
-
-    </form>
-
-</x-popup-modal> --}}
-
-
 <x-popup-modal class="flex flex-col gap-4" id="addTableModal">
     <h2 class="text-3xl mb-12 -mt-8">Add new Table</h2>
 
-    <form class="flex flex-col gap-6" action="">
-
+    <form class="flex flex-col gap-6" method="POST" action="/addGroupedTable">
+        @csrf
         <div class="flex flex-row justify-between gap-60">
             <p>Table number:</p>
             <div class="flex justify-center w-36 h-6">
-                <p>{{ $totalTableAmount+1 }}</p>
+                <p id="newTableId"></p>
             </div>
         </div>
 
@@ -233,7 +170,7 @@
 
 <x-popup-modal class="flex flex-col gap-10" id="addChildSeatsModal">
     <h2 class="text-3xl mb-12 -mt-8">Add child seats</h2>
-    
+
         <form class="flex flex-col gap-6" action="">
 
             <div class="flex flex-row justify-between gap-60">
