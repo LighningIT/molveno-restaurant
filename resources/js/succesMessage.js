@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        document.getElementById("succes-message").textContent = "";
-    }, 5000);
+    if (document.getElementById("succes-message") != undefined) {
+        setTimeout(() => {
+            document.getElementById("succes-message").textContent = "";
+        }, 5000);
+
+    }
 })
