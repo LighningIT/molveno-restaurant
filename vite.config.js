@@ -15,7 +15,8 @@ export default defineConfig({
                 'resources/js/updateTableStatus.js',
                 'resources/js/loginPasswordField.js',
                 'resources/js/confirmDelete.js',
-                'resources/js/alterUsers.js'
+                'resources/js/alterUsers.js',
+                'resources/js/succesMessage.js'
             ],
             refresh: true,
         }),

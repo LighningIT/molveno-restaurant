@@ -1,7 +1,7 @@
 <x-app-layout>
 
     @vite(['resources/js/createNewReservation.js', 'resources/js/updateTableStatus.js',
-        'resources/js/checkInReservation.js', 'resources/js/confirmDelete.js'])
+        'resources/js/checkInReservation.js', 'resources/js/confirmDelete.js', 'resources/js/succesMessage.js'])
 
     <div class="col-span-full grid grid-cols-12 m-1 mr-4 text-lg text-center leading-loose">
         <span class="dark:text-white flex items-center col-span-2">
