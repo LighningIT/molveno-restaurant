@@ -31,8 +31,11 @@ deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
 });
 
 passwordModal.querySelectorAll('button')[1].addEventListener('click', () => {
-    deleteUser(selectedBtn.closest('tr'));
-    selectedBtn = '';
+    console.log(checkPassword(passwordModal));
+    if (checkPassword(passwordModal)) {
+        saveUser(selectedBtn.closest('tr'));
+        selectedBtn = '';
+    }
 });
 
 passwordModal.querySelectorAll('button')[0].addEventListener('click', () => {
@@ -116,6 +119,12 @@ function deleteUser(element) {
     axios.delete('/adminoverview/edit', {data: user })
         .then(toggleHiddenClass(deleteModal.parentElement))
         .catch(error => console.error(error));
+}
+
+function checkPassword(modal) {
+    let inp = modal.querySelectorAll("input");
+
+    return inp[0].value != "" && inp[1].value != "" && inp[0].value == inp[1].value ? true : false;
 }
 
 function createUserObj(user) {
