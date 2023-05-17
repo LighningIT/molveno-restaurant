@@ -26,6 +26,7 @@
         <div class="text-center dark:text-white ">
             <p>{{ session()->pull('success', '') }}</p>
         </div>
+    @endif
     </div>
 
 <div class="grid grid-cols-12 h-full max-h-[95vh]">
@@ -89,5 +90,5 @@
 
             @endforeach
         </div>
-    </div>
+</div>
 </x-app-layout>

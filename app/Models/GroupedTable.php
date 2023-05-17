@@ -68,5 +68,4 @@ class GroupedTable extends Model
             "chairs" => $count
         ]);
     }
-
 }

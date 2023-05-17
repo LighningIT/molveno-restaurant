@@ -9,7 +9,7 @@ deleteForm.forEach((elem) => {
 });
 
 deleteModal.querySelectorAll('button')[1].addEventListener('click', () => {
-    elem.submit();
+    deleteForm[0].submit();
 });
 
 deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
@@ -19,3 +19,11 @@ deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
 function toggleHiddenModal(element) {
     element.parentElement.classList.toggle('hidden');
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        document.getElementById("succes-message").textContent = "";
+    }, 5000);
+})
+
+
