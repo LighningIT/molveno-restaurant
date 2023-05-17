@@ -59,8 +59,14 @@
                                 class="border-none bg-inherit table-cell" />
                         </td>
                         <td>
+                            <select name="role">
+                                {{-- @foreach ($role as $r) --}}
+
+                                {{-- @endforeach --}}
+                                <option value="{{ $user->role->role }}"></option>
+                            </select>
                             <input type="text" size="10" name="role" disabled value="{{ $user->role->role }}"
-                                class="border-none bg-inherit table-cell" />
+                                    class="border-none bg-inherit table-cell" />
                         </td>
                         <td>
                             <input type="text" size="20" name="email" disabled value="{{ $user->email }}"
