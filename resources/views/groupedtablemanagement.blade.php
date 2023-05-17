@@ -10,7 +10,7 @@
     <span class="dark:text-white">Terrace</span>
 </div>
 
-<div class="absolute top-2 text-2xl w-full">
+<div id="succes-message" class="absolute top-2 text-2xl w-full">
     @if (!empty(session()->get('success')))
         <div class="text-center">
             <p>{{ session()->get('success') }}</p>
