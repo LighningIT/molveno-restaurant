@@ -1,6 +1,6 @@
 <x-app-layout>
 
-@vite(['resources/js/groupedTableManagement.js', 'resources/css/groupedTableManagement.css'
+@vite(['resources/js/groupedTableManagement.js', 'resources/css/groupedTableManagement.css',
     'resources/js/succesMessage.js'])
 
 <div class="grid grid-cols-4 m-1 pb-2git text-lg text-center leading-loose">

@@ -2,9 +2,26 @@
     @vite(['resources/js/alterUsers.js'])
 
     <div class="h-auto grid grid-cols-12">
-        <x-popup-modal class="flex flex-col gap-10" id="deleteModal">
+        <x-popup-modal class="gap-10" id="deleteModal">
             <p class="pt-8">Are you certain you wish to delete this user?</p>
 
+            <div class="flex flex-row justify-around">
+                <x-delete-button>
+                    Delete
+                </x-delete-button>
+            </div>
+        </x-popup-modal>
+
+        <x-popup-modal class="gap-10" id="passwordModal">
+            <p class="pt-8">Change password for this user?</p>
+            <div>
+                <x-input-label>New password</x-input-label>
+                <input type="password" name="new-pw" id="new-pw" />
+            </div>
+            <div>
+                <x-input-label>Confirm password</x-input-label>
+                <input type="password" name="confirm-pw" id="confirm-pw" />
+            </div>
             <div class="flex flex-row justify-around">
                 <x-delete-button>
                     Delete
@@ -50,7 +67,7 @@
                                 class="border-none bg-inherit table-cell" />
                         </td>
                         <td>
-                            <button >pw</button>
+                            <x-danger-button class="change-password" >pw</x-danger-button>
                         </td>
                         <td>
                             <input type="text" size="12" name="created" disabled

@@ -4,8 +4,10 @@ const deleteBtns = document.querySelectorAll("button.delete-user");
 const editBtns = document.querySelectorAll("button.edit-user");
 const saveBtns = document.querySelectorAll("button.save-user");
 const cancelBtns = document.querySelectorAll("button.cancel");
+const changePasswordBtns = document.querySelectorAll(".change-password");
 
 const deleteModal = document.getElementById('deleteModal');
+const passwordModal = document.getElementById('passwordModal');
 const userTable = document.getElementById('user-table');
 
 let selectedBtn;
@@ -20,10 +22,22 @@ deleteBtns.forEach((btn) => {
 
 deleteModal.querySelectorAll('button')[1].addEventListener('click', () => {
     deleteUser(selectedBtn.closest('tr'));
+    selectedBtn = '';
 });
 
 deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
     toggleHiddenClass(deleteModal.parentElement);
+    selectedBtn = '';
+});
+
+passwordModal.querySelectorAll('button')[1].addEventListener('click', () => {
+    deleteUser(selectedBtn.closest('tr'));
+    selectedBtn = '';
+});
+
+passwordModal.querySelectorAll('button')[0].addEventListener('click', () => {
+    toggleHiddenClass(passwordModal.parentElement);
+    selectedBtn = '';
 });
 
 editBtns.forEach((btn) => {
@@ -49,8 +63,9 @@ saveBtns.forEach((btn) => {
 
         toggleHiddenClass(btn);
         toggleHiddenClass(btn.previousElementSibling);
-        toggleHiddenClass(btn.parentElement.nextElementSibling.querySelector("button.delete-user"));
-        toggleHiddenClass(btn.parentElement.nextElementSibling.querySelector("button.cancel"));
+        btn.parentElement.nextElementSibling.querySelectorAll("button").forEach((btn) => {
+            toggleHiddenClass(btn);
+        })
 
     });
 });
@@ -60,10 +75,16 @@ cancelBtns.forEach((btn) => {
         toggleDisabledInput(btn.closest('tr').cells);
         toggleHiddenClass(btn);
         toggleHiddenClass(btn.previousElementSibling);
+        btn.parentElement.previousElementSibling.querySelectorAll("button").forEach((btn) => {
+            toggleHiddenClass(btn);
+        })
+    });
+});
 
-        toggleHiddenClass(btn.parentElement.previousElementSibling.querySelector("button.save-user"));
-        toggleHiddenClass(btn.parentElement.previousElementSibling.querySelector("button.edit-user"));
-
+changePasswordBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        toggleHiddenClass(passwordModal.parentElement);
+        selectedBtn = btn
     })
 })
 
