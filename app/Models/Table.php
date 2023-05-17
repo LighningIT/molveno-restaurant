@@ -5,8 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-// use Illuminate\Database\Eloquent\Builder;
 
 class Table extends Model
 {
@@ -22,6 +20,12 @@ class Table extends Model
     {
         return Table::all()->count();
     }
+
+    public static function updateTable($id)
+    {
+        Table::where("grouped_table_id", $id)->update(['grouped_table_id' => 0]);
+    }
+
 
     public static function getCombinedTables() {
         $tables = Table::select("chairs", "grouped_table_id")->orderBy("grouped_table_id")->get();

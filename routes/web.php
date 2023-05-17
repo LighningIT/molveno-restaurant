@@ -66,6 +66,8 @@ Route::middleware("auth")->get("/tablemanagement", [
 Route::middleware("auth")->post("/updateTableLocation", [GroupedTableController::class, "updateTableLocation"])->name("updateTableLocation");
 Route::middleware("auth")->get("/resetGroupedTables", [GroupedTableController::class, "resetGroupedTables"])->name("resetGroupedTables");
 
+Route::middleware("auth")->post("/addGroupedTable", [GroupedTableController::class, "addGroupedTable"]);
+
 Route::middleware("auth")->post("/childseats", [ChildSeatController::class, "store"]);
 
 Route::middleware("auth")
@@ -76,6 +78,8 @@ Route::middleware('auth')->get('/waiteroverview', [OrderController::class,'getAl
 
 
 Route::middleware('auth')->get('/orderoverview', [OrderController::class,'menuIndex'])->name('orderoverview');
+
+Route::middleware('auth')->delete('/tablemanagementDelete', [GroupedTableController::class, 'deleteTable'])->name('tablemanagementDelete');
 
 Route::middleware('auth', 'verified')->get('/adminoverview', [AdminController::class, 'getAllUsers'] )->name('adminoverview');
 

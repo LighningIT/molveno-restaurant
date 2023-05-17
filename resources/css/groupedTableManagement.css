@@ -12,9 +12,9 @@ td {
 }
 
 th {
-    padding: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: .5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
     background-color: #005693;
     color: white;
     font-size: 1.3rem;
@@ -31,6 +31,34 @@ th {
 }
 
 .plus-minus-button:hover {
+    background-color: #309bcf;
+}
+
+.minus-seats-button {
+    padding: 0.8rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    color: white;
+    --tw-bg-opacity: 1;
+    background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
+    border-radius: 0.25rem;
+}
+
+.minus-seats-button:hover {
+    background-color: #309bcf;
+}
+
+.plus-seats-button {
+    padding: 0.8rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    color: white;
+    --tw-bg-opacity: 1;
+    background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
+    border-radius: 0.25rem;
+}
+
+.plus-seats-button:hover {
     background-color: #309bcf;
 }
 
@@ -75,7 +103,7 @@ select {
     pointer-events:none;
     transition:.25s all ease;
  }
- 
+
  .select:hover::after {
     color: white;
 }

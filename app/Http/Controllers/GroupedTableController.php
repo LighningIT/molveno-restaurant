@@ -29,6 +29,7 @@ class GroupedTableController extends Controller
     public function getTableManagement()
     {
         $totalTableAmount = $this->countGroupedTables();
+
         $totalChairs = Table::countTables();
 
         return view('groupedtablemanagement', [
@@ -41,6 +42,11 @@ class GroupedTableController extends Controller
 
     public static function countGroupedTables() {
         return GroupedTable::all()->count();
+    }
+
+    public static function deleteTable(Request $request) {
+        GroupedTable::destroy($request->id);
+        Table::updateTable($request->id);
     }
 
 
@@ -56,5 +62,9 @@ class GroupedTableController extends Controller
         }
 
         return $combineTables;
+    }
+
+    public static function addGroupedTable(Request $request) {
+        return GroupedTable::addGroupedTable($request->id, $request->chaircount);
     }
 }
