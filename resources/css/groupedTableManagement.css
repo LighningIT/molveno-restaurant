@@ -34,6 +34,34 @@ th {
     background-color: #309bcf;
 }
 
+.minus-seats-button {
+    padding: 0.8rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    color: white;
+    --tw-bg-opacity: 1;
+    background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
+    border-radius: 0.25rem;
+}
+
+.minus-seats-button:hover {
+    background-color: #309bcf;
+}
+
+.plus-seats-button {
+    padding: 0.8rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    color: white;
+    --tw-bg-opacity: 1;
+    background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
+    border-radius: 0.25rem;
+}
+
+.plus-seats-button:hover {
+    background-color: #309bcf;
+}
+
 select {
     -webkit-appearance:none;
     -moz-appearance:none;

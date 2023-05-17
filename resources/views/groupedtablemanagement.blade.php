@@ -48,14 +48,14 @@
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
                 <p>Total booster seats:</p>
                 <div class="flex justify-center w-14 h-6">
-                    <p>{{ count($totalChildSeats["boosterseat"]) }}</p>
+                    <p id="booster-seats">{{ count($totalChildSeats["boosterseat"]) }}</p>
                 </div>
             </div>
 
             <div class="flex flex-row p-6 text-center items-center gap-10 justify-between">
                 <p>Total high chairs:</p>
                 <div class="flex justify-center w-14 h-6">
-                    <p>{{ count($totalChildSeats["highchair"]) }}</p>
+                    <p id="child-seats">{{ count($totalChildSeats["highchair"]) }}</p>
                 </div>
             </div>
         </div>
@@ -171,24 +171,26 @@
 <x-popup-modal class="flex flex-col gap-10" id="addChildSeatsModal">
     <h2 class="text-3xl mb-12 -mt-8">Add child seats</h2>
 
-    <div class="flex flex-row justify-between gap-60">
-        <p class="self-center">Seat type:</p>
-        <div class="select">
-            <select name="section" id="sectionSelect">
-                <option value="">High chair</option>
-                <option value="">Booster seat</option>
-            </select>
-        </div>
-    </div>
+        <form class="flex flex-col gap-6" action="">
 
-    <div class="flex flex-row justify-between">
-        <p>Total Seats:</p>
+            <div class="flex flex-row justify-between gap-60">
+                <p class="self-center">Seat type:</p>
+                <div class="select">
+                    <select name="section" id="childSeatSelect">
+                        <option value="Highchair">High chair</option>
+                        <option value="Boosterseat">Booster seat</option>
+                    </select>
+                </div>
+            </div>
 
-        <div class="flex flex-row gap-4 justify-center w-36 self-center">
-            <button class="plus-minus-button minusTable">-</button>
+            <div class="flex flex-row justify-between">
+            <p>Total Seats:</p>
+
+            <div class="flex flex-row gap-4 justify-center w-36 self-center">
+                <button class="plus-minus-button minusTable">-</button>
 
             <div>
-                <input size="1" type="text" value="0" disabled data-value="1" name="chaircount">
+                <input size="1" type="text" value="0" disabled data-value="1" name="chaircount" id="seats-input">
             </div>
 
             <button class="plus-minus-button plusTable">+</button>
@@ -196,10 +198,12 @@
     </div>
 
     <div class="flex flex-row justify-center mt-12">
-        <button class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer'>
+        <button type="submit" class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer' id="addseats">
             <p>Add</p>
         </button>
     </div>
+
+    </form>
 
 </x-popup-modal>
 

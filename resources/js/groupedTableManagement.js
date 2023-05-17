@@ -22,6 +22,14 @@ const plusTableButton = document.querySelectorAll(".plusTable");
 const addall = document.querySelectorAll('.add-all');
 const removeall = document.querySelectorAll(".reset-all-chairs");
 
+const amountSeatsInput = document.getElementById("seats-input");
+const amountChildSeats = document.getElementById("child-seats");
+const amountBoosterSeats = document.getElementById("booster-seats");
+
+const addSeatsButton = document.getElementById("addseats");
+
+const childSeatsValue = document.getElementById('childSeatSelect');
+
 let lastSelectedTable;
 let firstTableId;
 
@@ -98,8 +106,6 @@ removeall.forEach((btn)=> {
         updateCount(count, btn.closest("tr").querySelector("input").value, btn.closest("tr").firstElementChild.textContent);
     })
 })
-
-
 
 resetBtn.addEventListener("click", () => {
     axios.get("/resetGroupedTables")
@@ -196,6 +202,43 @@ function findMissingId () {
 
 
 
+addSeatsButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    updateSeatsCount();
+    axios.post("/childseats", {
+        highchair: childSeatsValue.value,
+        amount: parseInt(amountSeatsInput.value)
+    })
+    .then( (response) => {
+        addChildSeatsModal.parentElement.classList.toggle('hidden')
+        newNotification(response.data.amount + " " + response.data.chair + " added");
 
+    })
 
+})
+
+function updateSeatsCount() {
+
+    if (childSeatsValue.value == "Highchair") {
+
+        amountChildSeats.textContent = parseInt(amountSeatsInput.value) + parseInt(amountChildSeats.textContent);
+
+    } else if (childSeatsValue.value == "Boosterseat") {
+
+        amountBoosterSeats.textContent = parseInt(amountSeatsInput.value) + parseInt(amountBoosterSeats.textContent);
+
+    }
+
+}
+
+function newNotification(message) {
+    const div = document.createElement('div');
+    div.classList.add("absolute", "top-2", "w-full", "text-center", "dark:text-white", "py-2", "px-4", "text-2xl")
+    const text = document.createTextNode(message);
+    div.appendChild(text);
+    document.body.appendChild(div);
+    setTimeout(() => {
+        document.body.removeChild(div);
+    }, 5000);
+}
 
