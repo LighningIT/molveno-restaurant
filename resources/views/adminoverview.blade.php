@@ -14,18 +14,18 @@
 
         <x-popup-modal class="gap-10" id="passwordModal">
             <p class="pt-8">Change password for this user?</p>
-            <div>
-                <x-input-label>New password</x-input-label>
-                <input type="password" name="new-pw" id="new-pw" />
+            <div class="flex justify-end py-4">
+                <label class="dark:text-black mr-2">New password</label>
+                <x-text-input type="password" name="new-pw" id="new-pw" />
             </div>
-            <div>
-                <x-input-label>Confirm password</x-input-label>
-                <input type="password" name="confirm-pw" id="confirm-pw" />
+            <div class="flex justify-end py-4">
+                <label class="dark:text-black mr-2">Confirm password</label>
+                <x-text-input type="password" name="confirm-pw" id="confirm-pw" />
             </div>
             <div class="flex flex-row justify-around">
-                <x-delete-button>
-                    Delete
-                </x-delete-button>
+                <x-add-button>
+                    new password
+                </x-add-button>
             </div>
         </x-popup-modal>
         <table class="col-span-10 col-start-2 mt-8">
