@@ -29,6 +29,7 @@ class GroupedTableController extends Controller
     public function getTableManagement()
     {
         $totalTableAmount = $this->countGroupedTables();
+
         $totalChairs = Table::countTables();
 
         return view('groupedtablemanagement', [

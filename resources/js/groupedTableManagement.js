@@ -78,7 +78,6 @@ function deleteTable (lastSelectedTable) {
 }
 
 
-
 addall.forEach((btn)=> {
     btn.addEventListener('click', () => {
         btn.closest("tr").querySelector("input").value = parseInt(btn.closest("tr").querySelector("input").value) + count;
@@ -176,6 +175,19 @@ function updateCount(count, amount, tableid) {
         amount: amount
     })
 }
+
+
+function findMissingId () {
+    const presentTableIds = document.querySelectorAll("[data-id]")
+
+    // console.log(presentTableIds)
+
+    for (var i = 0; i < presentTableIds.length; i++) {
+        console.log(presentTableIds)
+      }
+}
+
+findMissingId()
 
 
 
