@@ -192,17 +192,17 @@ function updateCount(count, amount, tableid) {
 function findMissingId () {
     const presentTableIds = document.querySelectorAll("[data-id]");
 
+
     for (var i = 0; i < presentTableIds.length; i++) {
+        console.log(presentTableIds)
         if (i+ 1 != presentTableIds[i].dataset.id) {
             firstTableId = presentTableIds[0].dataset.id -1
+        } else {
+            firstTableId = parseInt(presentTableIds[i].dataset.id) +1
         }
     }
     return firstTableId
 }
-
-
-
-
 
 addSeatsButton.addEventListener('click', (event) => {
     event.preventDefault();
