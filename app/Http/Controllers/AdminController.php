@@ -32,28 +32,34 @@ class AdminController extends Controller
         if (is_numeric($request->id)) {
             $user = User::getUserById($request->id);
 
-            if ($request->name != $user->name) {
+            if (!empty($request->name) && $request->name != $user->name) {
                 $user->update([
                     'name' => $request->name
                 ]);
             }
 
-            if ($request->username != $user->username) {
+            if (!empty($request->username) && $request->username != $user->username) {
                 $user->update([
                     'user_name' => $request->username
                 ]);
             }
 
-            if ($request->role != $user->role->role) {
-
+            if (!empty($request->role) && $request->role != $user->role->role) {
+                $user->update([
+                    'user_roles_id' => $request->role
+                ]);
             }
 
-            if ($request->email != $user->email) {
-
+            if (!empty($request->email) && $request->email != $user->email) {
+                $user->update([
+                    'email' => $request->email
+                ]);
             }
 
-            if ($request->password != $user->password) {
-
+            if (!empty($request->newpw) && $request->newpw != $user->password && $request->confirmpw == $request->newpw) {
+                $user->update([
+                    'password' => bcrypt($request->newpw)
+                ]);
             }
         }
         return $request;
