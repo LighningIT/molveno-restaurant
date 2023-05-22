@@ -65,6 +65,7 @@ class GroupedTableController extends Controller
     }
 
     public static function addGroupedTable(Request $request) {
+
         return GroupedTable::addGroupedTable($request->id, $request->chaircount);
     }
 }

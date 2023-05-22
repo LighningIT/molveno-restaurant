@@ -6,11 +6,35 @@ const saveBtns = document.querySelectorAll("button.save-user");
 const cancelBtns = document.querySelectorAll("button.cancel");
 const changePasswordBtns = document.querySelectorAll(".change-password");
 
+const addNewUserBtn = document.getElementById("add-new-user");
+
 const deleteModal = document.getElementById('deleteModal');
 const passwordModal = document.getElementById('passwordModal');
 const userTable = document.getElementById('user-table');
 
 let selectedBtn;
+
+addNewUserBtn.addEventListener("click", () => {
+    let row = createTableRow();
+    userTable.appendChild(row);
+});
+
+function createTableRow() {
+    let row = userTable.firstElementChild.cloneNode();
+
+    Array.from(userTable.firstElementChild.cells).forEach((elem) => {
+        let td = createTableCell(elem.firstElementChild);
+        row.appendChild(td);
+    })
+
+    return row;
+}
+
+function createTableCell(cellType) {
+    let td = document.createElement("td")
+    td.appendChild(cellType.cloneNode(true));
+    return td;
+}
 
 deleteBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -31,16 +55,14 @@ deleteModal.querySelectorAll('button')[0].addEventListener('click', () => {
 });
 
 passwordModal.querySelectorAll('button')[1].addEventListener('click', () => {
-    console.log(selectedBtn.closest('tr'));
     if (checkPassword(passwordModal)) {
         axios.patch('/adminoverview/edit', {
-            id: parseInt(selectedBtn.closest('tr').firstElementChild.firstElementChild.value),  
+            id: parseInt(selectedBtn.closest('tr').firstElementChild.firstElementChild.value),
             newpw: document.getElementById("new-pw").value,
             confirmpw: document.getElementById("confirm-pw").value
         })
         .then(response => selectedBtn = '')
         .catch(error => console.error(error));
-
     }
 });
 
@@ -75,7 +97,6 @@ saveBtns.forEach((btn) => {
         btn.parentElement.nextElementSibling.querySelectorAll("button").forEach((btn) => {
             toggleHiddenClass(btn);
         })
-
     });
 });
 
