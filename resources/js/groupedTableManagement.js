@@ -105,9 +105,9 @@ function deleteTable(lastSelectedTable) {
 
 
 function createGroupedTable() {
-    let tableSectionId = parseInt(sectionSelect.options[sectionSelect.selectedIndex].value)
-
+    let tableSectionId = parseInt(sectionSelect.options[sectionSelect.selectedIndex].value);
     axios.post("/addGroupedTable", { id: firstTableId, chairs: numberOfChairs, table_section_id: tableSectionId})
+    .then(countFreeChairs())
 }
 
 
@@ -225,13 +225,15 @@ function updateCount(count, amount, tableid) {
 function findMissingId () {
     const presentTableIds = document.querySelectorAll("[data-id]");
 
-
     for (var i = 0; i < presentTableIds.length; i++) {
-        if (i+ 1 != presentTableIds[i].dataset.id) {
-            firstTableId = presentTableIds[0].dataset.id -1
+        if (i + 1 != presentTableIds[i].dataset.id) {
+            firstTableId = presentTableIds[0].dataset.id - 1
         } else {
-            firstTableId = parseInt(presentTableIds[i].dataset.id) +1
+            firstTableId = parseInt(presentTableIds[i].dataset.id) + 1
         }
+    }
+    if (firstTableId == 0) {
+        firstTableId = presentTableIds.length + 1;
     }
     return firstTableId
 }
