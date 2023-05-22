@@ -124,7 +124,7 @@
 <x-popup-modal class="flex flex-col gap-4" id="addTableModal">
     <h2 class="text-3xl mb-12 -mt-8">Add new Table</h2>
 
-    <form class="flex flex-col gap-6" method="POST" action="/addGroupedTable">
+    <form class="flex flex-col gap-6" action="">
         @csrf
         <div class="flex flex-row justify-between gap-60">
             <p>Table number:</p>
@@ -137,9 +137,9 @@
             <p class="self-center" >Section:</p>
             <div class="select">
                 <select name="section" id="sectionSelect">
-                    <option value="">Upper Level</option>
-                    <option value="">Lower Level</option>
-                    <option value="">Terrace</option>
+                    <option value="1">Upper Level</option>
+                    <option value="2">Lower Level</option>
+                    <option value="3">Terrace</option>
                 </select>
             </div>
         </div>
@@ -159,7 +159,7 @@
         </div>
 
         <div class="flex flex-row justify-center mt-12">
-            <button type="submit" class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer'>
+            <button class='bg-blue-600 hover:bg-molveno-lightBlue px-4 py-2 text-white rounded dark:text-white justify-start cursor-pointer'>
                 <p>Add</p>
             </button>
         </div>

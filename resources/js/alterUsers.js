@@ -34,11 +34,14 @@ passwordModal.querySelectorAll('button')[1].addEventListener('click', () => {
     console.log(selectedBtn.closest('tr'));
     if (checkPassword(passwordModal)) {
         axios.patch('/adminoverview/edit', {
-            id: parseInt(selectedBtn.closest('tr').firstElementChild.firstElementChild.value),  
+            id: parseInt(selectedBtn.closest('tr').firstElementChild.firstElementChild.value),
             newpw: document.getElementById("new-pw").value,
             confirmpw: document.getElementById("confirm-pw").value
         })
-        .then(response => selectedBtn = '')
+        .then(response => {
+            selectedBtn = '';
+            toggleHiddenClass(passwordModal.parentElement);
+        })
         .catch(error => console.error(error));
 
     }

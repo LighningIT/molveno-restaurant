@@ -62,7 +62,7 @@ class GroupedTable extends Model
     public static function addGroupedTable($id, $count) {
         GroupedTable::create([
             "id" => $id,
-            "table_section_id" => $id,
+            "table_section_id" => 1,
             "combined" => false,
             "comments" => "",
             "chairs" => $count
