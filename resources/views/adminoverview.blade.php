@@ -29,6 +29,10 @@
             </div>
         </x-popup-modal>
 
+        <div class="col-start-12">
+            <x-add-button id="add-new-user" />
+        </div>
+
         <table class="col-span-10 col-start-2 mt-8">
             <thead>
                 <tr>

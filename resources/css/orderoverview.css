@@ -12,6 +12,10 @@
         justify-content: center;
     }
 
+    .menutable {
+        margin: 1rem;
+    }
+
     .tablemenudiv {
         margin-top: 1rem;
         display: flex;
@@ -20,7 +24,8 @@
         padding-bottom: 3rem;
     }
 
-    th {
+    th {      
+        width: 9rem;
         font-size: 1.22rem;
     }
 
@@ -54,6 +59,7 @@
     }
 
     th {
+        width: 9rem;
         font-size: 1.22rem;
     }
 
@@ -64,6 +70,11 @@
     .winetd {
         background: #309bcf;
     }
+
+    .menutable {
+        margin: 1rem;
+    }
+
 }
 
 @media only screen and (min-width: 321px) {
@@ -88,6 +99,7 @@
     }
 
     th {
+        width: 9rem;
         font-size: 1.22rem;
     }
 
@@ -98,4 +110,9 @@
     .winetd {
         background: #309bcf;
     }
+
+    .menutable {
+        margin: 1rem;
+    }
+
 }
