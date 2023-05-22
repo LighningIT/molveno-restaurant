@@ -12,7 +12,7 @@ class GroupedTable extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $guarded = [];
 
     public function reservation() : HasMany{
         return $this->hasMany(Reservation::class);
@@ -59,10 +59,10 @@ class GroupedTable extends Model
         GroupedTable::where("id", $id)->delete();
     }
 
-    public static function addGroupedTable($id, $count) {
+    public static function addGroupedTable($id, $count, $table_section_id) {
         GroupedTable::create([
             "id" => $id,
-            "table_section_id" => $id,
+            "table_section_id" => $table_section_id,
             "combined" => false,
             "comments" => "",
             "chairs" => $count

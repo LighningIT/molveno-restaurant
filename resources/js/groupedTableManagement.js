@@ -9,6 +9,7 @@ const addTableBTN = document.getElementById('addTableBTN')
 const deleteBTN = document.querySelectorAll(".deleteBTN");
 const deleteModalBTN = document.getElementById("deleteModalBTN");
 const resetBtn = document.getElementById("reset-button");
+const submitAddTable = document.getElementById("submitAddTable")
 
 const newTableID = document.getElementById("newTableId");
 const freecount = document.getElementById("free-count");
@@ -29,7 +30,11 @@ const amountBoosterSeats = document.getElementById("booster-seats");
 const addSeatsButton = document.getElementById("addseats");
 
 const childSeatsValue = document.getElementById('childSeatSelect');
+const sectionSelect = document.getElementById("sectionSelect")
 
+let allTableRows = document.querySelectorAll('tr')
+
+let numberOfChairs;
 let lastSelectedTable;
 let firstTableId;
 
@@ -37,7 +42,15 @@ let count = countFreeChairs();
 
 freecount.textContent = count;
 
+// function orderTableByID() {
+//     const presentTableIds = document.querySelectorAll("[data-id]");
 
+//     for (var i = 0; i < presentTableIds.length; i++) {
+//         if (presentTableIds[i] = i)
+
+
+
+// orderTableByID()
 
 // Open Modals Add table and Add child seat
 addTableBTN.addEventListener ('click',(event) => {
@@ -89,6 +102,19 @@ function deleteTable(lastSelectedTable) {
 }
 
 
+
+
+function createGroupedTable() {
+    let tableSectionId = parseInt(sectionSelect.options[sectionSelect.selectedIndex].value)
+
+    axios.post("/addGroupedTable", { id: firstTableId, chairs: numberOfChairs, table_section_id: tableSectionId})
+}
+
+
+
+
+
+
 addall.forEach((btn)=> {
     btn.addEventListener('click', () => {
         btn.closest("tr").querySelector("input").value = parseInt(btn.closest("tr").querySelector("input").value) + count;
@@ -107,6 +133,11 @@ removeall.forEach((btn)=> {
     })
 })
 
+submitAddTable.addEventListener("click", (event) => {
+    event.preventDefault()
+    createGroupedTable()
+    addTableModal.parentElement.classList.toggle('hidden')
+})
 
 
 resetBtn.addEventListener("click", () => {
@@ -149,8 +180,9 @@ minTableButton.forEach((btn)=> {
         event.preventDefault()
 
         if (btn.closest("div").querySelector("input").value > 0) {
-            btn.closest("div").querySelector("input").value -=
-            parseInt(btn.closest("div").querySelector("input").dataset.value)
+            btn.closest("div").querySelector("input").value =
+            parseInt(btn.closest("div").querySelector("input").value) - parseInt(btn.closest("div").querySelector("input").dataset.value)
+            numberOfChairs = parseInt(btn.closest("div").querySelector("input").value)
         }
     })
 })
@@ -160,6 +192,8 @@ plusTableButton.forEach((btn) => {
         event.preventDefault()
         btn.closest("div").querySelector("input").value = parseInt(btn.closest("div").querySelector("input").value)
             + parseInt(btn.closest("div").querySelector("input").dataset.value)
+
+            numberOfChairs = parseInt(btn.closest("div").querySelector("input").value)
     })
 })
 

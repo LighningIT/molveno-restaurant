@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('grouped_tables', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id');
             $table->foreignId("table_section_id");
             $table->boolean("combined");
             $table->string("comments");
