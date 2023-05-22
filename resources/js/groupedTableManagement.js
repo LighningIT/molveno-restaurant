@@ -108,6 +108,8 @@ function createGroupedTable() {
     let tableSectionId = parseInt(sectionSelect.options[sectionSelect.selectedIndex].value);
     axios.post("/addGroupedTable", { id: firstTableId, chairs: numberOfChairs, table_section_id: tableSectionId})
     .then(countFreeChairs())
+
+    location.reload()
 }
 
 
@@ -229,6 +231,7 @@ function findMissingId () {
         if (i + 1 != presentTableIds[i].dataset.id) {
             firstTableId = presentTableIds[0].dataset.id - 1
         } else {
+            console.log('test')
             firstTableId = parseInt(presentTableIds[i].dataset.id) + 1
         }
     }
