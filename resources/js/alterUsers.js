@@ -20,7 +20,7 @@ addNewUserBtn.addEventListener("click", () => {
 });
 
 function createTableRow() {
-    let row = userTable.firstElementChild.cloneNode();
+    let row = document.createElement("tr");
 
     Array.from(userTable.firstElementChild.cells).forEach((elem) => {
         let td = createTableCell(elem.firstElementChild);
